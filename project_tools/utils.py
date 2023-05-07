@@ -31,24 +31,24 @@ def monthly_weekday_counts(entry_station, exit_station, start_year, end_year):
 	
 	
 	
-    monthly_weekday_counts = []
-    monthly_weekday_plot_label = []
+	monthly_weekday_counts = []
+	monthly_weekday_plot_label = []
 
-    for year in np.arange(start_year, end_year+1, 1):
-        dir_path = f'Data/ridership_{year}/'
-        if year <= 2017:
-            for month in np.arange(1, 13, 1):
-                two_digits_format_month = '{:02d}'.format(month)
-                file_name = f'Ridership_{calendar.month_name[month]}{year}.xlsx'
-                file_path = os.path.join(dir_path, file_name)
-                monthly_weekday_counts.append(pd.read_excel(file_path, header=1, index_col=0).loc[exit_station, entry_station])
-                monthly_weekday_plot_label.append(f'{year}-{two_digits_format_month}')
-        else:
-            for month in np.arange(1, 13, 1):
-                two_digits_format_month = '{:02d}'.format(month)
-                file_name = f'Ridership_{year}{two_digits_format_month}.xlsx'
-                file_path = os.path.join(dir_path, file_name)
-                monthly_weekday_counts.append(pd.read_excel(file_path, header=1, index_col=0).loc[exit_station, entry_station])
-                monthly_weekday_plot_label.append(f'{year}-{two_digits_format_month}')
-                
-    return monthly_weekday_counts, monthly_weekday_plot_label
+	for year in np.arange(start_year, end_year+1, 1):
+		dir_path = f'Data/ridership_{year}/'
+		if year <= 2017:
+			for month in np.arange(1, 13, 1):
+				two_digits_format_month = '{:02d}'.format(month)
+				file_name = f'Ridership_{calendar.month_name[month]}{year}.xlsx'
+				file_path = os.path.join(dir_path, file_name)
+				monthly_weekday_counts.append(pd.read_excel(file_path, header=1, index_col=0).loc[exit_station, entry_station])
+				monthly_weekday_plot_label.append(f'{year}-{two_digits_format_month}')
+		else:
+			for month in np.arange(1, 13, 1):
+				two_digits_format_month = '{:02d}'.format(month)
+				file_name = f'Ridership_{year}{two_digits_format_month}.xlsx'
+				file_path = os.path.join(dir_path, file_name)
+				monthly_weekday_counts.append(pd.read_excel(file_path, header=1, index_col=0).loc[exit_station, entry_station])
+				monthly_weekday_plot_label.append(f'{year}-{two_digits_format_month}')
+
+	return monthly_weekday_counts, monthly_weekday_plot_label
