@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="prev" title="Analysis of ridership of stations with different land use" href="Analysis%20of%20ridership%20of%20stations%20with%20different%20land%20use.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -156,6 +156,11 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="main.html">The Effects of COVID-19 on Bart Ridership</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Mapping_Ridership.html">Import data</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Analysis%20of%20ridership%20of%20stations%20with%20different%20land%20use.html">Analysis of ridership of stations with different land use</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Import Data</a></li>
 
 </ul>
@@ -372,41 +377,6 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pmdarima
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /srv/conda/envs/notebook/lib/python3.10/site-packages (3.1.2)
-Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python3.10/site-packages (from openpyxl) (1.1.0)
-Collecting pmdarima
-  Downloading pmdarima-2.0.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.8/1.8 MB</span> <span class=" -Color -Color-Red">13.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>00:010:01
-?25hRequirement already satisfied: setuptools!=50.0.0,&gt;=38.6.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (67.7.1)
-Requirement already satisfied: joblib&gt;=0.11 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.2.0)
-Requirement already satisfied: scikit-learn&gt;=0.22 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.2.0)
-Requirement already satisfied: pandas&gt;=0.19 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.5.3)
-Requirement already satisfied: scipy&gt;=1.3.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.10.0)
-Requirement already satisfied: Cython!=0.29.18,!=0.29.31,&gt;=0.29 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (0.29.33)
-Requirement already satisfied: numpy&gt;=1.21.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.23.5)
-Requirement already satisfied: urllib3 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.26.7)
-Requirement already satisfied: statsmodels&gt;=0.13.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (0.13.5)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pandas&gt;=0.19-&gt;pmdarima) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pandas&gt;=0.19-&gt;pmdarima) (2021.3)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from scikit-learn&gt;=0.22-&gt;pmdarima) (3.1.0)
-Requirement already satisfied: patsy&gt;=0.5.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from statsmodels&gt;=0.13.2-&gt;pmdarima) (0.5.3)
-Requirement already satisfied: packaging&gt;=21.3 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from statsmodels&gt;=0.13.2-&gt;pmdarima) (21.3)
-Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from packaging&gt;=21.3-&gt;statsmodels&gt;=0.13.2-&gt;pmdarima) (3.0.6)
-Requirement already satisfied: six in /srv/conda/envs/notebook/lib/python3.10/site-packages (from patsy&gt;=0.5.2-&gt;statsmodels&gt;=0.13.2-&gt;pmdarima) (1.16.0)
-Installing collected packages: pmdarima
-Successfully installed pmdarima-2.0.3
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">calendar</span>
@@ -417,6 +387,7 @@ Successfully installed pmdarima-2.0.3
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">pmdarima.arima</span> <span class="kn">import</span> <span class="n">auto_arima</span>
+<span class="kn">from</span> <span class="nn">project_tools.utils</span> <span class="kn">import</span> <span class="n">monthly_weekday_counts</span>
 </pre></div>
 </div>
 </div>
@@ -779,52 +750,6 @@ Successfully installed pmdarima-2.0.3
 <p>5 rows × 47 columns</p>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">monthly_weekday_counts</span><span class="p">(</span><span class="n">entry_station</span><span class="p">,</span> <span class="n">exit_station</span><span class="p">,</span> <span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span><span class="p">):</span>
-    <span class="n">monthly_weekday_counts</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">monthly_weekday_plot_label</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">dir_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Data/ridership_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">/&#39;</span>
-        <span class="k">if</span> <span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">2017</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="n">two_digits_format_month</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
-                <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Ridership_</span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">[</span><span class="n">month</span><span class="p">]</span><span class="si">}{</span><span class="n">year</span><span class="si">}</span><span class="s1">.xlsx&#39;</span>
-                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
-                <span class="n">monthly_weekday_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">exit_station</span><span class="p">,</span> <span class="n">entry_station</span><span class="p">])</span>
-                <span class="n">monthly_weekday_plot_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">two_digits_format_month</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="n">two_digits_format_month</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
-                <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Ridership_</span><span class="si">{</span><span class="n">year</span><span class="si">}{</span><span class="n">two_digits_format_month</span><span class="si">}</span><span class="s1">.xlsx&#39;</span>
-                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
-                <span class="n">monthly_weekday_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">exit_station</span><span class="p">,</span> <span class="n">entry_station</span><span class="p">])</span>
-                <span class="n">monthly_weekday_plot_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">two_digits_format_month</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-                
-    <span class="k">return</span> <span class="n">monthly_weekday_counts</span><span class="p">,</span> <span class="n">monthly_weekday_plot_label</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Berkeley_Embarcadero_2010_2014, label = monthly_weekday_counts(&quot;BK&quot;, &quot;EM&quot;, 2010, 2014)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot</span>
-<span class="c1">#fig, ax = plt.subplots(figsize=(10, 5))</span>
-<span class="c1">#ax.plot(label, Berkeley_Embarcadero_2010_2014)</span>
-<span class="c1">#ax.set_xticks(label)</span>
-<span class="c1">#ax.set_xticklabels(label, rotation=90);</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="analysis">
 <h1>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h1>
@@ -966,39 +891,39 @@ p-value: 0.00039248581825599885
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Performing stepwise search to minimize aic
  ARIMA(1,1,1)(0,1,0)[12]             : AIC=-250.234, Time=0.13 sec
  ARIMA(0,1,0)(0,1,0)[12]             : AIC=-211.494, Time=0.03 sec
- ARIMA(1,1,0)(1,1,0)[12]             : AIC=-232.581, Time=0.77 sec
- ARIMA(0,1,1)(0,1,1)[12]             : AIC=-258.744, Time=1.33 sec
- ARIMA(0,1,1)(0,1,0)[12]             : AIC=-252.131, Time=0.15 sec
- ARIMA(0,1,1)(1,1,1)[12]             : AIC=-258.914, Time=1.54 sec
- ARIMA(0,1,1)(1,1,0)[12]             : AIC=-254.759, Time=1.02 sec
- ARIMA(0,1,0)(1,1,1)[12]             : AIC=inf, Time=2.37 sec
- ARIMA(1,1,1)(1,1,1)[12]             : AIC=-256.944, Time=2.69 sec
- ARIMA(0,1,2)(1,1,1)[12]             : AIC=-256.992, Time=2.62 sec
- ARIMA(1,1,0)(1,1,1)[12]             : AIC=inf, Time=1.57 sec
- ARIMA(1,1,2)(1,1,1)[12]             : AIC=-262.615, Time=4.00 sec
- ARIMA(1,1,2)(0,1,1)[12]             : AIC=-262.513, Time=2.70 sec
- ARIMA(1,1,2)(1,1,0)[12]             : AIC=-258.991, Time=2.73 sec
- ARIMA(1,1,2)(0,1,0)[12]             : AIC=-257.148, Time=0.26 sec
- ARIMA(2,1,2)(1,1,1)[12]             : AIC=-263.593, Time=4.23 sec
- ARIMA(2,1,2)(0,1,1)[12]             : AIC=-263.325, Time=3.52 sec
- ARIMA(2,1,2)(1,1,0)[12]             : AIC=-260.168, Time=2.55 sec
- ARIMA(2,1,2)(0,1,0)[12]             : AIC=-258.863, Time=0.33 sec
- ARIMA(2,1,1)(1,1,1)[12]             : AIC=-263.936, Time=3.47 sec
- ARIMA(2,1,1)(0,1,1)[12]             : AIC=-264.038, Time=1.99 sec
- ARIMA(2,1,1)(0,1,0)[12]             : AIC=-257.914, Time=0.17 sec
- ARIMA(2,1,1)(1,1,0)[12]             : AIC=-261.378, Time=2.04 sec
- ARIMA(1,1,1)(0,1,1)[12]             : AIC=-256.809, Time=3.36 sec
- ARIMA(2,1,0)(0,1,1)[12]             : AIC=-265.998, Time=1.51 sec
- ARIMA(2,1,0)(0,1,0)[12]             : AIC=-259.738, Time=0.12 sec
- ARIMA(2,1,0)(1,1,1)[12]             : AIC=-265.892, Time=3.02 sec
- ARIMA(2,1,0)(1,1,0)[12]             : AIC=-263.362, Time=1.61 sec
- ARIMA(1,1,0)(0,1,1)[12]             : AIC=-241.736, Time=1.11 sec
- ARIMA(3,1,0)(0,1,1)[12]             : AIC=-264.024, Time=2.91 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=-232.581, Time=0.82 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=-258.744, Time=1.12 sec
+ ARIMA(0,1,1)(0,1,0)[12]             : AIC=-252.131, Time=0.14 sec
+ ARIMA(0,1,1)(1,1,1)[12]             : AIC=-258.914, Time=1.86 sec
+ ARIMA(0,1,1)(1,1,0)[12]             : AIC=-254.759, Time=1.17 sec
+ ARIMA(0,1,0)(1,1,1)[12]             : AIC=inf, Time=2.49 sec
+ ARIMA(1,1,1)(1,1,1)[12]             : AIC=-256.944, Time=2.91 sec
+ ARIMA(0,1,2)(1,1,1)[12]             : AIC=-256.992, Time=2.52 sec
+ ARIMA(1,1,0)(1,1,1)[12]             : AIC=inf, Time=1.51 sec
+ ARIMA(1,1,2)(1,1,1)[12]             : AIC=-262.615, Time=4.55 sec
+ ARIMA(1,1,2)(0,1,1)[12]             : AIC=-262.513, Time=2.76 sec
+ ARIMA(1,1,2)(1,1,0)[12]             : AIC=-258.991, Time=2.97 sec
+ ARIMA(1,1,2)(0,1,0)[12]             : AIC=-257.148, Time=0.30 sec
+ ARIMA(2,1,2)(1,1,1)[12]             : AIC=-263.593, Time=4.30 sec
+ ARIMA(2,1,2)(0,1,1)[12]             : AIC=-263.325, Time=3.80 sec
+ ARIMA(2,1,2)(1,1,0)[12]             : AIC=-260.168, Time=2.68 sec
+ ARIMA(2,1,2)(0,1,0)[12]             : AIC=-258.863, Time=0.28 sec
+ ARIMA(2,1,1)(1,1,1)[12]             : AIC=-263.936, Time=3.50 sec
+ ARIMA(2,1,1)(0,1,1)[12]             : AIC=-264.038, Time=2.14 sec
+ ARIMA(2,1,1)(0,1,0)[12]             : AIC=-257.914, Time=0.16 sec
+ ARIMA(2,1,1)(1,1,0)[12]             : AIC=-261.378, Time=2.39 sec
+ ARIMA(1,1,1)(0,1,1)[12]             : AIC=-256.809, Time=3.32 sec
+ ARIMA(2,1,0)(0,1,1)[12]             : AIC=-265.998, Time=1.60 sec
+ ARIMA(2,1,0)(0,1,0)[12]             : AIC=-259.738, Time=0.14 sec
+ ARIMA(2,1,0)(1,1,1)[12]             : AIC=-265.892, Time=3.36 sec
+ ARIMA(2,1,0)(1,1,0)[12]             : AIC=-263.362, Time=1.99 sec
+ ARIMA(1,1,0)(0,1,1)[12]             : AIC=-241.736, Time=1.00 sec
+ ARIMA(3,1,0)(0,1,1)[12]             : AIC=-264.024, Time=3.31 sec
  ARIMA(3,1,1)(0,1,1)[12]             : AIC=-263.072, Time=3.39 sec
- ARIMA(2,1,0)(0,1,1)[12] intercept   : AIC=-265.744, Time=2.58 sec
+ ARIMA(2,1,0)(0,1,1)[12] intercept   : AIC=-265.744, Time=2.72 sec
 
 Best model:  ARIMA(2,1,0)(0,1,1)[12]          
-Total fit time: 61.924 seconds
+Total fit time: 65.402 seconds
 </pre></div>
 </div>
 </div>
@@ -1099,16 +1024,16 @@ Total fit time: 61.924 seconds
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "bartproject"
         },
         kernelOptions: {
-            name: "python3",
+            name: "bartproject",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'bartproject'</script>
 
                 </article>
               
@@ -1122,12 +1047,12 @@ Total fit time: 61.924 seconds
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="Analysis%20of%20ridership%20of%20stations%20with%20different%20land%20use.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Analysis of ridership of stations with different land use</p>
       </div>
     </a>
 </div></div>

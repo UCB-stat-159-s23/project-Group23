@@ -1,0 +1,906 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>The Effects of COVID-19 on Bart Ridership &#8212; Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Import data" href="Mapping_Ridership.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Effects of COVID-19 on Bart Ridership</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Mapping_Ridership.html">Import data</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Analysis%20of%20ridership%20of%20stations%20with%20different%20land%20use.html">Analysis of ridership of stations with different land use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html">Import Data</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmain.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/main.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Effects of COVID-19 on Bart Ridership</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Effects of COVID-19 on Bart Ridership</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jingya-s-plots">Jingya’s plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ridership-of-stations-with-different-land-use">Analysis of ridership of stations with different land use</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco-cbd-commertial-land-use">1. San Francisco CBD (Commertial Land Use)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley-academic-land-use">2. Berkeley (Academic Land Use)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oakland-mixed-land-use">3. Oakland (Mixed Land Use)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#airports-transport-land-use">4. Airports (Transport Land Use)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicting-future-ridership-patterns-after-covid-19-using-pre-covid-19-data">Predicting Future Ridership Patterns After Covid-19 Using Pre-Covid-19 Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-pandemic-ridership">Pre-Pandemic Ridership</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-pandemic-ridership">Post-Pandemic Ridership</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># ** import our own package here **</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="the-effects-of-covid-19-on-bart-ridership">
+<h1>The Effects of COVID-19 on Bart Ridership<a class="headerlink" href="#the-effects-of-covid-19-on-bart-ridership" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley">
+<h1>Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley<a class="headerlink" href="#exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley" title="Permalink to this heading">#</a></h1>
+<p>Authors: Noor Wahle, Jiachen Li, Shih-hung Chiu, Jingya Zhao</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Add background information on bart ridership pre/post COVID-19</p>
+</section>
+<section id="data-cleaning">
+<h2>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">#</a></h2>
+<p>Data Source: <a class="reference external" href="https://www.bart.gov/about/reports/ridership">https://www.bart.gov/about/reports/ridership</a></p>
+<p>Background information on include:</p>
+<ul class="simple">
+<li><p>only using weekday data so that we can observe trends in commute</p></li>
+<li><p>how we divided data into pre/post COVID-19 looking at the last 5 years</p></li>
+<li><p>used the entry data, not the exit data</p></li>
+<li><p>what else?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insert basic cleaning code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eda">
+<h2>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h2>
+<section id="mapping">
+<h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h3>
+<p>To begin understanding trends in Bart ridership during COVID-19, we narrowed our focus to two locations: Downtown San Francisco and Bereley. We chose these locations to better understand Bart ridership changed prior to and post COVID-19 specifically for those commuting to and from their workplace. Below, we visualized the percent decline in total ridership for the stations in each location.</p>
+<p><em><strong>Note:</strong> hover over the circles to view the percent decline in ridership per station.</em></p>
+<section id="downtown-san-francisco">
+<h4>Downtown San Francisco<a class="headerlink" href="#downtown-san-francisco" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;figures/SF_interactive_map.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">figures/SF_interactive_map.html</div></div>
+</div>
+</section>
+<section id="berkeley">
+<h4>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;figures/berkeley_interactive_map.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a638622b9b94ac194fa28f432dcfbeb7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a638622b9b94ac194fa28f432dcfbeb7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a638622b9b94ac194fa28f432dcfbeb7 = L.map(
+                "map_a638622b9b94ac194fa28f432dcfbeb7",
+                {
+                    center: [37.8715, -122.273],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d2383efecd2f3b04f786733f7dde1568 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a638622b9b94ac194fa28f432dcfbeb7);
+        
+    
+            var circle_d4526a503d9121028b8bcedcd9006dab = L.circle(
+                [37.8701, -122.2681],
+                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 298.37073160901593, "stroke": true, "weight": 3}
+            ).addTo(map_a638622b9b94ac194fa28f432dcfbeb7);
+        
+    
+            circle_d4526a503d9121028b8bcedcd9006dab.bindTooltip(
+                `<div>
+                     Downtown Berkeley: -75%
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_4a52558cd5a0550bbb84687b9f78bb1f = L.circle(
+                [37.874, -122.2834],
+                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 319.223472724945, "stroke": true, "weight": 3}
+            ).addTo(map_a638622b9b94ac194fa28f432dcfbeb7);
+        
+    
+            circle_4a52558cd5a0550bbb84687b9f78bb1f.bindTooltip(
+                `<div>
+                     North Berkeley: -80%
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="jingya-s-plots">
+<h2>Jingya’s plots<a class="headerlink" href="#jingya-s-plots" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="analysis-of-ridership-of-stations-with-different-land-use">
+<h2>Analysis of ridership of stations with different land use<a class="headerlink" href="#analysis-of-ridership-of-stations-with-different-land-use" title="Permalink to this heading">#</a></h2>
+<p>This notebook examines the ridership of various important BART stations with different land use over the past five years. A noticeable trend was observed where there was a significant decrease in ridership during the pandemic period regardless of the land use, which began in February 2020. Although people have started returning to their normal lives in 2022, ridership at most stations remains at only 40% of pre-COVID levels. This indicates that the pandemic has had a significant impact on people’s way of life. The aim of this study is to compare the ridership patterns before, during, and after the pandemic, with a focus on four specific locations with different land use: 1) San Francisco CBD (commercial land use), 2) Berkeley(academic land use), 3) Oakland(mixed land use), and 4) International Airports(transport land use).</p>
+<section id="san-francisco-cbd-commertial-land-use">
+<h3>1. San Francisco CBD (Commertial Land Use)<a class="headerlink" href="#san-francisco-cbd-commertial-land-use" title="Permalink to this heading">#</a></h3>
+<p>The pandemic led many companies to implement the “work from home” policy, allowing employees to work from anywhere instead of commuting to the office. This policy proved successful for some companies, and many continue to implement it. As a result, this study assumes that the number of people traveling to San Francisco CBD for work significantly decreased during and after the pandemic comparing to pre-COVID time. The plots below show that before the pandemic, the selected BART stations (Embarcadero, Montgomery Street, Powell Street, Civic Center) had 20,000 to 50,000 daily trips. However, although ridership has been increasing since 2020, late 2022 data shows only around 10,000 monthly trips. This indicates that although people may feel that things have returned to normal, the pandemic has altered their commuting patterns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4237eb7a1e2edb62c5ac755c2ef44beacc4588c5142f0e17b7ac4bc93b56881b.jpg" src="_images/4237eb7a1e2edb62c5ac755c2ef44beacc4588c5142f0e17b7ac4bc93b56881b.jpg" />
+</div>
+</div>
+<p>In the previous sections, we discussed the travel volumes of the stations, but it is not clear how much of a difference there is before and after the pandemic. To address this, in this section, we calculate the arrival trip ratio relative to the peak arrival trip volumes of the past 5 years.</p>
+<p>To begin, let’s look at the stations in San Francisco CBD. It is evident that the number of trips is gradually increasing, but as of late 2022, less than 40% of the peak arrival trip volumes of the past 5 years are observed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aabc17880adfb1a1f5a1d2c4036d91eb4f8b76ef610203a9ff931905f7887dcf.jpg" src="_images/aabc17880adfb1a1f5a1d2c4036d91eb4f8b76ef610203a9ff931905f7887dcf.jpg" />
+</div>
+</div>
+</section>
+<section id="berkeley-academic-land-use">
+<h3>2. Berkeley (Academic Land Use)<a class="headerlink" href="#berkeley-academic-land-use" title="Permalink to this heading">#</a></h3>
+<p>It is assumed that the majority of BART passengers in Berkeley, particularly at North Berkeley and Downtown Berkeley stations, are students studying at UC Berkeley. Due to the campus lockdown from 2020-2021, ridership during this period is expected to have been very low. With the reopening of the campus, it is expected that the number of trips would gradually increase back to pre-COVID levels. However, the graph below shows that although a growth trend is observed after the summer of 2021, which is when the campus reopened, the total number of trips is still far below the pre-COVID level.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/026c98f8941a8ad6e286ffe307d4dfb9bb674ffcbc79f335331f1a319b7ea5ce.jpg" src="_images/026c98f8941a8ad6e286ffe307d4dfb9bb674ffcbc79f335331f1a319b7ea5ce.jpg" />
+</div>
+</div>
+<p>Next, looking at the stations in Berkeley, the pattern is similar to the one observed above. We were assuming that the ridership growth rate might be faster than the commercial area because students need to go back to campus. However, the ridership in Berkeley does not grow faster comparing to the commercial areas. This might be because of the recording of the classes. After the pandemics, many classes starts to provide lecture recordings that student might not need to go to the campus but can finish the course wherever they can connect to the internet. As a result, the ridership is less comparing to pre-pandemic period.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/65d04017212307acfa32931bf58f05c2631d39db8e94c857a2ec8ff213f2a4ca.jpg" src="_images/65d04017212307acfa32931bf58f05c2631d39db8e94c857a2ec8ff213f2a4ca.jpg" />
+</div>
+</div>
+</section>
+<section id="oakland-mixed-land-use">
+<h3>3. Oakland (Mixed Land Use)<a class="headerlink" href="#oakland-mixed-land-use" title="Permalink to this heading">#</a></h3>
+<p>Oakland is a major city in the East Bay area with a more complex land use pattern than San Francisco CBD and Berkeley. Unlike the other two locations, Oakland’s land use is a mix of both business and residential areas. This study aims to investigate whether this mix-use land use pattern leads to different travel patterns. The graph below shows that despite the different land use, similar trends to the above plots are observed, indicating that the general travel pattern remains the same regardless of land use.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Oakland Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fa32904c5bdd33ddcff903c580ec4376c8a7545b91acadff470636fb0031c22c.jpg" src="_images/fa32904c5bdd33ddcff903c580ec4376c8a7545b91acadff470636fb0031c22c.jpg" />
+</div>
+</div>
+<p>Similar to the patterns shown above, the ridership rate started to grow after the pandemic. However, the amount of the trips is still far less than pre-COVID level (about 40%).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Oakland Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/852519174c339ea5fa64bc7b25b0a6c43abdbb2ce807f6f1347e4007be7aa665.jpg" src="_images/852519174c339ea5fa64bc7b25b0a6c43abdbb2ce807f6f1347e4007be7aa665.jpg" />
+</div>
+</div>
+</section>
+<section id="airports-transport-land-use">
+<h3>4. Airports (Transport Land Use)<a class="headerlink" href="#airports-transport-land-use" title="Permalink to this heading">#</a></h3>
+<p>Lastly, this study discusses trips to the international airports (Oakland International Airport and San Francisco International Airport). Similar patterns to the previous locations are observed, but with a faster growth rate. This highlights the importance of public transit for international airports, as the majority of passengers are likely foreigners who rely heavily on public transit to reach their destinations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Airports Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/adb25a0905cab2afb235a9de43f48751f6341383cc86cc213d725a1beaab0754.jpg" src="_images/adb25a0905cab2afb235a9de43f48751f6341383cc86cc213d725a1beaab0754.jpg" />
+</div>
+</div>
+<p>The stations at the airports show a faster growing pattern than the rest of the stations. This indicates the importance of the connection between public transits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Airport Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0ca65ce7f5f15f7f743446afd894ea01140630bf176c5eceacd4c12296bfb1a4.jpg" src="_images/0ca65ce7f5f15f7f743446afd894ea01140630bf176c5eceacd4c12296bfb1a4.jpg" />
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>The analysis reveals that, compared to the pre-COVID period, the ridership at the majority of stations, regardless of land use, has only recovered to less than 40%. However, there is a notable exception for stations located at airports, where a higher percentage (around 60%) of the ridership has returned. This study highlights the significant changes in people’s travel patterns due to various factors such as work-from-home policies or online lectures. However, it also underscores the ongoing demand for public transit connections, particularly at international airports, emphasizing the importance of efficient transportation links in serving travelers’ needs.</p>
+</section>
+<section id="predicting-future-ridership-patterns-after-covid-19-using-pre-covid-19-data">
+<h2>Predicting Future Ridership Patterns After Covid-19 Using Pre-Covid-19 Data<a class="headerlink" href="#predicting-future-ridership-patterns-after-covid-19-using-pre-covid-19-data" title="Permalink to this heading">#</a></h2>
+<p>For this section of the analysis, the focus will be on analyzing the ridership from Downtown Berkeley station (entry station) to Embarcadero station (exit station) pre- and post-pandemic to infer the impact of Covid-19 on people’s choice of transportation modes. The reason for selecting these two stations is that, firstly, students constitute the majority of Downtown Berkeley station riders. Because they typically don’t own cars, the impact could be much more significant. Secondly, Embarcadero is one of the busiest stations according to BART’s website (<a class="reference external" href="http://bart.gov">bart.gov</a>). With the growing popularity of remote working and studying during the pandemic, it is highly likely that the ridership for these two stations has changed drastically. Hypothetically, it may take a long period of time for the ridership to recover back to pre-pandemic levels.</p>
+<p>*pre-pandemic: before 2020, post-pandemic: after 2020</p>
+<section id="pre-pandemic-ridership">
+<h3>Pre-Pandemic Ridership<a class="headerlink" href="#pre-pandemic-ridership" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Ridership.png&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/08cfa33b2b286e1e6b13a1e22f1b24bc497c0f383ade1eb2e85ddc8847252459.png" src="_images/08cfa33b2b286e1e6b13a1e22f1b24bc497c0f383ade1eb2e85ddc8847252459.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Log_Ridership.png&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/abfc3983bb9a34f80f255038ca59817befc2c079d55c1f5fc610fb4880f1cf61.png" src="_images/abfc3983bb9a34f80f255038ca59817befc2c079d55c1f5fc610fb4880f1cf61.png" />
+</div>
+</div>
+<p>Based on the plots above, there appears to be an annual seasonality with the peak around summer and the trough around winter. In general, there is an increasing trend observed throughout 2010-2015, but it gradually declines afterwards. The variance of ridership over time has been steady, although the variances for the years 2014-2016 are larger than those of other years. To standardize the variance of the data, a Log Transformation has been applied.</p>
+<p>After taking the first order difference, the data is non-stationary with a strong seasonality at the indies of multiples of 12. To minimize the effect of seasonality, another lag difference of 12 is taken. The resulting data gives a much better result in terms of stationarity. Moreover, the p-value of the adfuller test is below 0.05, allowing us to reject the null and conclude that the differenced data is stationary. The data set is then split into training and testing, and a parameter search is performed on the training set to determine the best arima model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Modeling.png&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/90a8bacbe33439cad4b515cb160a4bdd3e6c21478c9adde6f575ecbd48153763.png" src="_images/90a8bacbe33439cad4b515cb160a4bdd3e6c21478c9adde6f575ecbd48153763.png" />
+</div>
+</div>
+</section>
+<section id="post-pandemic-ridership">
+<h3>Post-Pandemic Ridership<a class="headerlink" href="#post-pandemic-ridership" title="Permalink to this heading">#</a></h3>
+<p>The extent of influence is calculated by computing the absolute difference between the ridership predicted by the pre-pandemic model and the actual ridership observed in 2021-2022. Since the output value of the pre-pandemic model is logged, the result must be exponentialized for comparison to be feasible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Comparison.png&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fd03c0d00aed69799fdc79857f3d85ee2321e8994d85f79fcdff8b9e4782d8bf.png" src="_images/fd03c0d00aed69799fdc79857f3d85ee2321e8994d85f79fcdff8b9e4782d8bf.png" />
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Conclusion<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>The difference between the predicted and observed ridership is gradually decreasing, with only a 500-rider average gap expected at the end of 2022. Although the two ridership values will eventually intersect with each other, the current difference implies that Covid-19 has had a significant impact on people’s choice of transportation modes. However, it is important to note that the model’s training data shows a declining trend after 2015, which means the model could result in negative ridership in the future. The underlying factor that caused the drop remains unknown, but presumably it affected the model’s accuracy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Difference.png&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4ca60a1a276f1066a356db1bb35b7c9a8ba7d80d693ac50ee9d0fa5ae3954703.png" src="_images/4ca60a1a276f1066a356db1bb35b7c9a8ba7d80d693ac50ee9d0fa5ae3954703.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Mapping_Ridership.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Import data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Effects of COVID-19 on Bart Ridership</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jingya-s-plots">Jingya’s plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ridership-of-stations-with-different-land-use">Analysis of ridership of stations with different land use</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco-cbd-commertial-land-use">1. San Francisco CBD (Commertial Land Use)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley-academic-land-use">2. Berkeley (Academic Land Use)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oakland-mixed-land-use">3. Oakland (Mixed Land Use)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#airports-transport-land-use">4. Airports (Transport Land Use)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicting-future-ridership-patterns-after-covid-19-using-pre-covid-19-data">Predicting Future Ridership Patterns After Covid-19 Using Pre-Covid-19 Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-pandemic-ridership">Pre-Pandemic Ridership</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-pandemic-ridership">Post-Pandemic Ridership</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Group_23, Shih-Hung Chiu, Jiachen Li, Noor Wahle, Jinya Zhao
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
