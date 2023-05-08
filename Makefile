@@ -22,7 +22,7 @@ html :
 .PHONY : all
 all:
 	conda activate bartproject
-	jupyter execute *.ipynb
+	jupyter execute Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.ipynb
 	
 	
 #clean - clean up the figures and _build folders.
