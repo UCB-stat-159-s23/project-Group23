@@ -4,4 +4,4 @@ This is a Reproducible Research Package utilizing [BART Ridership data](https://
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group23.git/HEAD?labpath=main.ipynb)
 
-Link to the JupyterBook: ______
+Link to the JupyterBook: https://ucb-stat-159-s23.github.io/project-Group23/
