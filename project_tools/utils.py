@@ -86,3 +86,26 @@ def annual_arrival_trips(year, station):
             output.loc[file_name[i][-6:]] = temp.loc['Entries'][station]
     
     return output
+
+
+
+def calc_stn_perc_diffs(pre_covid_df, post_covid_df, stn_names):
+
+    ''' 
+    Calculates the sum of the entry ridership at each given station
+    and outputs the percent difference pre and post COVID-19 for each station.
+
+    Parameters
+    ----------
+    pre_covid_df: a dataframe for the ridership prior to COVID-19.
+    post_covid_df: a dataframe for the ridership post COVID-19.
+    stn_names: an array of each station abbreviation.
+    Returns
+    ----------
+    perc_diffs: an array containing the percent change in ridership per station.
+    '''
+
+    pre_covid_sums = np.sum(pre_covid_df[stn_names])
+    post_covid_sums = np.sum(post_covid_df[stn_names])
+    perc_diffs = (post_covid_sums - pre_covid_sums) / pre_covid_sums * 100
+    return perc_diffs
