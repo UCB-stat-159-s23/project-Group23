@@ -100,6 +100,7 @@ def calc_stn_perc_diffs(pre_covid_df, post_covid_df, stn_names):
     pre_covid_df: a dataframe for the ridership prior to COVID-19.
     post_covid_df: a dataframe for the ridership post COVID-19.
     stn_names: an array of each station abbreviation.
+
     Returns
     ----------
     perc_diffs: an array containing the percent change in ridership per station.
@@ -109,3 +110,33 @@ def calc_stn_perc_diffs(pre_covid_df, post_covid_df, stn_names):
     post_covid_sums = np.sum(post_covid_df[stn_names])
     perc_diffs = (post_covid_sums - pre_covid_sums) / pre_covid_sums * 100
     return perc_diffs
+
+
+def add_markers_to_map(mapping_df, scale, color, folium_map):
+    ''' 
+    Adds markers to the map at each station. Marker size corresponds
+    to the magnitude of percent difference pre/post COVID-19.
+
+    Parameters
+    ----------
+    mapping_df: a dataframe containing columns for lat, lon, station name, and 
+    percent difference pre/post COVID-19.
+    scale: integer to set market size.
+    color: string for marker color.
+    folium_map: folium map object to add the markers to.
+
+    Returns
+    ----------
+    folium_map: the updated folium map object with the markers added.
+    '''
+
+    for i in range(len(mapping_df)):
+        folium.Circle(
+          location=[mapping_df.iloc[i]['lat'], mapping_df.iloc[i]['lon']],
+          tooltip=mapping_df.iloc[i]['name'],
+          radius=float(mapping_df.iloc[i]['value'])*-scale,
+          color=color,
+          fill=True,
+          fill_color=color
+       ).add_to(folium_map)
+    return folium_map
