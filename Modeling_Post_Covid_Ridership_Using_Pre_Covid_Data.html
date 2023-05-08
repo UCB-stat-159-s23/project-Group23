@@ -1,0 +1,1212 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Import Data &#8212; Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Import Data</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FModeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Import Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-pandemic-ridership">Pre-Pandemic Ridership</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-pandemic-ridership">Post-Pandemic Ridership</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pmdarima
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /srv/conda/envs/notebook/lib/python3.10/site-packages (3.1.2)
+Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python3.10/site-packages (from openpyxl) (1.1.0)
+Collecting pmdarima
+  Downloading pmdarima-2.0.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.8/1.8 MB</span> <span class=" -Color -Color-Red">13.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>00:010:01
+?25hRequirement already satisfied: setuptools!=50.0.0,&gt;=38.6.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (67.7.1)
+Requirement already satisfied: joblib&gt;=0.11 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.2.0)
+Requirement already satisfied: scikit-learn&gt;=0.22 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.2.0)
+Requirement already satisfied: pandas&gt;=0.19 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.5.3)
+Requirement already satisfied: scipy&gt;=1.3.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.10.0)
+Requirement already satisfied: Cython!=0.29.18,!=0.29.31,&gt;=0.29 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (0.29.33)
+Requirement already satisfied: numpy&gt;=1.21.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.23.5)
+Requirement already satisfied: urllib3 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (1.26.7)
+Requirement already satisfied: statsmodels&gt;=0.13.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pmdarima) (0.13.5)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pandas&gt;=0.19-&gt;pmdarima) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pandas&gt;=0.19-&gt;pmdarima) (2021.3)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from scikit-learn&gt;=0.22-&gt;pmdarima) (3.1.0)
+Requirement already satisfied: patsy&gt;=0.5.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from statsmodels&gt;=0.13.2-&gt;pmdarima) (0.5.3)
+Requirement already satisfied: packaging&gt;=21.3 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from statsmodels&gt;=0.13.2-&gt;pmdarima) (21.3)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from packaging&gt;=21.3-&gt;statsmodels&gt;=0.13.2-&gt;pmdarima) (3.0.6)
+Requirement already satisfied: six in /srv/conda/envs/notebook/lib/python3.10/site-packages (from patsy&gt;=0.5.2-&gt;statsmodels&gt;=0.13.2-&gt;pmdarima) (1.16.0)
+Installing collected packages: pmdarima
+Successfully installed pmdarima-2.0.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">calendar</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">acf</span><span class="p">,</span> <span class="n">pacf</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">pmdarima.arima</span> <span class="kn">import</span> <span class="n">auto_arima</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="import-data">
+<h1>Import Data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2018-2022 Data Sheets&#39; Naming Format:  Ridership_yyyymm.xlsx</span>
+<span class="c1">#2010-2017 Data Sheets&#39; Naming Format: Ridership_Aprilyyyy.xlsx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Data/ridership_2010/Ridership_January2010.xlsx&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RM</th>
+      <th>EN</th>
+      <th>EP</th>
+      <th>NB</th>
+      <th>BK</th>
+      <th>AS</th>
+      <th>MA</th>
+      <th>19</th>
+      <th>12</th>
+      <th>LM</th>
+      <th>...</th>
+      <th>Unnamed: 46</th>
+      <th>Unnamed: 47</th>
+      <th>Unnamed: 48</th>
+      <th>Unnamed: 49</th>
+      <th>Unnamed: 50</th>
+      <th>Unnamed: 51</th>
+      <th>Unnamed: 52</th>
+      <th>Unnamed: 53</th>
+      <th>Unnamed: 54</th>
+      <th>Unnamed: 55</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>RM</th>
+      <td>4.894737</td>
+      <td>107.526316</td>
+      <td>108.157895</td>
+      <td>89.684211</td>
+      <td>345.526316</td>
+      <td>79.894737</td>
+      <td>142.473684</td>
+      <td>134.210526</td>
+      <td>182.263158</td>
+      <td>35.631579</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>Eastbay</td>
+      <td>72413.894737</td>
+      <td>NaN</td>
+      <td>SF CBD</td>
+      <td>204901.842105</td>
+      <td>0.642676</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>EN</th>
+      <td>128.631579</td>
+      <td>10.842105</td>
+      <td>101.105263</td>
+      <td>83.157895</td>
+      <td>787.263158</td>
+      <td>123.157895</td>
+      <td>264.473684</td>
+      <td>419.789474</td>
+      <td>610.315789</td>
+      <td>88.789474</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>Westbay</td>
+      <td>90407.684211</td>
+      <td>NaN</td>
+      <td>non-CBD</td>
+      <td>107559.789474</td>
+      <td>0.337362</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>EP</th>
+      <td>105.789474</td>
+      <td>82.736842</td>
+      <td>4.947368</td>
+      <td>58.000000</td>
+      <td>586.684211</td>
+      <td>69.842105</td>
+      <td>120.789474</td>
+      <td>225.000000</td>
+      <td>269.368421</td>
+      <td>66.684211</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>Transbay</td>
+      <td>156004.421053</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>NB</th>
+      <td>76.631579</td>
+      <td>65.631579</td>
+      <td>60.684211</td>
+      <td>7.842105</td>
+      <td>187.421053</td>
+      <td>53.000000</td>
+      <td>86.210526</td>
+      <td>206.315789</td>
+      <td>242.263158</td>
+      <td>57.842105</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BK</th>
+      <td>381.842105</td>
+      <td>800.421053</td>
+      <td>580.526316</td>
+      <td>204.473684</td>
+      <td>14.105263</td>
+      <td>324.684211</td>
+      <td>428.000000</td>
+      <td>427.526316</td>
+      <td>503.368421</td>
+      <td>206.210526</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 55 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Data/ridership_2018/Ridership_201801.xlsx&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RM</th>
+      <th>EN</th>
+      <th>EP</th>
+      <th>NB</th>
+      <th>BK</th>
+      <th>AS</th>
+      <th>MA</th>
+      <th>19</th>
+      <th>12</th>
+      <th>LM</th>
+      <th>...</th>
+      <th>NC</th>
+      <th>WP</th>
+      <th>SS</th>
+      <th>SB</th>
+      <th>SO</th>
+      <th>MB</th>
+      <th>WD</th>
+      <th>OA</th>
+      <th>WS</th>
+      <th>Exits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>RM</th>
+      <td>12.761905</td>
+      <td>108.619048</td>
+      <td>81.904762</td>
+      <td>64.952381</td>
+      <td>365.619048</td>
+      <td>101.571429</td>
+      <td>138.047619</td>
+      <td>149.190476</td>
+      <td>180.095238</td>
+      <td>37.571429</td>
+      <td>...</td>
+      <td>2.190476</td>
+      <td>35.000000</td>
+      <td>12.190476</td>
+      <td>18.904762</td>
+      <td>58.714286</td>
+      <td>26.666667</td>
+      <td>7.619048</td>
+      <td>12.333333</td>
+      <td>7.476190</td>
+      <td>3934.952381</td>
+    </tr>
+    <tr>
+      <th>EN</th>
+      <td>131.952381</td>
+      <td>20.333333</td>
+      <td>91.285714</td>
+      <td>95.761905</td>
+      <td>825.857143</td>
+      <td>139.380952</td>
+      <td>261.619048</td>
+      <td>471.476190</td>
+      <td>562.285714</td>
+      <td>93.714286</td>
+      <td>...</td>
+      <td>5.571429</td>
+      <td>26.571429</td>
+      <td>34.095238</td>
+      <td>42.619048</td>
+      <td>113.619048</td>
+      <td>71.190476</td>
+      <td>13.285714</td>
+      <td>30.904762</td>
+      <td>26.476190</td>
+      <td>8247.380952</td>
+    </tr>
+    <tr>
+      <th>EP</th>
+      <td>86.428571</td>
+      <td>81.380952</td>
+      <td>12.857143</td>
+      <td>46.904762</td>
+      <td>659.190476</td>
+      <td>83.047619</td>
+      <td>133.761905</td>
+      <td>298.000000</td>
+      <td>336.333333</td>
+      <td>56.285714</td>
+      <td>...</td>
+      <td>3.666667</td>
+      <td>11.190476</td>
+      <td>10.285714</td>
+      <td>11.142857</td>
+      <td>60.333333</td>
+      <td>31.809524</td>
+      <td>7.476190</td>
+      <td>24.714286</td>
+      <td>11.000000</td>
+      <td>4702.190476</td>
+    </tr>
+    <tr>
+      <th>NB</th>
+      <td>72.380952</td>
+      <td>87.142857</td>
+      <td>51.047619</td>
+      <td>15.619048</td>
+      <td>199.619048</td>
+      <td>61.333333</td>
+      <td>91.190476</td>
+      <td>285.190476</td>
+      <td>249.333333</td>
+      <td>46.333333</td>
+      <td>...</td>
+      <td>3.285714</td>
+      <td>16.238095</td>
+      <td>7.857143</td>
+      <td>9.809524</td>
+      <td>91.380952</td>
+      <td>35.809524</td>
+      <td>8.000000</td>
+      <td>30.761905</td>
+      <td>16.571429</td>
+      <td>4396.142857</td>
+    </tr>
+    <tr>
+      <th>BK</th>
+      <td>405.619048</td>
+      <td>897.095238</td>
+      <td>667.809524</td>
+      <td>208.000000</td>
+      <td>35.619048</td>
+      <td>360.761905</td>
+      <td>361.904762</td>
+      <td>562.285714</td>
+      <td>528.428571</td>
+      <td>226.761905</td>
+      <td>...</td>
+      <td>49.142857</td>
+      <td>113.047619</td>
+      <td>34.428571</td>
+      <td>39.238095</td>
+      <td>179.904762</td>
+      <td>139.095238</td>
+      <td>48.523810</td>
+      <td>73.523810</td>
+      <td>78.380952</td>
+      <td>11122.666667</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 47 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">monthly_weekday_counts</span><span class="p">(</span><span class="n">entry_station</span><span class="p">,</span> <span class="n">exit_station</span><span class="p">,</span> <span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span><span class="p">):</span>
+    <span class="n">monthly_weekday_counts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">monthly_weekday_plot_label</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dir_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Data/ridership_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">/&#39;</span>
+        <span class="k">if</span> <span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">2017</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">two_digits_format_month</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
+                <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Ridership_</span><span class="si">{</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">[</span><span class="n">month</span><span class="p">]</span><span class="si">}{</span><span class="n">year</span><span class="si">}</span><span class="s1">.xlsx&#39;</span>
+                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+                <span class="n">monthly_weekday_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">exit_station</span><span class="p">,</span> <span class="n">entry_station</span><span class="p">])</span>
+                <span class="n">monthly_weekday_plot_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">two_digits_format_month</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">two_digits_format_month</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
+                <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Ridership_</span><span class="si">{</span><span class="n">year</span><span class="si">}{</span><span class="n">two_digits_format_month</span><span class="si">}</span><span class="s1">.xlsx&#39;</span>
+                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+                <span class="n">monthly_weekday_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">exit_station</span><span class="p">,</span> <span class="n">entry_station</span><span class="p">])</span>
+                <span class="n">monthly_weekday_plot_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">two_digits_format_month</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                
+    <span class="k">return</span> <span class="n">monthly_weekday_counts</span><span class="p">,</span> <span class="n">monthly_weekday_plot_label</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Berkeley_Embarcadero_2010_2014, label = monthly_weekday_counts(&quot;BK&quot;, &quot;EM&quot;, 2010, 2014)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot</span>
+<span class="c1">#fig, ax = plt.subplots(figsize=(10, 5))</span>
+<span class="c1">#ax.plot(label, Berkeley_Embarcadero_2010_2014)</span>
+<span class="c1">#ax.set_xticks(label)</span>
+<span class="c1">#ax.set_xticklabels(label, rotation=90);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analysis">
+<h1>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h1>
+<p>For this section of the analysis, the focus will be on analyzing the ridership from Downtown Berkeley station (entry station) to Embarcadero station (exit station) pre- and post-pandemic to infer the impact of Covid-19 on people’s choice of transportation modes. The reason for selecting these two stations is that, firstly, students constitute the majority of Downtown Berkeley station riders. Because they typically don’t own cars, the impact could be much more significant. Secondly, Embarcadero is one of the busiest stations according to BART’s website (<a class="reference external" href="http://bart.gov">bart.gov</a>). With the growing popularity of remote working and studying during the pandemic, it is highly likely that the ridership for these two stations has changed drastically. Hypothetically, it may take a long period of time for the ridership to recover back to pre-pandemic levels.</p>
+<p>*pre-pandemic: before 2020, post-pandemic: after 2020</p>
+<section id="pre-pandemic-ridership">
+<h2>Pre-Pandemic Ridership<a class="headerlink" href="#pre-pandemic-ridership" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Berkeley_Embarcadero_2010_2019</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">monthly_weekday_counts</span><span class="p">(</span><span class="s2">&quot;BK&quot;</span><span class="p">,</span> <span class="s2">&quot;EM&quot;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2019</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_2010_2019</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Weekday Counts&#39;</span><span class="p">:</span> <span class="n">Berkeley_Embarcadero_2010_2019</span><span class="p">},</span> 
+                            <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">ts_2010_2019</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Month&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2010/01 - 2019/12 Monthly Weekday Ridership&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Ridership.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3b134cb2da268b64a8244aa9c580d4767d60c4df46b0585f8a86af5c97be4665.png" src="_images/3b134cb2da268b64a8244aa9c580d4767d60c4df46b0585f8a86af5c97be4665.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logts_2010_2019</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ts_2010_2019</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">logts_2010_2019</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Month&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2010/01 - 2019/12 Log Monthly Weekday Ridership&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Log_Ridership.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/18b88e990369c1352c5a0b0297e1595f7a14ca8cad29c407cd84207c471cf6a1.png" src="_images/18b88e990369c1352c5a0b0297e1595f7a14ca8cad29c407cd84207c471cf6a1.png" />
+</div>
+</div>
+<p>Based on the plots above, there appears to be an annual seasonality with the peak around summer and the trough around winter. In general, there is an increasing trend observed throughout 2010-2015, but it gradually declines afterwards. The variance of ridership over time has been steady, although the variances for the years 2014-2016 are larger than those of other years. To standardize the variance of the data, a Log Transformation has been applied.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_order_dif</span> <span class="o">=</span> <span class="n">logts_2010_2019</span><span class="p">[</span><span class="s1">&#39;Weekday Counts&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">first_order_dif</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;First Order Differencing of Logged Data&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a94045df1ed8b378d9c87a6ff0b2bbf8aeb92b4f978bbed62fcd813760feb429.png" src="_images/a94045df1ed8b378d9c87a6ff0b2bbf8aeb92b4f978bbed62fcd813760feb429.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seasonal_order_dif</span> <span class="o">=</span> <span class="n">first_order_dif</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">seasonal_order_dif</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;First Order Differencing + Seasonal (12) Differencing of Logged Data&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/061b941c4e54575197fb41ee46fa3718067af705afa2b0cba13a9811dedd02b8.png" src="_images/061b941c4e54575197fb41ee46fa3718067af705afa2b0cba13a9811dedd02b8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#dropping the nan values resulted from differencing</span>
+<span class="n">seasonal_order_dif_dropna</span> <span class="o">=</span> <span class="n">seasonal_order_dif</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ad_fuller_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">seasonal_order_dif_dropna</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ADF Statistic: </span><span class="si">{</span><span class="n">ad_fuller_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p-value: </span><span class="si">{</span><span class="n">ad_fuller_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ADF Statistic: -4.3309425227916325
+p-value: 0.00039248581825599885
+</pre></div>
+</div>
+</div>
+</div>
+<p>After taking the first order difference, the plot shows that the data is non-stationary with a strong seasonality at the indies of multiples of 12. To minimize the effect of seasonality, another lag difference of 12 is taken. The resulting plot gives a much better result in terms of stationarity. Moreover, the p-value of the adfuller test is below 0.05, allowing us to reject the null and conclude that the differenced data is stationary. Below is the sample ACF and PACF plot of diff(diff(lag = 1), lag = 12):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot acf and pacf</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">seasonal_order_dif_dropna</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">lags</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">);</span>
+<span class="n">plot_pacf</span><span class="p">(</span><span class="n">seasonal_order_dif_dropna</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">lags</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/notebook/lib/python3.10/site-packages/statsmodels/graphics/tsaplots.py:348: FutureWarning: The default method &#39;yw&#39; can produce PACF values outside of the [-1,1] interval. After 0.13, the default will change tounadjusted Yule-Walker (&#39;ywm&#39;). You can use this method now by setting method=&#39;ywm&#39;.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="_images/0f50029883b6dca92c4e0101687847b14bdaecf6ef4158182fb0c02cc6e0ba29.png" src="_images/0f50029883b6dca92c4e0101687847b14bdaecf6ef4158182fb0c02cc6e0ba29.png" />
+</div>
+</div>
+<p>The ACF and PACF plots show no significant cutoff after lag=12, indicating the differencing in the previous stages is chosen correctly. The data set is then split into training and testing, and a parameter search is performed on the training set to determine the best arima model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#training and testing sets split (train:100, test:20) </span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">logts_2010_2019</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">logts_2010_2019</span><span class="p">[</span><span class="mi">100</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#parameter search ; Best model:  ARIMA(2,1,0)(0,1,1)[12]</span>
+<span class="n">Arima_model</span><span class="o">=</span><span class="n">auto_arima</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">start_p</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start_q</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_p</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_q</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                       <span class="n">start_P</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">start_Q</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_P</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_Q</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                       <span class="n">seasonal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">error_action</span><span class="o">=</span><span class="s1">&#39;warn&#39;</span><span class="p">,</span>
+                       <span class="n">suppress_warnings</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">n_fits</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Performing stepwise search to minimize aic
+ ARIMA(1,1,1)(0,1,0)[12]             : AIC=-250.234, Time=0.13 sec
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=-211.494, Time=0.03 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=-232.581, Time=0.77 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=-258.744, Time=1.33 sec
+ ARIMA(0,1,1)(0,1,0)[12]             : AIC=-252.131, Time=0.15 sec
+ ARIMA(0,1,1)(1,1,1)[12]             : AIC=-258.914, Time=1.54 sec
+ ARIMA(0,1,1)(1,1,0)[12]             : AIC=-254.759, Time=1.02 sec
+ ARIMA(0,1,0)(1,1,1)[12]             : AIC=inf, Time=2.37 sec
+ ARIMA(1,1,1)(1,1,1)[12]             : AIC=-256.944, Time=2.69 sec
+ ARIMA(0,1,2)(1,1,1)[12]             : AIC=-256.992, Time=2.62 sec
+ ARIMA(1,1,0)(1,1,1)[12]             : AIC=inf, Time=1.57 sec
+ ARIMA(1,1,2)(1,1,1)[12]             : AIC=-262.615, Time=4.00 sec
+ ARIMA(1,1,2)(0,1,1)[12]             : AIC=-262.513, Time=2.70 sec
+ ARIMA(1,1,2)(1,1,0)[12]             : AIC=-258.991, Time=2.73 sec
+ ARIMA(1,1,2)(0,1,0)[12]             : AIC=-257.148, Time=0.26 sec
+ ARIMA(2,1,2)(1,1,1)[12]             : AIC=-263.593, Time=4.23 sec
+ ARIMA(2,1,2)(0,1,1)[12]             : AIC=-263.325, Time=3.52 sec
+ ARIMA(2,1,2)(1,1,0)[12]             : AIC=-260.168, Time=2.55 sec
+ ARIMA(2,1,2)(0,1,0)[12]             : AIC=-258.863, Time=0.33 sec
+ ARIMA(2,1,1)(1,1,1)[12]             : AIC=-263.936, Time=3.47 sec
+ ARIMA(2,1,1)(0,1,1)[12]             : AIC=-264.038, Time=1.99 sec
+ ARIMA(2,1,1)(0,1,0)[12]             : AIC=-257.914, Time=0.17 sec
+ ARIMA(2,1,1)(1,1,0)[12]             : AIC=-261.378, Time=2.04 sec
+ ARIMA(1,1,1)(0,1,1)[12]             : AIC=-256.809, Time=3.36 sec
+ ARIMA(2,1,0)(0,1,1)[12]             : AIC=-265.998, Time=1.51 sec
+ ARIMA(2,1,0)(0,1,0)[12]             : AIC=-259.738, Time=0.12 sec
+ ARIMA(2,1,0)(1,1,1)[12]             : AIC=-265.892, Time=3.02 sec
+ ARIMA(2,1,0)(1,1,0)[12]             : AIC=-263.362, Time=1.61 sec
+ ARIMA(1,1,0)(0,1,1)[12]             : AIC=-241.736, Time=1.11 sec
+ ARIMA(3,1,0)(0,1,1)[12]             : AIC=-264.024, Time=2.91 sec
+ ARIMA(3,1,1)(0,1,1)[12]             : AIC=-263.072, Time=3.39 sec
+ ARIMA(2,1,0)(0,1,1)[12] intercept   : AIC=-265.744, Time=2.58 sec
+
+Best model:  ARIMA(2,1,0)(0,1,1)[12]          
+Total fit time: 61.924 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prediction</span> <span class="o">=</span> <span class="n">Arima_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">n_periods</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Training&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Testing&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Prediction&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Month&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2010/01 - 2019/12 Log Monthly Weekday Ridership&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Modeling.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0f22dcddc33f95b0022c686bd4e7e85bd18c8e09f896f98bf0f5893f83b1fe01.png" src="_images/0f22dcddc33f95b0022c686bd4e7e85bd18c8e09f896f98bf0f5893f83b1fe01.png" />
+</div>
+</div>
+</section>
+<section id="post-pandemic-ridership">
+<h2>Post-Pandemic Ridership<a class="headerlink" href="#post-pandemic-ridership" title="Permalink to this heading">#</a></h2>
+<p>The extent of influence is calculated by computing the absolute difference between the ridership predicted by the pre-pandemic model and the actual ridership observed in 2021-2022. Since the output value of the pre-pandemic model is logged, the result must be exponentialized for comparison to be feasible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import 2021-2022 data</span>
+<span class="n">Berkeley_Embarcadero_2021_2022</span><span class="p">,</span> <span class="n">label2</span> <span class="o">=</span> <span class="n">monthly_weekday_counts</span><span class="p">(</span><span class="s2">&quot;BK&quot;</span><span class="p">,</span> <span class="s2">&quot;EM&quot;</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">)</span>
+<span class="n">ts_2021_2022</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Weekday Counts&#39;</span><span class="p">:</span> <span class="n">Berkeley_Embarcadero_2021_2022</span><span class="p">},</span> 
+                            <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">label2</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prediction_2021_2022</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">Arima_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">n_periods</span><span class="o">=</span><span class="mi">56</span><span class="p">)[</span><span class="mi">32</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts_2021_2022</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Observation&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">prediction_2021_2022</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Prediction&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Month&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2021/01 - 2022/12 Monthly Weekday Ridership&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Comparison.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1da51bd0d2ab0e3d2e75965040170d6628c2d656539c7283f79e2c53eecb211d.png" src="_images/1da51bd0d2ab0e3d2e75965040170d6628c2d656539c7283f79e2c53eecb211d.png" />
+</div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">absolute_difference</span> <span class="o">=</span> <span class="n">prediction_2021_2022</span> <span class="o">-</span> <span class="n">ts_2021_2022</span><span class="p">[</span><span class="s1">&#39;Weekday Counts&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Month&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2021/01 - 2022/12 Monthly Weekday Ridership Predicted - Observed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">absolute_difference</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Difference.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/637e24b4230953c06eb55dba64bf544016865546190ab0c91c9fcc5bfe3e92c8.png" src="_images/637e24b4230953c06eb55dba64bf544016865546190ab0c91c9fcc5bfe3e92c8.png" />
+</div>
+</div>
+<p>The difference between the predicted and observed ridership is gradually decreasing, with only a 500-rider average gap expected at the end of 2022. Although the two ridership values will eventually intersect with each other, the current difference implies that Covid-19 has had a significant impact on people’s choice of transportation modes. However, it is important to note that the model’s training data shows a declining trend after 2015, which means the model could result in negative ridership in the future. The underlying factor that caused the drop remains unknown, but presumably it affected the model’s accuracy.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-pandemic-ridership">Pre-Pandemic Ridership</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-pandemic-ridership">Post-Pandemic Ridership</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Group_23, Shih-Hung Chiu, Jiachen Li, Noor Wahle, Jinya Zhao
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
