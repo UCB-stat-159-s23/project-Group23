@@ -382,90 +382,12 @@ document.write(`
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
-<span class="o">!</span>jupyter<span class="w"> </span>trust<span class="w"> </span>Mapping_Ridership.ipynb
-<span class="c1">#!pip install branca==0.3.1 </span>
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>streamlit-folium
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openpyxl
-  Using cached openpyxl-3.1.2-py2.py3-none-any.whl (249 kB)
-Collecting et-xmlfile
-  Using cached et_xmlfile-1.1.0-py3-none-any.whl (4.7 kB)
-Installing collected packages: et-xmlfile, openpyxl
-Successfully installed et-xmlfile-1.1.0 openpyxl-3.1.2
-Signing notebook: Mapping_Ridership.ipynb
-Collecting streamlit-folium
-  Using cached streamlit_folium-0.11.1-py3-none-any.whl (423 kB)
-Requirement already satisfied: branca in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit-folium) (0.6.0)
-Requirement already satisfied: folium&gt;=0.13 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit-folium) (0.14.0)
-Collecting streamlit&gt;=1.13.0
-  Using cached streamlit-1.22.0-py2.py3-none-any.whl (8.9 MB)
-Requirement already satisfied: jinja2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit-folium) (3.0.3)
-Requirement already satisfied: requests in /srv/conda/envs/notebook/lib/python3.10/site-packages (from folium&gt;=0.13-&gt;streamlit-folium) (2.28.2)
-Requirement already satisfied: numpy in /srv/conda/envs/notebook/lib/python3.10/site-packages (from folium&gt;=0.13-&gt;streamlit-folium) (1.23.5)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from jinja2-&gt;streamlit-folium) (2.1.2)
-Collecting cachetools&gt;=4.0
-  Using cached cachetools-5.3.0-py3-none-any.whl (9.3 kB)
-Collecting watchdog
-  Using cached watchdog-3.0.0-py3-none-manylinux2014_x86_64.whl (82 kB)
-Collecting protobuf&lt;4,&gt;=3.12
-  Using cached protobuf-3.20.3-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.1 MB)
-Requirement already satisfied: pyarrow&gt;=4.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (10.0.1)
-Requirement already satisfied: tenacity&lt;9,&gt;=8.0.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (8.2.2)
-Requirement already satisfied: gitpython!=3.1.19 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (3.1.31)
-Collecting validators&gt;=0.2
-  Using cached validators-0.20.0-py3-none-any.whl
-Requirement already satisfied: pandas&lt;3,&gt;=0.25 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (1.5.3)
-Requirement already satisfied: importlib-metadata&gt;=1.4 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (4.13.0)
-Requirement already satisfied: click&gt;=7.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (8.1.3)
-Collecting tzlocal&gt;=1.1
-  Using cached tzlocal-4.3-py3-none-any.whl (20 kB)
-Collecting rich&gt;=10.11.0
-  Using cached rich-13.3.5-py3-none-any.whl (238 kB)
-Requirement already satisfied: pillow&gt;=6.2.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (9.4.0)
-Requirement already satisfied: typing-extensions&gt;=3.10.0.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (4.0.1)
-Requirement already satisfied: tornado&gt;=6.0.3 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (6.2)
-Requirement already satisfied: blinker&gt;=1.0.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (1.4)
-Collecting pympler&gt;=0.9
-  Using cached Pympler-1.0.1-py3-none-any.whl (164 kB)
-Requirement already satisfied: altair&lt;5,&gt;=3.2.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (4.2.2)
-Requirement already satisfied: python-dateutil in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (2.8.2)
-Requirement already satisfied: packaging&gt;=14.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (21.3)
-Collecting pydeck&gt;=0.1.dev5
-  Using cached pydeck-0.8.1b0-py2.py3-none-any.whl (4.8 MB)
-Requirement already satisfied: toml in /srv/conda/envs/notebook/lib/python3.10/site-packages (from streamlit&gt;=1.13.0-&gt;streamlit-folium) (0.10.2)
-Requirement already satisfied: jsonschema&gt;=3.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from altair&lt;5,&gt;=3.2.0-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (4.17.3)
-Requirement already satisfied: entrypoints in /srv/conda/envs/notebook/lib/python3.10/site-packages (from altair&lt;5,&gt;=3.2.0-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (0.3)
-Requirement already satisfied: toolz in /srv/conda/envs/notebook/lib/python3.10/site-packages (from altair&lt;5,&gt;=3.2.0-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (0.12.0)
-Requirement already satisfied: gitdb&lt;5,&gt;=4.0.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from gitpython!=3.1.19-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (4.0.10)
-Requirement already satisfied: zipp&gt;=0.5 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from importlib-metadata&gt;=1.4-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (3.6.0)
-Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from packaging&gt;=14.1-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (3.0.6)
-Requirement already satisfied: pytz&gt;=2020.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from pandas&lt;3,&gt;=0.25-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (2021.3)
-Requirement already satisfied: six&gt;=1.5 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from python-dateutil-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (1.16.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from requests-&gt;folium&gt;=0.13-&gt;streamlit-folium) (1.26.7)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from requests-&gt;folium&gt;=0.13-&gt;streamlit-folium) (2022.12.7)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from requests-&gt;folium&gt;=0.13-&gt;streamlit-folium) (2.0.9)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from requests-&gt;folium&gt;=0.13-&gt;streamlit-folium) (3.1)
-Requirement already satisfied: markdown-it-py&lt;3.0.0,&gt;=2.2.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from rich&gt;=10.11.0-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (2.2.0)
-Collecting pygments&lt;3.0.0,&gt;=2.13.0
-  Using cached Pygments-2.15.1-py3-none-any.whl (1.1 MB)
-Collecting pytz-deprecation-shim
-  Using cached pytz_deprecation_shim-0.1.0.post0-py2.py3-none-any.whl (15 kB)
-Requirement already satisfied: decorator&gt;=3.4.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from validators&gt;=0.2-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (5.1.0)
-Requirement already satisfied: smmap&lt;6,&gt;=3.0.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from gitdb&lt;5,&gt;=4.0.1-&gt;gitpython!=3.1.19-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (3.0.5)
-Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from jsonschema&gt;=3.0-&gt;altair&lt;5,&gt;=3.2.0-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (0.19.3)
-Requirement already satisfied: attrs&gt;=17.4.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from jsonschema&gt;=3.0-&gt;altair&lt;5,&gt;=3.2.0-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (21.2.0)
-Requirement already satisfied: mdurl~=0.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from markdown-it-py&lt;3.0.0,&gt;=2.2.0-&gt;rich&gt;=10.11.0-&gt;streamlit&gt;=1.13.0-&gt;streamlit-folium) (0.1.0)
-Collecting tzdata
-  Using cached tzdata-2023.3-py2.py3-none-any.whl (341 kB)
-Installing collected packages: watchdog, validators, tzdata, pympler, pygments, protobuf, cachetools, rich, pytz-deprecation-shim, pydeck, tzlocal, streamlit, streamlit-folium
-  Attempting uninstall: pygments
-    Found existing installation: Pygments 2.10.0
-    Uninstalling Pygments-2.10.0:
-      Successfully uninstalled Pygments-2.10.0
-Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-2.15.1 pympler-1.0.1 pytz-deprecation-shim-0.1.0.post0 rich-13.3.5 streamlit-1.22.0 streamlit-folium-0.11.1 tzdata-2023.3 tzlocal-4.3 validators-0.20.0 watchdog-3.0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /srv/conda/envs/notebook/lib/python3.10/site-packages (3.1.2)
+Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python3.10/site-packages (from openpyxl) (1.1.0)
 </pre></div>
 </div>
 </div>
@@ -877,8 +799,8 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
    <span class="s1">&#39;lon&#39;</span><span class="p">:[</span><span class="o">-</span><span class="mf">122.3970</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.401942</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4080</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4137</span><span class="p">],</span>
    <span class="s1">&#39;lat&#39;</span><span class="p">:[</span><span class="mf">37.7929</span><span class="p">,</span> <span class="mf">37.789355</span><span class="p">,</span> <span class="mf">37.7844</span><span class="p">,</span> <span class="mf">37.7796</span><span class="p">],</span>
    <span class="s1">&#39;name&#39;</span><span class="p">:[</span><span class="s1">&#39;Embarcadero: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">SF_percent_diffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> 
-           <span class="s1">&#39;Montgomery Street: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">SF_percent_diffs</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> 
-           <span class="s1">&#39;Powell Street: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">SF_percent_diffs</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Montgomery Street: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">SF_percent_diffs</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Powell Street: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">SF_percent_diffs</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">,</span>
            <span class="s1">&#39;Civic Center: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">SF_percent_diffs</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">],</span>
    <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">SF_percent_diffs</span>
 <span class="p">},</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
@@ -981,7 +903,7 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_910365f657f4938890806b4356712a82 {
+                #map_2b8120e0feb4f9fb4f101be36ae23c68 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -995,14 +917,14 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_910365f657f4938890806b4356712a82&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_2b8120e0feb4f9fb4f101be36ae23c68&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_910365f657f4938890806b4356712a82 = L.map(
-                &quot;map_910365f657f4938890806b4356712a82&quot;,
+            var map_2b8120e0feb4f9fb4f101be36ae23c68 = L.map(
+                &quot;map_2b8120e0feb4f9fb4f101be36ae23c68&quot;,
                 {
                     center: [37.78656375, -122.4051605],
                     crs: L.CRS.EPSG3857,
@@ -1016,19 +938,19 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
 
         
     
-            var tile_layer_f2eddcb9ec30a46c7b689964b97654ab = L.tileLayer(
+            var tile_layer_714aec65091187fc52f1f569ef377390 = L.tileLayer(
                 &quot;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://cartodb.com/attributions\&quot;\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\&quot;_blank\&quot; href =\&quot;http://cartodb.com/attributions\&quot;\u003eattributions\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_910365f657f4938890806b4356712a82);
+            ).addTo(map_2b8120e0feb4f9fb4f101be36ae23c68);
         
     
-            var circle_2e692cbd8e4d6ce26d0c72c984fd9712 = L.circle(
+            var circle_a85bf79ffa710130c005061036a0bc7d = L.circle(
                 [37.7929, -122.397],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 172.3493433945421, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_910365f657f4938890806b4356712a82);
+            ).addTo(map_2b8120e0feb4f9fb4f101be36ae23c68);
         
     
-            circle_2e692cbd8e4d6ce26d0c72c984fd9712.bindTooltip(
+            circle_a85bf79ffa710130c005061036a0bc7d.bindTooltip(
                 `&lt;div&gt;
                      Embarcadero: -86%
                  &lt;/div&gt;`,
@@ -1036,13 +958,13 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
             );
         
     
-            var circle_736b1e109391c92d469184ad438679d7 = L.circle(
+            var circle_6081e8a3b398457c0e67e9eaf16c8c65 = L.circle(
                 [37.789355, -122.401942],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 176.18052736766316, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_910365f657f4938890806b4356712a82);
+            ).addTo(map_2b8120e0feb4f9fb4f101be36ae23c68);
         
     
-            circle_736b1e109391c92d469184ad438679d7.bindTooltip(
+            circle_6081e8a3b398457c0e67e9eaf16c8c65.bindTooltip(
                 `&lt;div&gt;
                      Montgomery Street: -88%
                  &lt;/div&gt;`,
@@ -1050,13 +972,13 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
             );
         
     
-            var circle_9e18463f8904e54468afecba6e62917a = L.circle(
+            var circle_70b0f1bda204e0c0e911cc9465599acd = L.circle(
                 [37.7844, -122.408],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 149.50210134646787, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_910365f657f4938890806b4356712a82);
+            ).addTo(map_2b8120e0feb4f9fb4f101be36ae23c68);
         
     
-            circle_9e18463f8904e54468afecba6e62917a.bindTooltip(
+            circle_70b0f1bda204e0c0e911cc9465599acd.bindTooltip(
                 `&lt;div&gt;
                      Powell Street: -75%
                  &lt;/div&gt;`,
@@ -1064,13 +986,13 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
             );
         
     
-            var circle_e7c7f286d233870f39898b411d33e00e = L.circle(
+            var circle_172b8eb16e426f174de97c312757d3e1 = L.circle(
                 [37.7796, -122.4137],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 155.26841228623744, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_910365f657f4938890806b4356712a82);
+            ).addTo(map_2b8120e0feb4f9fb4f101be36ae23c68);
         
     
-            circle_e7c7f286d233870f39898b411d33e00e.bindTooltip(
+            circle_172b8eb16e426f174de97c312757d3e1.bindTooltip(
                 `&lt;div&gt;
                      Civic Center: -78%
                  &lt;/div&gt;`,
@@ -1205,7 +1127,7 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_59206fa4c4cac93029ed46bc537624d9 {
+                #map_a8ebf866d8e563ee6ded7d9e983d941d {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -1219,14 +1141,14 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_59206fa4c4cac93029ed46bc537624d9&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_a8ebf866d8e563ee6ded7d9e983d941d&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_59206fa4c4cac93029ed46bc537624d9 = L.map(
-                &quot;map_59206fa4c4cac93029ed46bc537624d9&quot;,
+            var map_a8ebf866d8e563ee6ded7d9e983d941d = L.map(
+                &quot;map_a8ebf866d8e563ee6ded7d9e983d941d&quot;,
                 {
                     center: [37.8715, -122.273],
                     crs: L.CRS.EPSG3857,
@@ -1240,19 +1162,19 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
 
         
     
-            var tile_layer_5cc08d4921d01f0f547951f7b06d56a7 = L.tileLayer(
+            var tile_layer_4ae57adf762a3c60d7167eee0e5cee68 = L.tileLayer(
                 &quot;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://cartodb.com/attributions\&quot;\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\&quot;_blank\&quot; href =\&quot;http://cartodb.com/attributions\&quot;\u003eattributions\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_59206fa4c4cac93029ed46bc537624d9);
+            ).addTo(map_a8ebf866d8e563ee6ded7d9e983d941d);
         
     
-            var circle_7966d489365bc759f5bd29d58e1a4581 = L.circle(
+            var circle_259632ee15a9fd9b10298ada5c60f168 = L.circle(
                 [37.8701, -122.2681],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 447.5560974135239, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_59206fa4c4cac93029ed46bc537624d9);
+            ).addTo(map_a8ebf866d8e563ee6ded7d9e983d941d);
         
     
-            circle_7966d489365bc759f5bd29d58e1a4581.bindTooltip(
+            circle_259632ee15a9fd9b10298ada5c60f168.bindTooltip(
                 `&lt;div&gt;
                      Downtown Berkeley: -75%
                  &lt;/div&gt;`,
@@ -1260,13 +1182,13 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
             );
         
     
-            var circle_8005482f48c439b86ba7653c3f1a37ac = L.circle(
+            var circle_0af9c176693b28ae44c6a76d0930fc71 = L.circle(
                 [37.874, -122.2834],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 478.8352090874175, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_59206fa4c4cac93029ed46bc537624d9);
+            ).addTo(map_a8ebf866d8e563ee6ded7d9e983d941d);
         
     
-            circle_8005482f48c439b86ba7653c3f1a37ac.bindTooltip(
+            circle_0af9c176693b28ae44c6a76d0930fc71.bindTooltip(
                 `&lt;div&gt;
                      North Berkeley: -80%
                  &lt;/div&gt;`,
@@ -1281,56 +1203,6 @@ Successfully installed cachetools-5.3.0 protobuf-3.20.3 pydeck-0.8.1b0 pygments-
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save map file to figures/</span>
 
 <span class="n">berk_map</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;figures/berkeley_interactive_map.html&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>bokeh
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: bokeh in /srv/conda/envs/notebook/lib/python3.10/site-packages (2.4.3)
-Requirement already satisfied: typing-extensions&gt;=3.10.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from bokeh) (4.0.1)
-Requirement already satisfied: tornado&gt;=5.1 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from bokeh) (6.2)
-Requirement already satisfied: Jinja2&gt;=2.9 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from bokeh) (3.0.3)
-Requirement already satisfied: packaging&gt;=16.8 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from bokeh) (21.3)
-Requirement already satisfied: numpy&gt;=1.11.3 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from bokeh) (1.23.5)
-Requirement already satisfied: PyYAML&gt;=3.10 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from bokeh) (6.0)
-Requirement already satisfied: pillow&gt;=7.1.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from bokeh) (9.4.0)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from Jinja2&gt;=2.9-&gt;bokeh) (2.1.2)
-Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /srv/conda/envs/notebook/lib/python3.10/site-packages (from packaging&gt;=16.8-&gt;bokeh) (3.0.6)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
-<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">ColumnDataSource</span><span class="p">,</span> <span class="n">GMapOptions</span>
-<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">gmap</span>
-
-<span class="n">output_file</span><span class="p">(</span><span class="s2">&quot;gmap.html&quot;</span><span class="p">)</span>
-
-<span class="n">map_options</span> <span class="o">=</span> <span class="n">GMapOptions</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">30.2861</span><span class="p">,</span> <span class="n">lng</span><span class="o">=-</span><span class="mf">97.7394</span><span class="p">,</span> <span class="n">map_type</span><span class="o">=</span><span class="s2">&quot;roadmap&quot;</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
-
-<span class="c1"># For GMaps to function, Google requires you obtain and enable an API key:</span>
-<span class="c1">#</span>
-<span class="c1">#     https://developers.google.com/maps/documentation/javascript/get-api-key</span>
-<span class="c1">#</span>
-<span class="c1"># Replace the value below with your personal API key:</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">gmap</span><span class="p">(</span><span class="s2">&quot;GOOGLE_API_KEY&quot;</span><span class="p">,</span> <span class="n">map_options</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Austin&quot;</span><span class="p">)</span>
-
-<span class="n">source</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="p">[</span> <span class="mf">30.29</span><span class="p">,</span>  <span class="mf">30.20</span><span class="p">,</span>  <span class="mf">30.29</span><span class="p">],</span>
-              <span class="n">lon</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">97.70</span><span class="p">,</span> <span class="o">-</span><span class="mf">97.74</span><span class="p">,</span> <span class="o">-</span><span class="mf">97.78</span><span class="p">])</span>
-<span class="p">)</span>
-
-<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">fill_alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
-
-<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
