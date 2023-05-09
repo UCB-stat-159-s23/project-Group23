@@ -6,5 +6,6 @@ root: intro
 chapters:
 - file: main
 - file: Mapping_Ridership
-- file: Analysis of ridership of stations with different land use
+- file: Ridership_Standard_Deviation_Analysis
+- file: Analysis_of_Ridership_of_Stations_with_Different_Land_Use
 - file: Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data
