@@ -26,3 +26,16 @@ def test_add_markers_to_map():
         'value': berk_percent_diffs}, dtype=str)
     output = add_markers_to_map(berk_mapping_df, 6, 'teal', berk_map)
     assert isinstance(output, folium.folium.Map)
+
+def test_get_month_and_year():
+    output1 = get_month_and_year("Ridership_202105.xlsx");
+    output2 = get_month_and_year("Ridership_March2016.xlsx");
+    assert (2021,5) == output1
+    assert (2016,3) == output2
+
+def test_load_data():
+    output1 = load_data(2016);
+    output2 = load_data(2017);
+    assert isinstance(output1, pd.DataFrame)
+    assert isinstance(output2, pd.DataFrame)
+    
