@@ -464,7 +464,7 @@ document.write(`
 <h4>Downtown San Francisco<a class="headerlink" href="#downtown-san-francisco" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;figures/SF_interactive_map.html&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/SF_interactive_map.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -600,7 +600,7 @@ document.write(`
 <h4>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;figures/berkeley_interactive_map.html&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/berkeley_interactive_map.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -717,28 +717,24 @@ document.write(`
 <p>The pandemic led many companies to implement the “work from home” policy, allowing employees to work from anywhere instead of commuting to the office. This policy proved successful for some companies, and many continue to implement it. As a result, this study assumes that the number of people traveling to San Francisco CBD for work significantly decreased during and after the pandemic comparing to pre-COVID time. The plots below show that before the pandemic, the selected BART stations (Embarcadero, Montgomery Street, Powell Street, Civic Center) had 20,000 to 50,000 daily trips. However, although ridership has been increasing since 2020, late 2022 data shows only around 10,000 monthly trips. This indicates that although people may feel that things have returned to normal, the pandemic has altered their commuting patterns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: &#39;function&#39; object has no attribute &#39;Image&#39;
-</pre></div>
-</div>
+<img alt="_images/4237eb7a1e2edb62c5ac755c2ef44beacc4588c5142f0e17b7ac4bc93b56881b.jpg" src="_images/4237eb7a1e2edb62c5ac755c2ef44beacc4588c5142f0e17b7ac4bc93b56881b.jpg" />
 </div>
 </div>
 <p>In the previous sections, we discussed the travel volumes of the stations, but it is not clear how much of a difference there is before and after the pandemic. To address this, in this section, we calculate the arrival trip ratio relative to the peak arrival trip volumes of the past 5 years.</p>
 <p>To begin, let’s look at the stations in San Francisco CBD. It is evident that the number of trips is gradually increasing, but as of late 2022, less than 40% of the peak arrival trip volumes of the past 5 years are observed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aabc17880adfb1a1f5a1d2c4036d91eb4f8b76ef610203a9ff931905f7887dcf.jpg" src="_images/aabc17880adfb1a1f5a1d2c4036d91eb4f8b76ef610203a9ff931905f7887dcf.jpg" />
 </div>
 </div>
 </section>
@@ -747,17 +743,23 @@ document.write(`
 <p>It is assumed that the majority of BART passengers in Berkeley, particularly at North Berkeley and Downtown Berkeley stations, are students studying at UC Berkeley. Due to the campus lockdown from 2020-2021, ridership during this period is expected to have been very low. With the reopening of the campus, it is expected that the number of trips would gradually increase back to pre-COVID levels. However, the graph below shows that although a growth trend is observed after the summer of 2021, which is when the campus reopened, the total number of trips is still far below the pre-COVID level.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/026c98f8941a8ad6e286ffe307d4dfb9bb674ffcbc79f335331f1a319b7ea5ce.jpg" src="_images/026c98f8941a8ad6e286ffe307d4dfb9bb674ffcbc79f335331f1a319b7ea5ce.jpg" />
 </div>
 </div>
 <p>Next, looking at the stations in Berkeley, the pattern is similar to the one observed above. We were assuming that the ridership growth rate might be faster than the commercial area because students need to go back to campus. However, the ridership in Berkeley does not grow faster comparing to the commercial areas. This might be because of the recording of the classes. After the pandemics, many classes starts to provide lecture recordings that student might not need to go to the campus but can finish the course wherever they can connect to the internet. As a result, the ridership is less comparing to pre-pandemic period.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/65d04017212307acfa32931bf58f05c2631d39db8e94c857a2ec8ff213f2a4ca.jpg" src="_images/65d04017212307acfa32931bf58f05c2631d39db8e94c857a2ec8ff213f2a4ca.jpg" />
 </div>
 </div>
 </section>
@@ -766,17 +768,23 @@ document.write(`
 <p>Oakland is a major city in the East Bay area with a more complex land use pattern than San Francisco CBD and Berkeley. Unlike the other two locations, Oakland’s land use is a mix of both business and residential areas. This study aims to investigate whether this mix-use land use pattern leads to different travel patterns. The graph below shows that despite the different land use, similar trends to the above plots are observed, indicating that the general travel pattern remains the same regardless of land use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Oakland Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Oakland Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fa32904c5bdd33ddcff903c580ec4376c8a7545b91acadff470636fb0031c22c.jpg" src="_images/fa32904c5bdd33ddcff903c580ec4376c8a7545b91acadff470636fb0031c22c.jpg" />
 </div>
 </div>
 <p>Similar to the patterns shown above, the ridership rate started to grow after the pandemic. However, the amount of the trips is still far less than pre-COVID level (about 40%).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Oakland Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Oakland Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/852519174c339ea5fa64bc7b25b0a6c43abdbb2ce807f6f1347e4007be7aa665.jpg" src="_images/852519174c339ea5fa64bc7b25b0a6c43abdbb2ce807f6f1347e4007be7aa665.jpg" />
 </div>
 </div>
 </section>
@@ -785,17 +793,23 @@ document.write(`
 <p>Lastly, this study discusses trips to the international airports (Oakland International Airport and San Francisco International Airport). Similar patterns to the previous locations are observed, but with a faster growth rate. This highlights the importance of public transit for international airports, as the majority of passengers are likely foreigners who rely heavily on public transit to reach their destinations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Airports Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Airports Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/adb25a0905cab2afb235a9de43f48751f6341383cc86cc213d725a1beaab0754.jpg" src="_images/adb25a0905cab2afb235a9de43f48751f6341383cc86cc213d725a1beaab0754.jpg" />
 </div>
 </div>
 <p>The stations at the airports show a faster growing pattern than the rest of the stations. This indicates the importance of the connection between public transits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Airport Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Airport Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0ca65ce7f5f15f7f743446afd894ea01140630bf176c5eceacd4c12296bfb1a4.jpg" src="_images/0ca65ce7f5f15f7f743446afd894ea01140630bf176c5eceacd4c12296bfb1a4.jpg" />
 </div>
 </div>
 </section>
@@ -816,12 +830,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/08cfa33b2b286e1e6b13a1e22f1b24bc497c0f383ade1eb2e85ddc8847252459.png" src="_images/08cfa33b2b286e1e6b13a1e22f1b24bc497c0f383ade1eb2e85ddc8847252459.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Log_Ridership.png&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/abfc3983bb9a34f80f255038ca59817befc2c079d55c1f5fc610fb4880f1cf61.png" src="_images/abfc3983bb9a34f80f255038ca59817befc2c079d55c1f5fc610fb4880f1cf61.png" />
 </div>
 </div>
 <p>Based on the plots above, there appears to be an annual seasonality with the peak around summer and the trough around winter. In general, there is an increasing trend observed throughout 2010-2015, but it gradually declines afterwards. The variance of ridership over time has been steady, although the variances for the years 2014-2016 are larger than those of other years. To standardize the variance of the data, a Log Transformation has been applied.</p>
@@ -831,6 +851,9 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Modeling.png&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/90a8bacbe33439cad4b515cb160a4bdd3e6c21478c9adde6f575ecbd48153763.png" src="_images/90a8bacbe33439cad4b515cb160a4bdd3e6c21478c9adde6f575ecbd48153763.png" />
 </div>
 </div>
 </section>
@@ -843,6 +866,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/fd03c0d00aed69799fdc79857f3d85ee2321e8994d85f79fcdff8b9e4782d8bf.png" src="_images/fd03c0d00aed69799fdc79857f3d85ee2321e8994d85f79fcdff8b9e4782d8bf.png" />
+</div>
 </div>
 </section>
 <section id="id1">
@@ -853,6 +879,9 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Difference.png&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4ca60a1a276f1066a356db1bb35b7c9a8ba7d80d693ac50ee9d0fa5ae3954703.png" src="_images/4ca60a1a276f1066a356db1bb35b7c9a8ba7d80d693ac50ee9d0fa5ae3954703.png" />
 </div>
 </div>
 </section>
