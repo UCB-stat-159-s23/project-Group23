@@ -198,4 +198,8 @@ def loadData(year):
                 df['Year'] = year
                 df['Month'] = month
                 combined_data = pd.concat([combined_data, df], ignore_index=False)
+    stringName = {col: str(col) for col in combined_data.columns if not isinstance(col, str)}
+    combined_data =combined_data.rename(columns=stringName)
+    combined_data = combined_data.rename(columns={'Unnamed: 0': 'Exit Station'})
+    combined_data['Exit Station'] = combined_data['Exit Station'].astype(str)
     return combined_data
