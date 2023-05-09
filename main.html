@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>The Effects of COVID-19 on Bart Ridership &#8212; Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</title>
+    <title>Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley &#8212; Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</title>
   
   
   
@@ -157,11 +157,11 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">The Effects of COVID-19 on Bart Ridership</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Mapping_Ridership.html">Import data</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="Analysis%20of%20ridership%20of%20stations%20with%20different%20land%20use.html">Analysis of ridership of stations with different land use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ridership_Standard_Deviation_Analysis.html">Data Analyzing: Standard Deviation of Traffic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Analysis_of_Ridership_of_Stations_with_Different_Land_Use.html">Analysis of ridership of stations with different land use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html">Import Data</a></li>
 
 </ul>
@@ -347,7 +347,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The Effects of COVID-19 on Bart Ridership</h1>
+    <h1>Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -357,19 +357,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Effects of COVID-19 on Bart Ridership</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jingya-s-plots">Jingya’s plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-standard-deviation-of-traffic-data">Analysis of Standard Deviation of Traffic Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-of-exit-station-across-time-weekday-vs-weekends">1. Standard Deviation of Exit Station across time: Weekday vs Weekends</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-stations-have-the-most-fluctant-traffic">2. Which Stations have the most fluctant traffic?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ridership-of-stations-with-different-land-use">Analysis of ridership of stations with different land use</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco-cbd-commertial-land-use">1. San Francisco CBD (Commertial Land Use)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley-academic-land-use">2. Berkeley (Academic Land Use)</a></li>
@@ -385,9 +387,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -414,12 +413,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_299/4087572653.py:6: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
-  from IPython.core.display import display, Image
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -433,12 +426,9 @@ document.write(`
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="the-effects-of-covid-19-on-bart-ridership">
-<h1>The Effects of COVID-19 on Bart Ridership<a class="headerlink" href="#the-effects-of-covid-19-on-bart-ridership" title="Permalink to this heading">#</a></h1>
-</section>
+<p>Authors: Noor Wahle, Jiachen Li, Shih-hung Chiu, Jingya Zhao</p>
 <section class="tex2jax_ignore mathjax_ignore" id="exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley">
 <h1>Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley<a class="headerlink" href="#exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley" title="Permalink to this heading">#</a></h1>
-<p>Authors: Noor Wahle, Jiachen Li, Shih-hung Chiu, Jingya Zhao</p>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Add background information on bart ridership pre/post COVID-19</p>
@@ -467,10 +457,8 @@ document.write(`
 <h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h3>
 <p>To begin understanding trends in Bart ridership during COVID-19, we narrowed our focus to two locations: Downtown San Francisco and Berkeley. We chose these locations to better understand Bart ridership changed prior to and post COVID-19 specifically for those commuting to and from their workplace. Below, we visualized the percent decline in total ridership for the stations in each location.</p>
 <p><em><strong>Note:</strong> Interactive maps must be viewed in Jupyter Notebook. Hover over circles to view the percent decline in ridership per station.</em></p>
-</section>
 <section id="downtown-san-francisco">
-<h3>Downtown San Francisco<a class="headerlink" href="#downtown-san-francisco" title="Permalink to this heading">#</a></h3>
-<p><a class="reference external" href="https://stat159.datahub.berkeley.edu/user/wahlen/files/project-Group23/figures/SF_interactive_map.html?_xsrf=2%7C6b1c38f8%7Cb95684cfb72c9b4f04fc0a08c2e9717c%7C1683498600">Open interactive map in new tab</a></p>
+<h4>Downtown San Francisco<a class="headerlink" href="#downtown-san-francisco" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;figures/SF_interactive_map.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -485,13 +473,12 @@ document.write(`
             src="figures/SF_interactive_map.html"
             frameborder="0"
             allowfullscreen
-            
         ></iframe>
         </div></div>
 </div>
+</section>
 <section id="berkeley">
 <h4>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h4>
-<p><a class="reference external" href="https://stat159.datahub.berkeley.edu/user/wahlen/files/project-Group23/figures/berkeley_interactive_map.html?_xsrf=2%7C6b1c38f8%7Cb95684cfb72c9b4f04fc0a08c2e9717c%7C1683498600">Open interactive map in new tab</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;figures/berkeley_interactive_map.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -506,15 +493,92 @@ document.write(`
             src="figures/berkeley_interactive_map.html"
             frameborder="0"
             allowfullscreen
-            
         ></iframe>
         </div></div>
 </div>
 </section>
 </section>
 </section>
-<section id="jingya-s-plots">
-<h2>Jingya’s plots<a class="headerlink" href="#jingya-s-plots" title="Permalink to this heading">#</a></h2>
+<section id="analysis-of-standard-deviation-of-traffic-data">
+<h2>Analysis of Standard Deviation of Traffic Data<a class="headerlink" href="#analysis-of-standard-deviation-of-traffic-data" title="Permalink to this heading">#</a></h2>
+<p>This part of the analysis focuses specfically on the standard deviation of the Traffic Data. The Standard Deviation is a statistical measure that quantifies the amount of dispersion or spread of a dataset around its mean. By analyzing the Standard Deviation of the Bart traffic data, we can gain insights into the degree of fluctuation in the number of commuters across different time interval.</p>
+<section id="standard-deviation-of-exit-station-across-time-weekday-vs-weekends">
+<h3>1. Standard Deviation of Exit Station across time: Weekday vs Weekends<a class="headerlink" href="#standard-deviation-of-exit-station-across-time-weekday-vs-weekends" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;./figures/Std_Weekdays_vs_Weekends.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/15a46be6863c71bdc9c670c9a0cfeeffb68912f7080295759622913b8d70b79b.png" src="_images/15a46be6863c71bdc9c670c9a0cfeeffb68912f7080295759622913b8d70b79b.png" />
+</div>
+</div>
+<p>We can see here that Weekdays traffic has the least amount of dispersion while Saturday data has the most amount of dispersion. Moreover, the darker red dots distributes in mostly same places in the Saturday graph and the Sunday graph.</p>
+<p>Stations such as Civic Center(CC) and Embarcadero(EM) has a significant increase on fluctuation from Weekday plot to Weekends plot(see the darker shade of the verticle lines), which infers that these station are located at commerical areas with an inconsistent and flexable traffic flows. We will further investigate this idea and later use this piece of information later where we designate stations to different types of land use.</p>
+<p>To further illustrate our points, we calculate the standard deviation of total average daily traffic on weekdays and on weekends, from 2016 to 2018.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Weekday : 13383.409247592897
+Saturday : 18888.234318365146
+Sunday : 16897.5775013141
+</pre></div>
+</div>
+<p>As expected, we draw the same conclusion as the station-wise graph, which is that Saturday’s traffic flow is the most fluctant, and Weekday’s traffic is the least. The difference in the standard deviation of traffic between weekdays and weekends can be attributed to several factors related to human behavior and routines.</p>
+<ul class="simple">
+<li><p>Consistent Work/School Schedule: Weekdays typically follow a structured work or school schedule for a significant portion of the population. Commuters tend to have regular routines and predictable travel patterns, resulting in more consistent traffic patterns. This regularity leads to less variability in the number of commuters and subsequently a smaller standard deviation.</p></li>
+<li><p>Reduced Commuter Variety: On weekends, the composition of commuters may vary significantly compared to weekdays. Weekends often see a mix of different activities such as leisure, recreation, and personal errands. This variety in commuter types and purposes can lead to a wider range of traffic patterns, resulting in a larger standard deviation.</p></li>
+<li><p>Time Flexibility: On weekends, people often have more flexibility in choosing their travel times. This flexibility can lead to a more dispersed distribution of commuter traffic throughout the day, resulting in a higher standard deviation compared to weekdays when rush hours and specific work/school schedules dominate the traffic patterns.</p></li>
+<li><p>Reduced Rush Hour Effects: Weekdays usually have distinct rush hours when a significant number of commuters travel to and from work or school simultaneously. These peak hours can create a more concentrated and predictable traffic flow, leading to a smaller standard deviation. On weekends, the absence or less pronounced rush hour effects can contribute to a higher standard deviation.</p></li>
+</ul>
+<p>Overall, the combination of regular work/school schedules, reduced commuter variety, predictable rush hours, and the more structured nature of weekdays contributes to a smaller standard deviation in traffic. Conversely, the increased flexibility, variety of activities, and reduced rush hour effects on weekends tend to result in a larger standard deviation in traffic patterns.</p>
+</section>
+<section id="which-stations-have-the-most-fluctant-traffic">
+<h3>2. Which Stations have the most fluctant traffic?<a class="headerlink" href="#which-stations-have-the-most-fluctant-traffic" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;./figures/Std_Sum_Weekend_Stationwise.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8bbe3a77e233aecc1548dc4347b5a780f52251906068b6e0f231c3262db3228d.png" src="_images/8bbe3a77e233aecc1548dc4347b5a780f52251906068b6e0f231c3262db3228d.png" />
+</div>
+</div>
+<p>We sum up the traffic data from year 2015 to 2018, and based on the previous analysis, filter out only the weekend data. After calculating the standard devation based on stations, we found out the stations with the most the most fluctant traffic are all located at Downtown San Francisco with one exception(<code class="docutils literal notranslate"><span class="pre">CC</span></code>). Namely, these four stations:</p>
+<ul class="simple">
+<li><p>Civic Center (<code class="docutils literal notranslate"><span class="pre">CC</span></code>)</p></li>
+<li><p>Embarcadero (<code class="docutils literal notranslate"><span class="pre">EM</span></code>)</p></li>
+<li><p>Montgomery Street (<code class="docutils literal notranslate"><span class="pre">MT</span></code>)</p></li>
+<li><p>Powell Street(<code class="docutils literal notranslate"><span class="pre">PL</span></code>)</p></li>
+</ul>
+<p>As we can see, all of these locations are located at the San Francisco CBD, which begs the question: Is there a correlation between the type of land use of a station and its level of fluctuation of traffic?</p>
+<p>We choose four different categories of land use with the following stations:</p>
+<ul class="simple">
+<li><p>Commercial Usage, with the most representative region being the San Francisco CBD. This category contains four station:</p>
+<ul>
+<li><p>Civic Center(<code class="docutils literal notranslate"><span class="pre">CC</span></code>)</p></li>
+<li><p>Embarcadero(<code class="docutils literal notranslate"><span class="pre">EM</span></code>)</p></li>
+<li><p>Montgomery Street(<code class="docutils literal notranslate"><span class="pre">MT</span></code>)</p></li>
+<li><p>Powell Street(<code class="docutils literal notranslate"><span class="pre">PL</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Academic Usage, with the most representative region being those surronding Berkeley campus. This category contains two station:</p>
+<ul>
+<li><p>Downtown Berkeley(<code class="docutils literal notranslate"><span class="pre">BK</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Mixed Usage, with Oakland as a representation since it has a nice mixture of residential and commercial areas. This category contains:</p>
+<ul>
+<li><p>[‘AS’, ‘MA’, 19, 12, ‘OW’]</p></li>
+</ul>
+</li>
+<li><p>Transport Usage, with two station of international airport:</p>
+<ul>
+<li><p>Oakland International Airport(<code class="docutils literal notranslate"><span class="pre">OA</span></code>)</p></li>
+<li><p>San Francisco International Airport(<code class="docutils literal notranslate"><span class="pre">SO</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 <section id="analysis-of-ridership-of-stations-with-different-land-use">
 <h2>Analysis of ridership of stations with different land use<a class="headerlink" href="#analysis-of-ridership-of-stations-with-different-land-use" title="Permalink to this heading">#</a></h2>
@@ -762,19 +826,21 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Effects of COVID-19 on Bart Ridership</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jingya-s-plots">Jingya’s plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-standard-deviation-of-traffic-data">Analysis of Standard Deviation of Traffic Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-of-exit-station-across-time-weekday-vs-weekends">1. Standard Deviation of Exit Station across time: Weekday vs Weekends</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-stations-have-the-most-fluctant-traffic">2. Which Stations have the most fluctant traffic?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ridership-of-stations-with-different-land-use">Analysis of ridership of stations with different land use</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco-cbd-commertial-land-use">1. San Francisco CBD (Commertial Land Use)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley-academic-land-use">2. Berkeley (Academic Land Use)</a></li>
@@ -790,9 +856,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

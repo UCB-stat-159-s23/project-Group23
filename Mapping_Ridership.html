@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Mapping_Ridership';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Analysis of ridership of stations with different land use" href="Analysis%20of%20ridership%20of%20stations%20with%20different%20land%20use.html" />
-    <link rel="prev" title="The Effects of COVID-19 on Bart Ridership" href="main.html" />
+    <link rel="next" title="Data Analyzing: Standard Deviation of Traffic" href="Ridership_Standard_Deviation_Analysis.html" />
+    <link rel="prev" title="Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley" href="main.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,11 +157,11 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="main.html">The Effects of COVID-19 on Bart Ridership</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="main.html">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Import data</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="Analysis%20of%20ridership%20of%20stations%20with%20different%20land%20use.html">Analysis of ridership of stations with different land use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ridership_Standard_Deviation_Analysis.html">Data Analyzing: Standard Deviation of Traffic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Analysis_of_Ridership_of_Stations_with_Different_Land_Use.html">Analysis of ridership of stations with different land use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html">Import Data</a></li>
 
 </ul>
@@ -389,6 +389,19 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /srv/conda/envs/notebook/lib/python3.10/site-packages (3.1.2)
+Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python3.10/site-packages (from openpyxl) (1.1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">folium</span>
@@ -610,7 +623,7 @@ dtype: float64
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_7b1c3c767ae8973a5bfcb3a14f387328 {
+                #map_0ea21e29897bf8d9c01e6502f0dd22cd {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -624,14 +637,14 @@ dtype: float64
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_7b1c3c767ae8973a5bfcb3a14f387328&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_0ea21e29897bf8d9c01e6502f0dd22cd&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_7b1c3c767ae8973a5bfcb3a14f387328 = L.map(
-                &quot;map_7b1c3c767ae8973a5bfcb3a14f387328&quot;,
+            var map_0ea21e29897bf8d9c01e6502f0dd22cd = L.map(
+                &quot;map_0ea21e29897bf8d9c01e6502f0dd22cd&quot;,
                 {
                     center: [37.78656375, -122.4051605],
                     crs: L.CRS.EPSG3857,
@@ -645,19 +658,19 @@ dtype: float64
 
         
     
-            var tile_layer_fb74c033fa8fe948beaeb53598d5a09b = L.tileLayer(
+            var tile_layer_2c70ce7ae4004f34b191d72d06fe09e4 = L.tileLayer(
                 &quot;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://cartodb.com/attributions\&quot;\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\&quot;_blank\&quot; href =\&quot;http://cartodb.com/attributions\&quot;\u003eattributions\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
+            ).addTo(map_0ea21e29897bf8d9c01e6502f0dd22cd);
         
     
-            var circle_8f26a2eb445a43dcc4bfb29fae8e3fe2 = L.circle(
+            var circle_d81044649188fae82a88c67d20fa9646 = L.circle(
                 [37.7929, -122.397],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 160.57382898379996, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
+            ).addTo(map_0ea21e29897bf8d9c01e6502f0dd22cd);
         
     
-            circle_8f26a2eb445a43dcc4bfb29fae8e3fe2.bindTooltip(
+            circle_d81044649188fae82a88c67d20fa9646.bindTooltip(
                 `&lt;div&gt;
                      Embarcadero: -80%
                  &lt;/div&gt;`,
@@ -665,13 +678,13 @@ dtype: float64
             );
         
     
-            var circle_aeb1446f5e06cadca92afb153f9cd7ed = L.circle(
+            var circle_9031fd62d94f4127b62dae901ce5a08c = L.circle(
                 [37.789355, -122.401942],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 167.45359684623233, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
+            ).addTo(map_0ea21e29897bf8d9c01e6502f0dd22cd);
         
     
-            circle_aeb1446f5e06cadca92afb153f9cd7ed.bindTooltip(
+            circle_9031fd62d94f4127b62dae901ce5a08c.bindTooltip(
                 `&lt;div&gt;
                      Montgomery Street: -84%
                  &lt;/div&gt;`,
@@ -679,13 +692,13 @@ dtype: float64
             );
         
     
-            var circle_6babdad6521888fae42dd97c64c48597 = L.circle(
+            var circle_4fac2c5bc5c9c1adcaaa42d3540729ee = L.circle(
                 [37.7844, -122.408],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 142.648575322842, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
+            ).addTo(map_0ea21e29897bf8d9c01e6502f0dd22cd);
         
     
-            circle_6babdad6521888fae42dd97c64c48597.bindTooltip(
+            circle_4fac2c5bc5c9c1adcaaa42d3540729ee.bindTooltip(
                 `&lt;div&gt;
                      Powell Street: -71%
                  &lt;/div&gt;`,
@@ -693,13 +706,13 @@ dtype: float64
             );
         
     
-            var circle_9d92a0d9819e843a2f019a4bd0bd5fe1 = L.circle(
+            var circle_f7760d7fb2ef5a6cb6c67fc5daacf4e4 = L.circle(
                 [37.7796, -122.4137],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 148.93126535325325, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
+            ).addTo(map_0ea21e29897bf8d9c01e6502f0dd22cd);
         
     
-            circle_9d92a0d9819e843a2f019a4bd0bd5fe1.bindTooltip(
+            circle_f7760d7fb2ef5a6cb6c67fc5daacf4e4.bindTooltip(
                 `&lt;div&gt;
                      Civic Center: -74%
                  &lt;/div&gt;`,
@@ -838,7 +851,7 @@ dtype: float64
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_fcd60e9de3ccd7134f4fdc2492d9232c {
+                #map_593579d5b283382b80ba41230fe95f41 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -852,14 +865,14 @@ dtype: float64
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_fcd60e9de3ccd7134f4fdc2492d9232c&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_593579d5b283382b80ba41230fe95f41&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_fcd60e9de3ccd7134f4fdc2492d9232c = L.map(
-                &quot;map_fcd60e9de3ccd7134f4fdc2492d9232c&quot;,
+            var map_593579d5b283382b80ba41230fe95f41 = L.map(
+                &quot;map_593579d5b283382b80ba41230fe95f41&quot;,
                 {
                     center: [37.8715, -122.273],
                     crs: L.CRS.EPSG3857,
@@ -873,19 +886,19 @@ dtype: float64
 
         
     
-            var tile_layer_027914c99b66e3ba2cba493b86e7b4a1 = L.tileLayer(
+            var tile_layer_03a6144a0eae8da96813ec6c8fc09bba = L.tileLayer(
                 &quot;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://cartodb.com/attributions\&quot;\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\&quot;_blank\&quot; href =\&quot;http://cartodb.com/attributions\&quot;\u003eattributions\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_fcd60e9de3ccd7134f4fdc2492d9232c);
+            ).addTo(map_593579d5b283382b80ba41230fe95f41);
         
     
-            var circle_1654003ebca727c697f667396fd200a6 = L.circle(
+            var circle_46f5011b58a7a2a2de8da5a2de796ff4 = L.circle(
                 [37.8701, -122.2681],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;teal&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;teal&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 427.91588936938547, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_fcd60e9de3ccd7134f4fdc2492d9232c);
+            ).addTo(map_593579d5b283382b80ba41230fe95f41);
         
     
-            circle_1654003ebca727c697f667396fd200a6.bindTooltip(
+            circle_46f5011b58a7a2a2de8da5a2de796ff4.bindTooltip(
                 `&lt;div&gt;
                      Downtown Berkeley: -71%
                  &lt;/div&gt;`,
@@ -893,13 +906,13 @@ dtype: float64
             );
         
     
-            var circle_cd108808666558ccf56b84a3eb727da5 = L.circle(
+            var circle_59f3208aae821edb9d38aeae73e0d0c8 = L.circle(
                 [37.874, -122.2834],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;teal&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;teal&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 448.54621765045437, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_fcd60e9de3ccd7134f4fdc2492d9232c);
+            ).addTo(map_593579d5b283382b80ba41230fe95f41);
         
     
-            circle_cd108808666558ccf56b84a3eb727da5.bindTooltip(
+            circle_59f3208aae821edb9d38aeae73e0d0c8.bindTooltip(
                 `&lt;div&gt;
                      North Berkeley: -75%
                  &lt;/div&gt;`,
@@ -959,15 +972,15 @@ dtype: float64
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The Effects of COVID-19 on Bart Ridership</p>
+        <p class="prev-next-title">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</p>
       </div>
     </a>
     <a class="right-next"
-       href="Analysis%20of%20ridership%20of%20stations%20with%20different%20land%20use.html"
+       href="Ridership_Standard_Deviation_Analysis.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Analysis of ridership of stations with different land use</p>
+        <p class="prev-next-title">Data Analyzing: Standard Deviation of Traffic</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
