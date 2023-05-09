@@ -362,8 +362,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
 </ul>
 </li>
@@ -414,6 +414,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_299/4087572653.py:6: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+  from IPython.core.display import display, Image
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -461,8 +467,10 @@ document.write(`
 <h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h3>
 <p>To begin understanding trends in Bart ridership during COVID-19, we narrowed our focus to two locations: Downtown San Francisco and Berkeley. We chose these locations to better understand Bart ridership changed prior to and post COVID-19 specifically for those commuting to and from their workplace. Below, we visualized the percent decline in total ridership for the stations in each location.</p>
 <p><em><strong>Note:</strong> Interactive maps must be viewed in Jupyter Notebook. Hover over circles to view the percent decline in ridership per station.</em></p>
+</section>
 <section id="downtown-san-francisco">
-<h4>Downtown San Francisco<a class="headerlink" href="#downtown-san-francisco" title="Permalink to this heading">#</a></h4>
+<h3>Downtown San Francisco<a class="headerlink" href="#downtown-san-francisco" title="Permalink to this heading">#</a></h3>
+<p><a class="reference external" href="https://stat159.datahub.berkeley.edu/user/wahlen/files/project-Group23/figures/SF_interactive_map.html?_xsrf=2%7C6b1c38f8%7Cb95684cfb72c9b4f04fc0a08c2e9717c%7C1683498600">Open interactive map in new tab</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;figures/SF_interactive_map.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -481,9 +489,9 @@ document.write(`
         ></iframe>
         </div></div>
 </div>
-</section>
 <section id="berkeley">
 <h4>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://stat159.datahub.berkeley.edu/user/wahlen/files/project-Group23/figures/berkeley_interactive_map.html?_xsrf=2%7C6b1c38f8%7Cb95684cfb72c9b4f04fc0a08c2e9717c%7C1683498600">Open interactive map in new tab</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;figures/berkeley_interactive_map.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -759,8 +767,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
 </ul>
 </li>
