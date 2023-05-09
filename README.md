@@ -4,6 +4,7 @@ This is a Reproducible Research Package utilizing [BART Ridership data](https://
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group23.git/HEAD?labpath=main.ipynb)
 
+<<<<<<< HEAD
 Link to the JupyterBook: ______
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/LiaEl886)
 
@@ -12,3 +13,6 @@ This is a Reproducible Research Package utilizing [BART Ridership data](https://
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group23.git/HEAD?labpath=main.ipynb)
 
 Link to the JupyterBook: ______
+=======
+Link to the JupyterBook: https://ucb-stat-159-s23.github.io/project-Group23/
+>>>>>>> cc44bdbef1779d7b00a9093863be017b722f9b6c

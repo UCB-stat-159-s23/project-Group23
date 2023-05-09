@@ -1,0 +1,10 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: main
+- file: Mapping_Ridership
+- file: Analysis of ridership of stations with different land use
+- file: Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data

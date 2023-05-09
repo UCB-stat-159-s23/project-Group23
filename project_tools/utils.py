@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import calendar
 import os
+import re
+import folium
 
 def monthly_weekday_counts(entry_station, exit_station, start_year, end_year):
     
@@ -89,7 +91,7 @@ def annual_arrival_trips(year, station):
 
 
 
-def calc_stn_perc_diffs(pre_covid_df, post_covid_df, stn_names):
+def calc_stn_perc_diffs(pre_covid_df, post_covid_df):
 
     ''' 
     Calculates the sum of the entry ridership at each given station
@@ -106,8 +108,8 @@ def calc_stn_perc_diffs(pre_covid_df, post_covid_df, stn_names):
     perc_diffs: an array containing the percent change in ridership per station.
     '''
 
-    pre_covid_sums = np.sum(pre_covid_df[stn_names])
-    post_covid_sums = np.sum(post_covid_df[stn_names])
+    pre_covid_sums = np.sum(pre_covid_df)
+    post_covid_sums = np.sum(post_covid_df)
     perc_diffs = (post_covid_sums - pre_covid_sums) / pre_covid_sums * 100
     return perc_diffs
 
@@ -139,6 +141,7 @@ def add_markers_to_map(mapping_df, scale, color, folium_map):
           fill=True,
           fill_color=color
        ).add_to(folium_map)
+<<<<<<< HEAD
     return folium_mapimport numpy as np
 import pandas as pd
 import calendar
@@ -281,3 +284,68 @@ def add_markers_to_map(mapping_df, scale, color, folium_map):
           fill_color=color
        ).add_to(folium_map)
     return folium_map
+=======
+    return folium_map
+
+month_mapping = {
+    "January": 1,
+    "February": 2,
+    "March": 3,
+    "April": 4,
+    "May": 5,
+    "June": 6,
+    "July": 7,
+    "August": 8,
+    "September": 9,
+    "October": 10,
+    "November": 11,
+    "December": 12
+}
+
+def getMonthAndYear(filename):
+    """
+    This function extract Year and Month from filename with regular expression.
+    Parameter: 
+    filename (String): The name of the data file, "Ridership_202105.xlsx" for instance.
+    Returns:
+    (year, month): return the extracted year and month as a pair.
+    """
+    match1 = re.search(r'Ridership_(\d{4})(\d{2})', filename)
+    match2 = re.search(r'Ridership_([A-Za-z]+)(\d{4})', filename)
+    year, month = -1, -1
+    if match1:
+        year = int(match1.group(1))
+        month = int(match1.group(2))
+    elif match2:
+        year = int(match2.group(2))
+        month = month_mapping[match2.group(1)]
+    else:
+        print("File name: " + filename + " does not fit any regular expression patterns")
+    return year, month
+
+def loadData(year): 
+    """
+    This function open the folder of which the transit data during a certain year is stored and load them into a dataframe. 
+    Parameter:
+    year (int): The year of which data should be loaded
+    Return: 
+    combined_data (Pandas.DataFrame) The dataframe which contains all the data in that year
+    """
+    combined_data = pd.DataFrame()
+    directory = f"Data/ridership_{year}"
+    for filename in os.listdir(directory):
+        if filename.endswith(".xlsx"):
+            file_path = os.path.join(directory, filename)
+            xlsx_data = pd.read_excel(file_path, sheet_name=None, skiprows=1)
+            for sheet_name, df in xlsx_data.items():
+                df['Sheet Name'] = sheet_name
+                (year, month) = getMonthAndYear(filename)
+                df['Year'] = year
+                df['Month'] = month
+                combined_data = pd.concat([combined_data, df], ignore_index=False)
+    stringName = {col: str(col) for col in combined_data.columns if not isinstance(col, str)}
+    combined_data =combined_data.rename(columns=stringName)
+    combined_data = combined_data.rename(columns={'Unnamed: 0': 'Exit Station'})
+    combined_data['Exit Station'] = combined_data['Exit Station'].astype(str)
+    return combined_data
+>>>>>>> cc44bdbef1779d7b00a9093863be017b722f9b6c
