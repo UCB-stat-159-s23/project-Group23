@@ -415,6 +415,18 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>trust<span class="w"> </span>Mapping_Ridership.ipynb
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Signing notebook: Mapping_Ridership.ipynb
+</pre></div>
+</div>
+</div>
+</div>
 <section class="tex2jax_ignore mathjax_ignore" id="the-effects-of-covid-19-on-bart-ridership">
 <h1>The Effects of COVID-19 on Bart Ridership<a class="headerlink" href="#the-effects-of-covid-19-on-bart-ridership" title="Permalink to this heading">#</a></h1>
 </section>
@@ -458,7 +470,131 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">figures/SF_interactive_map.html</div></div>
+<div class="output text_html"><!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_66381e9398b1c45ee180a8de24487e39 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_66381e9398b1c45ee180a8de24487e39" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_66381e9398b1c45ee180a8de24487e39 = L.map(
+                "map_66381e9398b1c45ee180a8de24487e39",
+                {
+                    center: [37.78656375, -122.4051605],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0a6b91c6b16d46497fa711d039bff9d8 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_66381e9398b1c45ee180a8de24487e39);
+        
+    
+            var circle_b51b3e5869364bdc080868e873f1499e = L.circle(
+                [37.7929, -122.397],
+                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 172.3493433945421, "stroke": true, "weight": 3}
+            ).addTo(map_66381e9398b1c45ee180a8de24487e39);
+        
+    
+            circle_b51b3e5869364bdc080868e873f1499e.bindTooltip(
+                `<div>
+                     Embarcadero: -86%
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_e95c66f843aa5af3179a745a7b34b6cd = L.circle(
+                [37.789355, -122.401942],
+                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 176.18052736766316, "stroke": true, "weight": 3}
+            ).addTo(map_66381e9398b1c45ee180a8de24487e39);
+        
+    
+            circle_e95c66f843aa5af3179a745a7b34b6cd.bindTooltip(
+                `<div>
+                     Montgomery Street: -88%
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_142e7c473f0952e6b2299adc956a98d7 = L.circle(
+                [37.7844, -122.408],
+                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 149.50210134646787, "stroke": true, "weight": 3}
+            ).addTo(map_66381e9398b1c45ee180a8de24487e39);
+        
+    
+            circle_142e7c473f0952e6b2299adc956a98d7.bindTooltip(
+                `<div>
+                     Powell Street: -75%
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_f95821a13457a80e3f490a577bb4a00d = L.circle(
+                [37.7796, -122.4137],
+                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 155.26841228623744, "stroke": true, "weight": 3}
+            ).addTo(map_66381e9398b1c45ee180a8de24487e39);
+        
+    
+            circle_f95821a13457a80e3f490a577bb4a00d.bindTooltip(
+                `<div>
+                     Civic Center: -78%
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html></div></div>
 </div>
 </section>
 <section id="berkeley">
@@ -497,7 +633,7 @@ document.write(`
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_a638622b9b94ac194fa28f432dcfbeb7 {
+                #map_59ac786e2a0d94285a7ed4372b99c07f {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -511,14 +647,14 @@ document.write(`
 <body>
     
     
-            <div class="folium-map" id="map_a638622b9b94ac194fa28f432dcfbeb7" ></div>
+            <div class="folium-map" id="map_59ac786e2a0d94285a7ed4372b99c07f" ></div>
         
 </body>
 <script>
     
     
-            var map_a638622b9b94ac194fa28f432dcfbeb7 = L.map(
-                "map_a638622b9b94ac194fa28f432dcfbeb7",
+            var map_59ac786e2a0d94285a7ed4372b99c07f = L.map(
+                "map_59ac786e2a0d94285a7ed4372b99c07f",
                 {
                     center: [37.8715, -122.273],
                     crs: L.CRS.EPSG3857,
@@ -532,19 +668,19 @@ document.write(`
 
         
     
-            var tile_layer_d2383efecd2f3b04f786733f7dde1568 = L.tileLayer(
+            var tile_layer_0937d27f9a6f06ce8d2283398c14275f = L.tileLayer(
                 "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_a638622b9b94ac194fa28f432dcfbeb7);
+            ).addTo(map_59ac786e2a0d94285a7ed4372b99c07f);
         
     
-            var circle_d4526a503d9121028b8bcedcd9006dab = L.circle(
+            var circle_aae254dd85a42a2b5880f664dc009da7 = L.circle(
                 [37.8701, -122.2681],
-                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 298.37073160901593, "stroke": true, "weight": 3}
-            ).addTo(map_a638622b9b94ac194fa28f432dcfbeb7);
+                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 447.5560974135239, "stroke": true, "weight": 3}
+            ).addTo(map_59ac786e2a0d94285a7ed4372b99c07f);
         
     
-            circle_d4526a503d9121028b8bcedcd9006dab.bindTooltip(
+            circle_aae254dd85a42a2b5880f664dc009da7.bindTooltip(
                 `<div>
                      Downtown Berkeley: -75%
                  </div>`,
@@ -552,13 +688,13 @@ document.write(`
             );
         
     
-            var circle_4a52558cd5a0550bbb84687b9f78bb1f = L.circle(
+            var circle_ca0e65f2d07bbd2f64d8bf6734530a5a = L.circle(
                 [37.874, -122.2834],
-                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 319.223472724945, "stroke": true, "weight": 3}
-            ).addTo(map_a638622b9b94ac194fa28f432dcfbeb7);
+                {"bubblingMouseEvents": true, "color": "crimson", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "crimson", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 478.8352090874175, "stroke": true, "weight": 3}
+            ).addTo(map_59ac786e2a0d94285a7ed4372b99c07f);
         
     
-            circle_4a52558cd5a0550bbb84687b9f78bb1f.bindTooltip(
+            circle_ca0e65f2d07bbd2f64d8bf6734530a5a.bindTooltip(
                 `<div>
                      North Berkeley: -80%
                  </div>`,
@@ -587,7 +723,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4237eb7a1e2edb62c5ac755c2ef44beacc4588c5142f0e17b7ac4bc93b56881b.jpg" src="_images/4237eb7a1e2edb62c5ac755c2ef44beacc4588c5142f0e17b7ac4bc93b56881b.jpg" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;function&#39; object has no attribute &#39;Image&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>In the previous sections, we discussed the travel volumes of the stations, but it is not clear how much of a difference there is before and after the pandemic. To address this, in this section, we calculate the arrival trip ratio relative to the peak arrival trip volumes of the past 5 years.</p>
@@ -597,9 +740,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/aabc17880adfb1a1f5a1d2c4036d91eb4f8b76ef610203a9ff931905f7887dcf.jpg" src="_images/aabc17880adfb1a1f5a1d2c4036d91eb4f8b76ef610203a9ff931905f7887dcf.jpg" />
 </div>
 </div>
 </section>
@@ -612,9 +752,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/026c98f8941a8ad6e286ffe307d4dfb9bb674ffcbc79f335331f1a319b7ea5ce.jpg" src="_images/026c98f8941a8ad6e286ffe307d4dfb9bb674ffcbc79f335331f1a319b7ea5ce.jpg" />
-</div>
 </div>
 <p>Next, looking at the stations in Berkeley, the pattern is similar to the one observed above. We were assuming that the ridership growth rate might be faster than the commercial area because students need to go back to campus. However, the ridership in Berkeley does not grow faster comparing to the commercial areas. This might be because of the recording of the classes. After the pandemics, many classes starts to provide lecture recordings that student might not need to go to the campus but can finish the course wherever they can connect to the internet. As a result, the ridership is less comparing to pre-pandemic period.</p>
 <div class="cell docutils container">
@@ -622,9 +759,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/65d04017212307acfa32931bf58f05c2631d39db8e94c857a2ec8ff213f2a4ca.jpg" src="_images/65d04017212307acfa32931bf58f05c2631d39db8e94c857a2ec8ff213f2a4ca.jpg" />
 </div>
 </div>
 </section>
@@ -637,9 +771,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/fa32904c5bdd33ddcff903c580ec4376c8a7545b91acadff470636fb0031c22c.jpg" src="_images/fa32904c5bdd33ddcff903c580ec4376c8a7545b91acadff470636fb0031c22c.jpg" />
-</div>
 </div>
 <p>Similar to the patterns shown above, the ridership rate started to grow after the pandemic. However, the amount of the trips is still far less than pre-COVID level (about 40%).</p>
 <div class="cell docutils container">
@@ -647,9 +778,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Oakland Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/852519174c339ea5fa64bc7b25b0a6c43abdbb2ce807f6f1347e4007be7aa665.jpg" src="_images/852519174c339ea5fa64bc7b25b0a6c43abdbb2ce807f6f1347e4007be7aa665.jpg" />
 </div>
 </div>
 </section>
@@ -662,9 +790,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/adb25a0905cab2afb235a9de43f48751f6341383cc86cc213d725a1beaab0754.jpg" src="_images/adb25a0905cab2afb235a9de43f48751f6341383cc86cc213d725a1beaab0754.jpg" />
-</div>
 </div>
 <p>The stations at the airports show a faster growing pattern than the rest of the stations. This indicates the importance of the connection between public transits.</p>
 <div class="cell docutils container">
@@ -672,9 +797,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Airport Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/0ca65ce7f5f15f7f743446afd894ea01140630bf176c5eceacd4c12296bfb1a4.jpg" src="_images/0ca65ce7f5f15f7f743446afd894ea01140630bf176c5eceacd4c12296bfb1a4.jpg" />
 </div>
 </div>
 </section>
@@ -695,18 +817,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/08cfa33b2b286e1e6b13a1e22f1b24bc497c0f383ade1eb2e85ddc8847252459.png" src="_images/08cfa33b2b286e1e6b13a1e22f1b24bc497c0f383ade1eb2e85ddc8847252459.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Log_Ridership.png&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/abfc3983bb9a34f80f255038ca59817befc2c079d55c1f5fc610fb4880f1cf61.png" src="_images/abfc3983bb9a34f80f255038ca59817befc2c079d55c1f5fc610fb4880f1cf61.png" />
 </div>
 </div>
 <p>Based on the plots above, there appears to be an annual seasonality with the peak around summer and the trough around winter. In general, there is an increasing trend observed throughout 2010-2015, but it gradually declines afterwards. The variance of ridership over time has been steady, although the variances for the years 2014-2016 are larger than those of other years. To standardize the variance of the data, a Log Transformation has been applied.</p>
@@ -716,9 +832,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Modeling.png&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/90a8bacbe33439cad4b515cb160a4bdd3e6c21478c9adde6f575ecbd48153763.png" src="_images/90a8bacbe33439cad4b515cb160a4bdd3e6c21478c9adde6f575ecbd48153763.png" />
 </div>
 </div>
 </section>
@@ -731,9 +844,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/fd03c0d00aed69799fdc79857f3d85ee2321e8994d85f79fcdff8b9e4782d8bf.png" src="_images/fd03c0d00aed69799fdc79857f3d85ee2321e8994d85f79fcdff8b9e4782d8bf.png" />
-</div>
 </div>
 </section>
 <section id="id1">
@@ -744,9 +854,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Difference.png&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/4ca60a1a276f1066a356db1bb35b7c9a8ba7d80d693ac50ee9d0fa5ae3954703.png" src="_images/4ca60a1a276f1066a356db1bb35b7c9a8ba7d80d693ac50ee9d0fa5ae3954703.png" />
 </div>
 </div>
 </section>
