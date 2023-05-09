@@ -158,13 +158,17 @@ month_mapping = {
     "December": 12
 }
 
-def getMonthAndYear(filename):
+def get_month_and_year(filename):
     """
     This function extract Year and Month from filename with regular expression.
     Parameter: 
-    filename (String): The name of the data file, "Ridership_202105.xlsx" for instance.
+    ----------
+    filename (String): 
+        The name of the data file, "Ridership_202105.xlsx" for instance.
     Returns:
-    (year, month): return the extracted year and month as a pair.
+    ----------
+    (year, month): 
+        return the extracted year and month as a pair.
     """
     match1 = re.search(r'Ridership_(\d{4})(\d{2})', filename)
     match2 = re.search(r'Ridership_([A-Za-z]+)(\d{4})', filename)
@@ -179,13 +183,17 @@ def getMonthAndYear(filename):
         print("File name: " + filename + " does not fit any regular expression patterns")
     return year, month
 
-def loadData(year): 
+def load_data(year): 
     """
     This function open the folder of which the transit data during a certain year is stored and load them into a dataframe. 
     Parameter:
-    year (int): The year of which data should be loaded
+    ----------
+    year (int): 
+        The year of which data should be loaded
     Return: 
-    combined_data (Pandas.DataFrame) The dataframe which contains all the data in that year
+    ----------
+    combined_data 
+        (Pandas.DataFrame) The dataframe which contains all the data in that year
     """
     combined_data = pd.DataFrame()
     directory = f"Data/ridership_{year}"
@@ -195,7 +203,7 @@ def loadData(year):
             xlsx_data = pd.read_excel(file_path, sheet_name=None, skiprows=1)
             for sheet_name, df in xlsx_data.items():
                 df['Sheet Name'] = sheet_name
-                (year, month) = getMonthAndYear(filename)
+                (year, month) = get_month_and_year(filename)
                 df['Year'] = year
                 df['Month'] = month
                 combined_data = pd.concat([combined_data, df], ignore_index=False)
