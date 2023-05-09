@@ -26,4 +26,3 @@ To test the data, enter the following commands in your terminal:\
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group23.git/HEAD?labpath=main.ipynb)
 
 Link to the JupyterBook: https://ucb-stat-159-s23.github.io/project-Group23/
->>>>>>> cc44bdbef1779d7b00a9093863be017b722f9b6c
