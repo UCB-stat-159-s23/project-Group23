@@ -91,7 +91,7 @@ def annual_arrival_trips(year, station):
 
 
 
-def calc_stn_perc_diffs(pre_covid_df, post_covid_df, stn_names):
+def calc_stn_perc_diffs(pre_covid_df, post_covid_df):
 
     ''' 
     Calculates the sum of the entry ridership at each given station
@@ -108,8 +108,8 @@ def calc_stn_perc_diffs(pre_covid_df, post_covid_df, stn_names):
     perc_diffs: an array containing the percent change in ridership per station.
     '''
 
-    pre_covid_sums = np.sum(pre_covid_df[stn_names])
-    post_covid_sums = np.sum(post_covid_df[stn_names])
+    pre_covid_sums = np.sum(pre_covid_df)
+    post_covid_sums = np.sum(post_covid_df)
     perc_diffs = (post_covid_sums - pre_covid_sums) / pre_covid_sums * 100
     return perc_diffs
 
