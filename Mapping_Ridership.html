@@ -357,14 +357,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco">San Francisco</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco">San Francisco</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-total-percent-difference-between-2019-and-2022-for-each-station">Calculate total percent difference between 2019 and 2022 for each station</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">San Francisco</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station">Calculate total percent difference pre and post COVID data for each station</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-percent-differences-on-map">Plot percent differences on map</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Berkeley</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Calculate total percent difference pre and post COVID data for each station</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Plot percent differences on map</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -381,25 +389,11 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /srv/conda/envs/notebook/lib/python3.10/site-packages (3.1.2)
-Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python3.10/site-packages (from openpyxl) (1.1.0)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">folium</span>
-<span class="kn">from</span> <span class="nn">project_tools.utils</span> <span class="kn">import</span> <span class="n">calc_stn_perc_diffs</span><span class="p">,</span> <span class="n">add_markers_to_map</span>
-<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
-<span class="kn">from</span> <span class="nn">streamlit_folium</span> <span class="kn">import</span> <span class="n">st_folium</span><span class="p">,</span> <span class="n">folium_static</span>
+<span class="kn">from</span> <span class="nn">project_tools.utils</span> <span class="kn">import</span> <span class="n">annual_arrival_trips</span><span class="p">,</span> <span class="n">calc_stn_perc_diffs</span><span class="p">,</span> <span class="n">add_markers_to_map</span>
+
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -407,373 +401,86 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 </div>
 <section id="import-data">
 <h1>Import data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h1>
+<section id="san-francisco">
+<h2>San Francisco<a class="headerlink" href="#san-francisco" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stn_names</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data/station-names.xls&#39;</span><span class="p">)</span>
-<span class="n">jan2019</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data/ridership_2019/Ridership_201901.xlsx&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">jan2022</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data/ridership_2022/Ridership_202201.xlsx&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">jan2022</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SF CBD Ridership 2018 - 2022</span>
+
+<span class="n">station</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EM&#39;</span><span class="p">,</span><span class="s1">&#39;MT&#39;</span><span class="p">,</span> <span class="s1">&#39;PL&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">]</span>
+
+<span class="c1"># 2018</span>
+<span class="n">SF_2018</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2018&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="c1"># 2019</span>
+<span class="n">SF_2019</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2019&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="c1"># 2020</span>
+<span class="n">SF_2020</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2020&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="c1"># 2021</span>
+<span class="n">SF_2021</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2021&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="c1"># 2022</span>
+<span class="n">SF_2022</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2022&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="n">SF_pre_covid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">SF_2018</span><span class="p">,</span> <span class="n">SF_2019</span><span class="p">])</span>
+<span class="n">SF_post_covid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">SF_2021</span><span class="p">,</span> <span class="n">SF_2022</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="berkeley">
+<h2>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berkeley Ridership 2018 - 2022</span>
+
+<span class="n">station</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BK&#39;</span><span class="p">,</span> <span class="s1">&#39;NB&#39;</span><span class="p">]</span>
+
+<span class="c1"># 2018</span>
+<span class="n">berk_2018</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2018&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="c1"># 2019</span>
+<span class="n">berk_2019</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2019&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="c1"># 2020</span>
+<span class="n">berk_2020</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2020&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="c1"># 2021</span>
+<span class="n">berk_2021</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2021&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="c1"># 2022</span>
+<span class="n">berk_2022</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2022&#39;</span><span class="p">],</span> <span class="n">station</span><span class="o">=</span><span class="n">station</span><span class="p">)</span>
+
+<span class="n">berk_pre_covid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">berk_2018</span><span class="p">,</span> <span class="n">berk_2019</span><span class="p">])</span>
+<span class="n">berk_post_covid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">berk_2021</span><span class="p">,</span> <span class="n">berk_2022</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="mapping">
+<h1>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h1>
+<section id="id1">
+<h2>San Francisco<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<section id="calculate-total-percent-difference-pre-and-post-covid-data-for-each-station">
+<h3>Calculate total percent difference pre and post COVID data for each station<a class="headerlink" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SF_percent_diffs</span> <span class="o">=</span> <span class="n">calc_stn_perc_diffs</span><span class="p">(</span><span class="n">SF_pre_covid</span><span class="p">,</span> <span class="n">SF_post_covid</span><span class="p">)</span>
+<span class="n">SF_percent_diffs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>RM</th>
-      <th>EN</th>
-      <th>EP</th>
-      <th>NB</th>
-      <th>BK</th>
-      <th>AS</th>
-      <th>MA</th>
-      <th>19</th>
-      <th>12</th>
-      <th>LM</th>
-      <th>FV</th>
-      <th>CL</th>
-      <th>SL</th>
-      <th>BF</th>
-      <th>HY</th>
-      <th>SH</th>
-      <th>UC</th>
-      <th>FM</th>
-      <th>CN</th>
-      <th>PH</th>
-      <th>WC</th>
-      <th>LF</th>
-      <th>OR</th>
-      <th>RR</th>
-      <th>OW</th>
-      <th>EM</th>
-      <th>MT</th>
-      <th>PL</th>
-      <th>CC</th>
-      <th>16</th>
-      <th>24</th>
-      <th>GP</th>
-      <th>BP</th>
-      <th>DC</th>
-      <th>CM</th>
-      <th>CV</th>
-      <th>ED</th>
-      <th>NC</th>
-      <th>WP</th>
-      <th>SS</th>
-      <th>SB</th>
-      <th>SO</th>
-      <th>MB</th>
-      <th>WD</th>
-      <th>OA</th>
-      <th>WS</th>
-      <th>ML</th>
-      <th>BE</th>
-      <th>PC</th>
-      <th>AN</th>
-      <th>Exits</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>RM</th>
-      <td>9.333333</td>
-      <td>50.190476</td>
-      <td>41.619048</td>
-      <td>27.000000</td>
-      <td>140.904762</td>
-      <td>37.619048</td>
-      <td>56.047619</td>
-      <td>40.571429</td>
-      <td>44.000000</td>
-      <td>11.904762</td>
-      <td>40.571429</td>
-      <td>25.047619</td>
-      <td>16.142857</td>
-      <td>7.809524</td>
-      <td>13.952381</td>
-      <td>7.095238</td>
-      <td>6.190476</td>
-      <td>5.904762</td>
-      <td>9.619048</td>
-      <td>3.142857</td>
-      <td>10.380952</td>
-      <td>4.666667</td>
-      <td>3.380952</td>
-      <td>8.952381</td>
-      <td>14.047619</td>
-      <td>128.047619</td>
-      <td>97.523810</td>
-      <td>173.761905</td>
-      <td>102.285714</td>
-      <td>91.428571</td>
-      <td>87.476190</td>
-      <td>20.523810</td>
-      <td>26.285714</td>
-      <td>17.666667</td>
-      <td>9.571429</td>
-      <td>2.619048</td>
-      <td>5.238095</td>
-      <td>1.619048</td>
-      <td>5.285714</td>
-      <td>4.857143</td>
-      <td>9.190476</td>
-      <td>15.523810</td>
-      <td>7.809524</td>
-      <td>2.047619</td>
-      <td>4.476190</td>
-      <td>7.000000</td>
-      <td>3.190476</td>
-      <td>4.142857</td>
-      <td>5.095238</td>
-      <td>6.523810</td>
-      <td>1475.285714</td>
-    </tr>
-    <tr>
-      <th>EN</th>
-      <td>57.666667</td>
-      <td>12.809524</td>
-      <td>40.904762</td>
-      <td>30.857143</td>
-      <td>227.333333</td>
-      <td>41.047619</td>
-      <td>81.714286</td>
-      <td>82.619048</td>
-      <td>112.238095</td>
-      <td>25.047619</td>
-      <td>47.523810</td>
-      <td>34.095238</td>
-      <td>20.000000</td>
-      <td>16.047619</td>
-      <td>19.952381</td>
-      <td>9.714286</td>
-      <td>13.666667</td>
-      <td>12.857143</td>
-      <td>10.809524</td>
-      <td>5.047619</td>
-      <td>13.142857</td>
-      <td>3.285714</td>
-      <td>5.380952</td>
-      <td>11.761905</td>
-      <td>19.190476</td>
-      <td>253.761905</td>
-      <td>196.571429</td>
-      <td>287.476190</td>
-      <td>218.047619</td>
-      <td>96.000000</td>
-      <td>84.857143</td>
-      <td>26.857143</td>
-      <td>31.619048</td>
-      <td>24.761905</td>
-      <td>10.190476</td>
-      <td>2.761905</td>
-      <td>7.904762</td>
-      <td>3.952381</td>
-      <td>5.285714</td>
-      <td>7.380952</td>
-      <td>12.571429</td>
-      <td>43.666667</td>
-      <td>19.285714</td>
-      <td>2.000000</td>
-      <td>13.714286</td>
-      <td>9.809524</td>
-      <td>5.333333</td>
-      <td>6.476190</td>
-      <td>3.095238</td>
-      <td>4.619048</td>
-      <td>2332.714286</td>
-    </tr>
-    <tr>
-      <th>EP</th>
-      <td>45.428571</td>
-      <td>34.095238</td>
-      <td>6.761905</td>
-      <td>22.523810</td>
-      <td>170.333333</td>
-      <td>23.714286</td>
-      <td>42.857143</td>
-      <td>44.761905</td>
-      <td>56.476190</td>
-      <td>14.952381</td>
-      <td>24.761905</td>
-      <td>10.238095</td>
-      <td>14.619048</td>
-      <td>6.904762</td>
-      <td>7.095238</td>
-      <td>5.190476</td>
-      <td>4.714286</td>
-      <td>6.142857</td>
-      <td>6.428571</td>
-      <td>2.238095</td>
-      <td>5.952381</td>
-      <td>3.142857</td>
-      <td>2.380952</td>
-      <td>12.095238</td>
-      <td>4.238095</td>
-      <td>95.571429</td>
-      <td>94.714286</td>
-      <td>89.476190</td>
-      <td>86.428571</td>
-      <td>31.285714</td>
-      <td>29.523810</td>
-      <td>10.000000</td>
-      <td>8.000000</td>
-      <td>6.619048</td>
-      <td>1.000000</td>
-      <td>1.619048</td>
-      <td>3.238095</td>
-      <td>1.095238</td>
-      <td>4.142857</td>
-      <td>3.904762</td>
-      <td>2.142857</td>
-      <td>19.714286</td>
-      <td>4.952381</td>
-      <td>2.285714</td>
-      <td>5.809524</td>
-      <td>4.761905</td>
-      <td>2.714286</td>
-      <td>5.142857</td>
-      <td>1.761905</td>
-      <td>2.476190</td>
-      <td>1096.428571</td>
-    </tr>
-    <tr>
-      <th>NB</th>
-      <td>28.619048</td>
-      <td>26.285714</td>
-      <td>24.000000</td>
-      <td>5.476190</td>
-      <td>64.714286</td>
-      <td>16.714286</td>
-      <td>27.428571</td>
-      <td>35.571429</td>
-      <td>33.333333</td>
-      <td>10.619048</td>
-      <td>32.571429</td>
-      <td>11.714286</td>
-      <td>10.857143</td>
-      <td>7.333333</td>
-      <td>5.714286</td>
-      <td>2.333333</td>
-      <td>4.428571</td>
-      <td>5.380952</td>
-      <td>5.047619</td>
-      <td>5.857143</td>
-      <td>5.238095</td>
-      <td>1.809524</td>
-      <td>3.476190</td>
-      <td>4.190476</td>
-      <td>5.142857</td>
-      <td>69.761905</td>
-      <td>72.714286</td>
-      <td>72.333333</td>
-      <td>80.904762</td>
-      <td>33.523810</td>
-      <td>22.809524</td>
-      <td>7.047619</td>
-      <td>12.333333</td>
-      <td>6.380952</td>
-      <td>2.952381</td>
-      <td>3.380952</td>
-      <td>3.714286</td>
-      <td>1.095238</td>
-      <td>3.619048</td>
-      <td>2.571429</td>
-      <td>1.761905</td>
-      <td>27.285714</td>
-      <td>3.523810</td>
-      <td>1.333333</td>
-      <td>8.095238</td>
-      <td>3.523810</td>
-      <td>1.857143</td>
-      <td>3.142857</td>
-      <td>0.714286</td>
-      <td>2.523810</td>
-      <td>832.761905</td>
-    </tr>
-    <tr>
-      <th>BK</th>
-      <td>153.285714</td>
-      <td>238.190476</td>
-      <td>183.428571</td>
-      <td>68.428571</td>
-      <td>19.523810</td>
-      <td>86.047619</td>
-      <td>96.238095</td>
-      <td>105.095238</td>
-      <td>110.809524</td>
-      <td>41.190476</td>
-      <td>93.285714</td>
-      <td>45.380952</td>
-      <td>49.952381</td>
-      <td>29.523810</td>
-      <td>28.857143</td>
-      <td>17.619048</td>
-      <td>25.285714</td>
-      <td>21.904762</td>
-      <td>22.571429</td>
-      <td>21.952381</td>
-      <td>24.380952</td>
-      <td>12.809524</td>
-      <td>10.095238</td>
-      <td>9.714286</td>
-      <td>28.380952</td>
-      <td>139.666667</td>
-      <td>106.000000</td>
-      <td>153.333333</td>
-      <td>130.523810</td>
-      <td>70.142857</td>
-      <td>63.761905</td>
-      <td>26.952381</td>
-      <td>22.380952</td>
-      <td>17.571429</td>
-      <td>4.142857</td>
-      <td>8.904762</td>
-      <td>17.238095</td>
-      <td>6.857143</td>
-      <td>15.761905</td>
-      <td>5.428571</td>
-      <td>7.904762</td>
-      <td>73.190476</td>
-      <td>22.714286</td>
-      <td>5.428571</td>
-      <td>35.285714</td>
-      <td>13.380952</td>
-      <td>14.238095</td>
-      <td>22.047619</td>
-      <td>5.190476</td>
-      <td>14.904762</td>
-      <td>2546.904762</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
-<section id="mapping">
-<h1>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h1>
-<section id="san-francisco">
-<h2>San Francisco<a class="headerlink" href="#san-francisco" title="Permalink to this heading">#</a></h2>
-<section id="calculate-total-percent-difference-between-2019-and-2022-for-each-station">
-<h3>Calculate total percent difference between 2019 and 2022 for each station<a class="headerlink" href="#calculate-total-percent-difference-between-2019-and-2022-for-each-station" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SF_stns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EM&#39;</span><span class="p">,</span> <span class="s1">&#39;MT&#39;</span><span class="p">,</span> <span class="s1">&#39;PL&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">]</span>
-<span class="n">SF_percent_diffs</span> <span class="o">=</span> <span class="n">calc_stn_perc_diffs</span><span class="p">(</span><span class="n">jan2019</span><span class="p">,</span> <span class="n">jan2022</span><span class="p">,</span> <span class="n">SF_stns</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EM   -80.286914
+MT   -83.726798
+PL   -71.324288
+CC   -74.465633
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -781,7 +488,7 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 </section>
 <section id="plot-percent-differences-on-map">
 <h3>Plot percent differences on map<a class="headerlink" href="#plot-percent-differences-on-map" title="Permalink to this heading">#</a></h3>
-<p>Code source: <a class="reference external" href="https://www.python-graph-gallery.com/313-bubble-map-with-folium">https://www.python-graph-gallery.com/313-bubble-map-with-folium</a></p>
+<p><em>Source: <a class="reference external" href="https://www.python-graph-gallery.com/313-bubble-map-with-folium">https://www.python-graph-gallery.com/313-bubble-map-with-folium</a></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an empty map</span>
@@ -839,29 +546,29 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
       <th>EM</th>
       <td>-122.397</td>
       <td>37.7929</td>
-      <td>Embarcadero: -86%</td>
-      <td>-86.17467169727105</td>
+      <td>Embarcadero: -80%</td>
+      <td>-80.28691449189998</td>
     </tr>
     <tr>
       <th>MT</th>
       <td>-122.401942</td>
       <td>37.789355</td>
-      <td>Montgomery Street: -88%</td>
-      <td>-88.09026368383158</td>
+      <td>Montgomery Street: -84%</td>
+      <td>-83.72679842311616</td>
     </tr>
     <tr>
       <th>PL</th>
       <td>-122.408</td>
       <td>37.7844</td>
-      <td>Powell Street: -75%</td>
-      <td>-74.75105067323393</td>
+      <td>Powell Street: -71%</td>
+      <td>-71.324287661421</td>
     </tr>
     <tr>
       <th>CC</th>
       <td>-122.4137</td>
       <td>37.7796</td>
-      <td>Civic Center: -78%</td>
-      <td>-77.63420614311872</td>
+      <td>Civic Center: -74%</td>
+      <td>-74.46563267662663</td>
     </tr>
   </tbody>
 </table>
@@ -903,7 +610,7 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_43944a44ffce61e6dc067a3608421427 {
+                #map_7b1c3c767ae8973a5bfcb3a14f387328 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -917,14 +624,14 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_43944a44ffce61e6dc067a3608421427&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_7b1c3c767ae8973a5bfcb3a14f387328&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_43944a44ffce61e6dc067a3608421427 = L.map(
-                &quot;map_43944a44ffce61e6dc067a3608421427&quot;,
+            var map_7b1c3c767ae8973a5bfcb3a14f387328 = L.map(
+                &quot;map_7b1c3c767ae8973a5bfcb3a14f387328&quot;,
                 {
                     center: [37.78656375, -122.4051605],
                     crs: L.CRS.EPSG3857,
@@ -938,63 +645,63 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 
         
     
-            var tile_layer_db01e1b668812357a0afdda1d8610ca1 = L.tileLayer(
+            var tile_layer_fb74c033fa8fe948beaeb53598d5a09b = L.tileLayer(
                 &quot;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://cartodb.com/attributions\&quot;\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\&quot;_blank\&quot; href =\&quot;http://cartodb.com/attributions\&quot;\u003eattributions\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_43944a44ffce61e6dc067a3608421427);
+            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
         
     
-            var circle_d30b9bd4ddcec3f3e3d1605078dee5da = L.circle(
+            var circle_8f26a2eb445a43dcc4bfb29fae8e3fe2 = L.circle(
                 [37.7929, -122.397],
-                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 172.3493433945421, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_43944a44ffce61e6dc067a3608421427);
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 160.57382898379996, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
         
     
-            circle_d30b9bd4ddcec3f3e3d1605078dee5da.bindTooltip(
+            circle_8f26a2eb445a43dcc4bfb29fae8e3fe2.bindTooltip(
                 `&lt;div&gt;
-                     Embarcadero: -86%
+                     Embarcadero: -80%
                  &lt;/div&gt;`,
                 {&quot;sticky&quot;: true}
             );
         
     
-            var circle_20daa87295f7cde6f3fd13080a676fbc = L.circle(
+            var circle_aeb1446f5e06cadca92afb153f9cd7ed = L.circle(
                 [37.789355, -122.401942],
-                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 176.18052736766316, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_43944a44ffce61e6dc067a3608421427);
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 167.45359684623233, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
         
     
-            circle_20daa87295f7cde6f3fd13080a676fbc.bindTooltip(
+            circle_aeb1446f5e06cadca92afb153f9cd7ed.bindTooltip(
                 `&lt;div&gt;
-                     Montgomery Street: -88%
+                     Montgomery Street: -84%
                  &lt;/div&gt;`,
                 {&quot;sticky&quot;: true}
             );
         
     
-            var circle_7a93bce3fac306f7455d93626c068125 = L.circle(
+            var circle_6babdad6521888fae42dd97c64c48597 = L.circle(
                 [37.7844, -122.408],
-                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 149.50210134646787, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_43944a44ffce61e6dc067a3608421427);
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 142.648575322842, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
         
     
-            circle_7a93bce3fac306f7455d93626c068125.bindTooltip(
+            circle_6babdad6521888fae42dd97c64c48597.bindTooltip(
                 `&lt;div&gt;
-                     Powell Street: -75%
+                     Powell Street: -71%
                  &lt;/div&gt;`,
                 {&quot;sticky&quot;: true}
             );
         
     
-            var circle_d4e1cf159c296ceeb07394e8f50987d1 = L.circle(
+            var circle_9d92a0d9819e843a2f019a4bd0bd5fe1 = L.circle(
                 [37.7796, -122.4137],
-                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 155.26841228623744, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_43944a44ffce61e6dc067a3608421427);
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;crimson&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;crimson&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 148.93126535325325, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_7b1c3c767ae8973a5bfcb3a14f387328);
         
     
-            circle_d4e1cf159c296ceeb07394e8f50987d1.bindTooltip(
+            circle_9d92a0d9819e843a2f019a4bd0bd5fe1.bindTooltip(
                 `&lt;div&gt;
-                     Civic Center: -78%
+                     Civic Center: -74%
                  &lt;/div&gt;`,
                 {&quot;sticky&quot;: true}
             );
@@ -1013,16 +720,20 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 </div>
 </section>
 </section>
-<section id="berkeley">
-<h2>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h2>
+<section id="id2">
+<h2>Berkeley<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<section id="id3">
+<h3>Calculate total percent difference pre and post COVID data for each station<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berk_stns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BK&#39;</span><span class="p">,</span> <span class="s1">&#39;NB&#39;</span><span class="p">]</span>
-<span class="n">berk_percent_diffs</span> <span class="o">=</span> <span class="n">calc_stn_perc_diffs</span><span class="p">(</span><span class="n">jan2019</span><span class="p">,</span> <span class="n">jan2022</span><span class="p">,</span> <span class="n">berk_stns</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berk_percent_diffs</span> <span class="o">=</span> <span class="n">calc_stn_perc_diffs</span><span class="p">(</span><span class="n">berk_pre_covid</span><span class="p">,</span> <span class="n">berk_post_covid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="id4">
+<h3>Plot percent differences on map<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an empty map</span>
@@ -1077,15 +788,15 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
       <th>BK</th>
       <td>-122.2681</td>
       <td>37.8701</td>
-      <td>Downtown Berkeley: -75%</td>
-      <td>-74.59268290225398</td>
+      <td>Downtown Berkeley: -71%</td>
+      <td>-71.31931489489757</td>
     </tr>
     <tr>
       <th>NB</th>
       <td>-122.2834</td>
       <td>37.874</td>
-      <td>North Berkeley: -80%</td>
-      <td>-79.80586818123625</td>
+      <td>North Berkeley: -75%</td>
+      <td>-74.7577029417424</td>
     </tr>
   </tbody>
 </table>
@@ -1127,7 +838,7 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_95582875135785c42e48875d12de3ba6 {
+                #map_fcd60e9de3ccd7134f4fdc2492d9232c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -1141,14 +852,14 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_95582875135785c42e48875d12de3ba6&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_fcd60e9de3ccd7134f4fdc2492d9232c&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_95582875135785c42e48875d12de3ba6 = L.map(
-                &quot;map_95582875135785c42e48875d12de3ba6&quot;,
+            var map_fcd60e9de3ccd7134f4fdc2492d9232c = L.map(
+                &quot;map_fcd60e9de3ccd7134f4fdc2492d9232c&quot;,
                 {
                     center: [37.8715, -122.273],
                     crs: L.CRS.EPSG3857,
@@ -1162,35 +873,35 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 
         
     
-            var tile_layer_27e55061360280f3a00e9dfef2b66a6c = L.tileLayer(
+            var tile_layer_027914c99b66e3ba2cba493b86e7b4a1 = L.tileLayer(
                 &quot;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://cartodb.com/attributions\&quot;\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\&quot;_blank\&quot; href =\&quot;http://cartodb.com/attributions\&quot;\u003eattributions\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_95582875135785c42e48875d12de3ba6);
+            ).addTo(map_fcd60e9de3ccd7134f4fdc2492d9232c);
         
     
-            var circle_01c9a7c1681541319ad2c74ddda548e4 = L.circle(
+            var circle_1654003ebca727c697f667396fd200a6 = L.circle(
                 [37.8701, -122.2681],
-                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;teal&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;teal&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 447.5560974135239, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_95582875135785c42e48875d12de3ba6);
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;teal&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;teal&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 427.91588936938547, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_fcd60e9de3ccd7134f4fdc2492d9232c);
         
     
-            circle_01c9a7c1681541319ad2c74ddda548e4.bindTooltip(
+            circle_1654003ebca727c697f667396fd200a6.bindTooltip(
                 `&lt;div&gt;
-                     Downtown Berkeley: -75%
+                     Downtown Berkeley: -71%
                  &lt;/div&gt;`,
                 {&quot;sticky&quot;: true}
             );
         
     
-            var circle_7bb3ce0b7724c2123cb63fa51953c19a = L.circle(
+            var circle_cd108808666558ccf56b84a3eb727da5 = L.circle(
                 [37.874, -122.2834],
-                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;teal&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;teal&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 478.8352090874175, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
-            ).addTo(map_95582875135785c42e48875d12de3ba6);
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;teal&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;teal&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 448.54621765045437, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_fcd60e9de3ccd7134f4fdc2492d9232c);
         
     
-            circle_7bb3ce0b7724c2123cb63fa51953c19a.bindTooltip(
+            circle_cd108808666558ccf56b84a3eb727da5.bindTooltip(
                 `&lt;div&gt;
-                     North Berkeley: -80%
+                     North Berkeley: -75%
                  &lt;/div&gt;`,
                 {&quot;sticky&quot;: true}
             );
@@ -1207,6 +918,7 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -1277,14 +989,22 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco">San Francisco</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco">San Francisco</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-total-percent-difference-between-2019-and-2022-for-each-station">Calculate total percent difference between 2019 and 2022 for each station</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">San Francisco</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station">Calculate total percent difference pre and post COVID data for each station</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-percent-differences-on-map">Plot percent differences on map</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Berkeley</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Calculate total percent difference pre and post COVID data for each station</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Plot percent differences on map</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
