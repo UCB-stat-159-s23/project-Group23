@@ -13,18 +13,21 @@ def test_annual_arrival_count():
 
 
 def test_calc_stn_perc_diffs():
-    output = calc_stn_perc_diffs(SF_pre_covid, SF_post_covid)
-    assert isinstance(output, pd.DataFrame)
+    SF_2019 = annual_arrival_trips(year=['2019'], station=['BK'])
+    SF_2021 = annual_arrival_trips(year=['2021'], station=['BK'])
+    output = calc_stn_perc_diffs(SF_2019, SF_2021)
+    assert isinstance(output, pd.core.series.Series)
 
 def test_add_markers_to_map():
-    berk_map = folium.Map(location=[37.8715, -122.2730], tiles="cartodbpositron", zoom_start=15)
-    berk_mapping_df = pd.DataFrame({
-        'lon': [-122.2681, -122.2834],
-        'lat': [37.8701, 37.8740],
-        'name': ['Downtown Berkeley: '+str(round(berk_percent_diffs[0]))+'%',
-                'North Berkeley: '+str(round(berk_percent_diffs[1]))+'%'],
-        'value': berk_percent_diffs}, dtype=str)
-    output = add_markers_to_map(berk_mapping_df, 6, 'teal', berk_map)
+    percent_diffs = [-0.65, -0.84]
+    m = folium.Map(location=[45.5152, -122.6784], tiles="cartodbpositron", zoom_start=10)
+    mapping_df = pd.DataFrame({
+        'lon': [-122.7053, -122.6731],
+        'lat': [45.5190, 45.5227],
+        'name': ['International Rose Garden: '+str(round(percent_diffs[0]))+'%',
+                'Voodoo Doughnuts: '+str(round(percent_diffs[1]))+'%'],
+        'value': percent_diffs}, dtype=str)
+    output = add_markers_to_map(mapping_df, 6, 'teal', m)
     assert isinstance(output, folium.folium.Map)
 
 def test_get_month_and_year():
@@ -38,4 +41,3 @@ def test_load_data():
     output2 = load_data(2017);
     assert isinstance(output1, pd.DataFrame)
     assert isinstance(output2, pd.DataFrame)
-    
