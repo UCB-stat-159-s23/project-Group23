@@ -2,11 +2,8 @@ import numpy as np
 import pandas as pd
 import calendar
 import os
-<<<<<<< HEAD
 import re
-=======
 import folium
->>>>>>> 71b8e48c3501ff92aa0328a7eabcaf5556ccb253
 
 def monthly_weekday_counts(entry_station, exit_station, start_year, end_year):
     
