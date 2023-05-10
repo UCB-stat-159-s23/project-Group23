@@ -383,15 +383,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (3.0.4)
-Requirement already satisfied: et-xmlfile in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from openpyxl) (1.0.1)
 Requirement already satisfied: jdcal in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from openpyxl) (1.4.1)
+Requirement already satisfied: et-xmlfile in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from openpyxl) (1.0.1)
 Requirement already satisfied: folium in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (0.14.0)
-Requirement already satisfied: numpy in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (1.18.5)
 Requirement already satisfied: branca&gt;=0.6.0 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (0.6.0)
 Requirement already satisfied: requests in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (2.24.0)
 Requirement already satisfied: jinja2&gt;=2.9 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (2.11.2)
-Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (3.0.4)
+Requirement already satisfied: numpy in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (1.18.5)
 Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (2.10)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (3.0.4)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (2020.6.20)
 Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (1.25.9)
 Requirement already satisfied: MarkupSafe&gt;=0.23 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from jinja2&gt;=2.9-&gt;folium) (1.1.1)
@@ -548,7 +548,11 @@ Sunday : 16897.5775013141
 </li>
 <li><p>Mixed Usage, with Oakland as a representation since it has a nice mixture of residential and commercial areas. This category contains:</p>
 <ul>
-<li><p>[‘AS’, ‘MA’, 19, 12, ‘OW’]</p></li>
+<li><p>Ashby(<code class="docutils literal notranslate"><span class="pre">AS</span></code>)</p></li>
+<li><p>MacArthur(<code class="docutils literal notranslate"><span class="pre">MA</span></code>)</p></li>
+<li><p>19th Street Oakland(<code class="docutils literal notranslate"><span class="pre">19</span></code>)</p></li>
+<li><p>12th Street / Oakland City Center(<code class="docutils literal notranslate"><span class="pre">12</span></code>)</p></li>
+<li><p>West Oakland(<code class="docutils literal notranslate"><span class="pre">OW</span></code>)</p></li>
 </ul>
 </li>
 <li><p>Transport Usage, with two station of international airport:</p>
@@ -571,6 +575,7 @@ Sunday : 16897.5775013141
     <span class="n">filtered_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># Filter out the Unnessary Columns</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtered_columns</span><span class="p">]</span>
     <span class="n">std_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">std_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">std_df</span> <span class="o">=</span> <span class="n">std_df</span><span class="p">[</span><span class="n">std_df</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># remove zero since some station is closed during weekends and the std is 0</span>
     <span class="k">return</span> <span class="n">std_df</span>
 </pre></div>
@@ -588,36 +593,45 @@ Sunday : 16897.5775013141
 <span class="k">def</span> <span class="nf">printRankingSTD</span><span class="p">(</span><span class="n">land_type</span><span class="p">,</span> <span class="n">series</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">land_type</span><span class="p">:</span>
         <span class="n">ranking</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;| </span><span class="si">{:2s}</span><span class="s2"> | </span><span class="si">{:2d}</span><span class="s2"> | </span><span class="si">{:6f}</span><span class="s2"> |&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">station</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ranking</span><span class="p">[</span><span class="n">station</span><span class="p">]),</span> <span class="n">series</span><span class="p">[</span><span class="n">station</span><span class="p">])</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;|   </span><span class="si">{:2s}</span><span class="s2">    |   </span><span class="si">{:2d}</span><span class="s2">    |    </span><span class="si">{:&lt;13f}</span><span class="s2">   |&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">station</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ranking</span><span class="p">[</span><span class="n">station</span><span class="p">]),</span> <span class="n">series</span><span class="p">[</span><span class="n">station</span><span class="p">])</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
         
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Here is the ranking of standard deviation on weekends based on land types:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We have a total of &quot;</span> <span class="o">+</span> <span class="n">std_weekends</span> <span class="o">+</span> <span class="s2">&quot; stations&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;====Commerce=====&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We have a total of &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">std_weekends</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; stations&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;| Station | Ranking | Standard Deviation |&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">15</span> <span class="o">+</span> <span class="s2">&quot; Commerce &quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">printRankingSTD</span><span class="p">(</span><span class="n">commerce</span><span class="p">,</span> <span class="n">std_weekends</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=====School======&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">+</span> <span class="s2">&quot; School &quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">17</span><span class="p">)</span>
 <span class="n">printRankingSTD</span><span class="p">(</span><span class="n">school</span><span class="p">,</span> <span class="n">std_weekends</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=======Mix=======&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">18</span> <span class="o">+</span> <span class="s2">&quot; Mix &quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">18</span><span class="p">)</span>
 <span class="n">printRankingSTD</span><span class="p">(</span><span class="n">mix</span><span class="p">,</span> <span class="n">std_weekends</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;====Transport====&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">15</span> <span class="o">+</span> <span class="s2">&quot; Transport &quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">printRankingSTD</span><span class="p">(</span><span class="n">transport</span><span class="p">,</span> <span class="n">std_weekends</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">41</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Here is the ranking of standard deviation on weekends based on land types:
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">72</span><span class="n">bad34286bd</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Here is the ranking of standard deviation on weekends based on land types:&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We have a total of &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">std_weekends</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; stations&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;====Commerce=====&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">printRankingSTD</span><span class="p">(</span><span class="n">commerce</span><span class="p">,</span> <span class="n">std_weekends</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+We have a total of 48 stations
+| Station | Ranking | Standard Deviation |
+=============== Commerce ================
+|   CC    |    3    |    2424.176346     |
+|   EM    |    2    |    2830.647603     |
+|   MT    |    4    |    2122.867073     |
+|   PL    |    1    |    4387.185515     |
+================ School =================
+|   BK    |    5    |    1978.032026     |
+================== Mix ==================
+|   AS    |   23    |    563.657715      |
+|   MA    |   17    |    769.760560      |
+|   19    |   10    |    1036.354981     |
+|   12    |   11    |    1035.911162     |
+|   OW    |   13    |    841.088848      |
+=============== Transport ===============
+|   OA    |   41    |    280.599278      |
+|   SO    |   21    |    634.119151      |
+=========================================
 </pre></div>
 </div>
 </div>

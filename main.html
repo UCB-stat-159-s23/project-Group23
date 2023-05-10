@@ -421,7 +421,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Signing notebook: Mapping_Ridership.ipynb
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Notebook already signed: Mapping_Ridership.ipynb
 </pre></div>
 </div>
 </div>
@@ -568,7 +568,11 @@ Sunday : 16897.5775013141
 </li>
 <li><p>Mixed Usage, with Oakland as a representation since it has a nice mixture of residential and commercial areas. This category contains:</p>
 <ul>
-<li><p>[‘AS’, ‘MA’, 19, 12, ‘OW’]</p></li>
+<li><p>Ashby(<code class="docutils literal notranslate"><span class="pre">AS</span></code>)</p></li>
+<li><p>MacArthur(<code class="docutils literal notranslate"><span class="pre">MA</span></code>)</p></li>
+<li><p>19th Street Oakland(<code class="docutils literal notranslate"><span class="pre">19</span></code>)</p></li>
+<li><p>12th Street / Oakland City Center(<code class="docutils literal notranslate"><span class="pre">12</span></code>)</p></li>
+<li><p>West Oakland(<code class="docutils literal notranslate"><span class="pre">OW</span></code>)</p></li>
 </ul>
 </li>
 <li><p>Transport Usage, with two station of international airport:</p>
@@ -578,6 +582,29 @@ Sunday : 16897.5775013141
 </ul>
 </li>
 </ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Here is the ranking of standard deviation on weekends based on land types:
+We have a total of 48 stations
+| Station | Ranking | Standard Deviation |
+=============== Commerce ================
+|   CC    |    3    |    2424.176346     |
+|   EM    |    2    |    2830.647603     |
+|   MT    |    4    |    2122.867073     |
+|   PL    |    1    |    4387.185515     |
+================ School =================
+|   BK    |    5    |    1978.032026     |
+================== Mix ==================
+|   AS    |   23    |    563.657715      |
+|   MA    |   17    |    769.760560      |
+|   19    |   10    |    1036.354981     |
+|   12    |   11    |    1035.911162     |
+|   OW    |   13    |    841.088848      |
+=============== Transport ===============
+|   OA    |   41    |    280.599278      |
+|   SO    |   21    |    634.119151      |
+=========================================
+</pre></div>
+</div>
+<p>Here we can see that station for Commerce land and used for commute to school have the highest standard deviation while station for Transport purposes have much lower standard deviation.</p>
 </section>
 </section>
 <section id="analysis-of-ridership-of-stations-with-different-land-use">
