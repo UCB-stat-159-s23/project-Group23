@@ -16,7 +16,7 @@ The subdirectory `Data/ridership_yyyy` stores the monthly ridership files for a 
 
 ## Installation
 
-To install the package, please follow the command listed below on your terminal:\
+To install the package, please follow the command listed below on your terminal:
 
 * Create the bartproject environment: make env
 * Install the project_tools module, navigate to the project_tools file and enter: pip install .
@@ -25,7 +25,7 @@ To install the package, please follow the command listed below on your terminal:
 
 ## Testing and Automation
 
-To test the data, enter the following commands in your terminal:\
+To test the data, enter the following commands in your terminal:
 
 * Activate the environment: conda activate bartproject
 * Run all tests for the functions: pytest project_tools
