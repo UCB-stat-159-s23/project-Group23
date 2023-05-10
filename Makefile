@@ -6,10 +6,11 @@ SHELL = /bin/bash
 .PHONY : env
 env :
 	source /srv/conda/etc/profile.d/conda.sh
-	conda env create -f environment.yml 
+	conda env create -f environment.yml
 	conda activate notebook
 	conda install ipykernel
-	python -m ipykernel install --user --name make-env --display-name "BartProject-Kernel"
+	conda install pmdarima
+	python -m ipykernel install --user --name bartproject --display-name "bartproject"
 	
 	
 #html - build the JupyterBook normally
@@ -21,7 +22,7 @@ html :
 #all - run all jupyter notebooks
 .PHONY : all
 all:
-	jupyter execute *.ipynb
+	jupyter execute *.ipynb --kernel_name=bartproject
 	
 	
 #clean - clean up the figures and _build folders.
