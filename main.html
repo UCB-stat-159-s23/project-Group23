@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley &#8212; Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</title>
+    <title>Exploring the Effects of COVID-19 on Bart Commuter Ridership of Stations with Different Land Use &#8212; Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</title>
   
   
   
@@ -157,7 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exploring the Effects of COVID-19 on Bart Commuter Ridership of Stations with Different Land Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Mapping_Ridership.html">Import data</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Ridership_Standard_Deviation_Analysis.html">Data Analyzing: Standard Deviation of Traffic</a></li>
@@ -347,7 +347,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</h1>
+    <h1>Exploring the Effects of COVID-19 on Bart Commuter Ridership of Stations with Different Land Use</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -358,7 +358,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a></li>
@@ -379,13 +378,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#airports-transport-land-use">4. Airports (Transport Land Use)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicting-future-ridership-patterns-after-covid-19-using-pre-covid-19-data">Predicting Future Ridership Patterns After Covid-19 Using Pre-Covid-19 Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-pandemic-ridership">Pre-Pandemic Ridership</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-pandemic-ridership">Post-Pandemic Ridership</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusion</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -420,42 +418,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Notebook already signed: Mapping_Ridership.ipynb
-</pre></div>
-</div>
-</div>
 </div>
 <p>Authors: Noor Wahle, Jiachen Li, Shih-hung Chiu, Jingya Zhao</p>
-<section class="tex2jax_ignore mathjax_ignore" id="exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley">
-<h1>Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley<a class="headerlink" href="#exploring-the-effects-of-covid-19-on-bart-commuter-ridership-in-downtown-san-francisco-and-berkeley" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="exploring-the-effects-of-covid-19-on-bart-commuter-ridership-of-stations-with-different-land-use">
+<h1>Exploring the Effects of COVID-19 on Bart Commuter Ridership of Stations with Different Land Use<a class="headerlink" href="#exploring-the-effects-of-covid-19-on-bart-commuter-ridership-of-stations-with-different-land-use" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Add background information on bart ridership pre/post COVID-19</p>
-</section>
-<section id="data-cleaning">
-<h2>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">#</a></h2>
-<p>Data Source: <a class="reference external" href="https://www.bart.gov/about/reports/ridership">https://www.bart.gov/about/reports/ridership</a></p>
-<p>Background information on include:</p>
-<ul class="simple">
-<li><p>only using weekday data so that we can observe trends in commute</p></li>
-<li><p>how we divided data into pre/post COVID-19 looking at the last 5 years</p></li>
-<li><p>used the entry data, not the exit data</p></li>
-<li><p>what else?</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insert basic cleaning code here</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>The COVID-19 pandemic and the subsequent work-from-home policy have resulted in substantial changes to travel patterns. This study seeks to analyze the differences in ridership patterns before and after the pandemic, shedding light on the shifts in travel behavior during this transformative period. By comparing pre-pandemic data with post-pandemic data, we can gain insights into how travel patterns have been impacted and understand the evolving dynamics of commuter behavior. This investigation will contribute to our understanding of the long-term effects of the pandemic on transportation systems and inform future planning and policy decisions.</p>
+<p>The main goal of this study is to investigate the affect of the pandemic (COVID-19) on the BART ridership. We first utilize interactive maps to visualize the declination of the ridership of the selected stations. Then, standard deviation analysis is applied to understand the fluctuation of ridership of the stations. Based on the standard deviation result, we further cluster the stations into several land use categories. Next, we dive into understanding the traveling pattern of those selected stations with different land use category. Finally, a machine learning model is adopted to predict the post-pandemic ridership result using the pre-pandemic data.</p>
+<p><a class="reference external" href="https://www.bart.gov/about/reports/ridership">Data Source</a></p>
 </section>
 <section id="eda">
 <h2>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h2>
 <section id="mapping">
 <h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h3>
-<p>To begin understanding trends in Bart ridership during COVID-19, we narrowed our focus to two locations: Downtown San Francisco and Berkeley. We chose these locations to better understand Bart ridership changed prior to and post COVID-19 specifically for those commuting to and from their workplace. Below, we visualized the percent decline in total ridership for the stations in each location.</p>
+<p>To begin understanding trends in Bart ridership during COVID-19, we narrowed our focus to two locations: Downtown San Francisco and Berkeley. We chose these locations to better understand Bart ridership changed prior to and post COVID-19 specifically for those commuting to and from their workplace. Below, we visualized the percent decline in total ridership for the stations in each location. About 70-80% ridership decline can be observed for all the selected stations showing below. As we all know that this is because of the lock-down during the COVID period.</p>
+<p><em><strong>SHC Comment: Noor can you add how you calculate the percentage? Like 2019 total ridership vs 2021? Or which specific month?</strong></em></p>
 <p><em><strong>Note:</strong> Interactive maps must be viewed in Jupyter Notebook. Hover over circles to view the percent decline in ridership per station.</em></p>
 <section id="downtown-san-francisco">
 <h4>Downtown San Francisco<a class="headerlink" href="#downtown-san-francisco" title="Permalink to this heading">#</a></h4>
@@ -473,6 +451,7 @@ document.write(`
             src="figures/SF_interactive_map.html"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
         </div></div>
 </div>
@@ -493,6 +472,7 @@ document.write(`
             src="figures/berkeley_interactive_map.html"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
         </div></div>
 </div>
@@ -501,9 +481,11 @@ document.write(`
 </section>
 <section id="analysis-of-standard-deviation-of-traffic-data">
 <h2>Analysis of Standard Deviation of Traffic Data<a class="headerlink" href="#analysis-of-standard-deviation-of-traffic-data" title="Permalink to this heading">#</a></h2>
-<p>This part of the analysis focuses specfically on the standard deviation of the Traffic Data. The Standard Deviation is a statistical measure that quantifies the amount of dispersion or spread of a dataset around its mean. By analyzing the Standard Deviation of the Bart traffic data, we can gain insights into the degree of fluctuation in the number of commuters across different time interval.</p>
+<p>With the understanding that the ridership decline significantly right after the pandemic, the next question that raises is how the traveling pattern differentiate from stations to stations. The standard deviation is a statistical measure that helps quantify the dispersion or spread of a dataset around its mean. By examining the standard deviation of BART traffic data, we can assess the degree of fluctuation in the number of commuters across different time intervals. This analysis will shed light on the level of variability in ridership patterns and help us understand the traveling pattern.</p>
 <section id="standard-deviation-of-exit-station-across-time-weekday-vs-weekends">
 <h3>1. Standard Deviation of Exit Station across time: Weekday vs Weekends<a class="headerlink" href="#standard-deviation-of-exit-station-across-time-weekday-vs-weekends" title="Permalink to this heading">#</a></h3>
+<p>It is evident from the analysis that the traffic data on weekdays shows the least amount of dispersion, indicating a relatively consistent pattern of commuting. On the other hand, the Saturday data exhibits the highest level of dispersion, suggesting a greater variation in ridership during weekends. Additionally, the darker red dots, representing higher levels of dispersion, tend to cluster in similar areas in both the Saturday and Sunday graphs.</p>
+<p>Notably, stations such as Civic Center (CC) and Embarcadero (EM) exhibit a significant increase in fluctuation from the weekday plot to the weekend plots, as indicated by the darker shade of the vertical lines. This suggests that these stations are located in commercial areas with fluctuating and flexible traffic flows. This information will be further explored to categorize stations based on different types of land use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;./figures/Std_Weekdays_vs_Weekends.png&#39;</span><span class="p">)</span>
@@ -514,9 +496,7 @@ document.write(`
 <img alt="_images/15a46be6863c71bdc9c670c9a0cfeeffb68912f7080295759622913b8d70b79b.png" src="_images/15a46be6863c71bdc9c670c9a0cfeeffb68912f7080295759622913b8d70b79b.png" />
 </div>
 </div>
-<p>We can see here that Weekdays traffic has the least amount of dispersion while Saturday data has the most amount of dispersion. Moreover, the darker red dots distributes in mostly same places in the Saturday graph and the Sunday graph.</p>
-<p>Stations such as Civic Center(CC) and Embarcadero(EM) has a significant increase on fluctuation from Weekday plot to Weekends plot(see the darker shade of the verticle lines), which infers that these station are located at commerical areas with an inconsistent and flexable traffic flows. We will further investigate this idea and later use this piece of information later where we designate stations to different types of land use.</p>
-<p>To further illustrate our points, we calculate the standard deviation of total average daily traffic on weekdays and on weekends, from 2016 to 2018.</p>
+<p>To provide further support for our observations, we calculate the standard deviation of the average daily traffic on weekdays and weekends from 2016 to 2018. This calculation will provide additional insights into the level of variability in ridership patterns during different days of the week.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Weekday : 13383.409247592897
 Saturday : 18888.234318365146
 Sunday : 16897.5775013141
@@ -533,16 +513,7 @@ Sunday : 16897.5775013141
 </section>
 <section id="which-stations-have-the-most-fluctant-traffic">
 <h3>2. Which Stations have the most fluctant traffic?<a class="headerlink" href="#which-stations-have-the-most-fluctant-traffic" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;./figures/Std_Sum_Weekend_Stationwise.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/8bbe3a77e233aecc1548dc4347b5a780f52251906068b6e0f231c3262db3228d.png" src="_images/8bbe3a77e233aecc1548dc4347b5a780f52251906068b6e0f231c3262db3228d.png" />
-</div>
-</div>
+<p>Given the standard deviation of the station, the next interesting question is: Which stations have the highest or lowest variance? Is that related to a certain type of land use of the stations?</p>
 <p>We sum up the traffic data from year 2015 to 2018, and based on the previous analysis, filter out only the weekend data. After calculating the standard devation based on stations, we found out the stations with the most the most fluctant traffic are all located at Downtown San Francisco with one exception(<code class="docutils literal notranslate"><span class="pre">CC</span></code>). Namely, these four stations:</p>
 <ul class="simple">
 <li><p>Civic Center (<code class="docutils literal notranslate"><span class="pre">CC</span></code>)</p></li>
@@ -582,6 +553,16 @@ Sunday : 16897.5775013141
 </ul>
 </li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;./figures/Std_Sum_Weekend_Stationwise.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8bbe3a77e233aecc1548dc4347b5a780f52251906068b6e0f231c3262db3228d.png" src="_images/8bbe3a77e233aecc1548dc4347b5a780f52251906068b6e0f231c3262db3228d.png" />
+</div>
+</div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Here is the ranking of standard deviation on weekends based on land types:
 We have a total of 48 stations
 | Station | Ranking | Standard Deviation |
@@ -609,7 +590,7 @@ We have a total of 48 stations
 </section>
 <section id="analysis-of-ridership-of-stations-with-different-land-use">
 <h2>Analysis of ridership of stations with different land use<a class="headerlink" href="#analysis-of-ridership-of-stations-with-different-land-use" title="Permalink to this heading">#</a></h2>
-<p>This notebook examines the ridership of various important BART stations with different land use over the past five years. A noticeable trend was observed where there was a significant decrease in ridership during the pandemic period regardless of the land use, which began in February 2020. Although people have started returning to their normal lives in 2022, ridership at most stations remains at only 40% of pre-COVID levels. This indicates that the pandemic has had a significant impact on people’s way of life. The aim of this study is to compare the ridership patterns before, during, and after the pandemic, with a focus on four specific locations with different land use: 1) San Francisco CBD (commercial land use), 2) Berkeley(academic land use), 3) Oakland(mixed land use), and 4) International Airports(transport land use).</p>
+<p>Given the selected stations, the following section is to examine the ridership over the past five years (2018-2022). The aim of this study is to compare the ridership patterns before, during, and after the pandemic, with a focus on four specific locations with different land use: 1) San Francisco CBD (commercial land use), 2) Berkeley(academic land use), 3) Oakland(mixed land use), and 4) International Airports(transport land use).</p>
 <section id="san-francisco-cbd-commertial-land-use">
 <h3>1. San Francisco CBD (Commertial Land Use)<a class="headerlink" href="#san-francisco-cbd-commertial-land-use" title="Permalink to this heading">#</a></h3>
 <p>The pandemic led many companies to implement the “work from home” policy, allowing employees to work from anywhere instead of commuting to the office. This policy proved successful for some companies, and many continue to implement it. As a result, this study assumes that the number of people traveling to San Francisco CBD for work significantly decreased during and after the pandemic comparing to pre-COVID time. The plots below show that before the pandemic, the selected BART stations (Embarcadero, Montgomery Street, Powell Street, Civic Center) had 20,000 to 50,000 daily trips. However, although ridership has been increasing since 2020, late 2022 data shows only around 10,000 monthly trips. This indicates that although people may feel that things have returned to normal, the pandemic has altered their commuting patterns.</p>
@@ -623,8 +604,8 @@ We have a total of 48 stations
 <img alt="_images/4237eb7a1e2edb62c5ac755c2ef44beacc4588c5142f0e17b7ac4bc93b56881b.jpg" src="_images/4237eb7a1e2edb62c5ac755c2ef44beacc4588c5142f0e17b7ac4bc93b56881b.jpg" />
 </div>
 </div>
-<p>In the previous sections, we discussed the travel volumes of the stations, but it is not clear how much of a difference there is before and after the pandemic. To address this, in this section, we calculate the arrival trip ratio relative to the peak arrival trip volumes of the past 5 years.</p>
-<p>To begin, let’s look at the stations in San Francisco CBD. It is evident that the number of trips is gradually increasing, but as of late 2022, less than 40% of the peak arrival trip volumes of the past 5 years are observed.</p>
+<p>The above discussed the travel volumes of the stations, but it is not clear how much of a difference there is before and after the pandemic. To address this, we calculate the arrival trip ratio relative to the peak arrival trip volumes of the past 5 years.</p>
+<p>It is evident that the number of trips is gradually increasing, but as of late 2022, less than 40% of the peak arrival trip volumes of the past 5 years are observed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SF CBD Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
@@ -638,7 +619,7 @@ We have a total of 48 stations
 </section>
 <section id="berkeley-academic-land-use">
 <h3>2. Berkeley (Academic Land Use)<a class="headerlink" href="#berkeley-academic-land-use" title="Permalink to this heading">#</a></h3>
-<p>It is assumed that the majority of BART passengers in Berkeley, particularly at North Berkeley and Downtown Berkeley stations, are students studying at UC Berkeley. Due to the campus lockdown from 2020-2021, ridership during this period is expected to have been very low. With the reopening of the campus, it is expected that the number of trips would gradually increase back to pre-COVID levels. However, the graph below shows that although a growth trend is observed after the summer of 2021, which is when the campus reopened, the total number of trips is still far below the pre-COVID level.</p>
+<p>It is assumed that the majority of BART passengers in Berkeley, particularly at Downtown Berkeley stations, are students studying at UC Berkeley. Due to the campus lockdown from 2020-2021, ridership during this period is expected to have been very low. With the reopening of the campus, it is expected that the number of trips would gradually increase back to pre-COVID levels. However, the graph below shows that although a growth trend is observed after the summer of 2021, which is when the campus reopened, the total number of trips is still far below the pre-COVID level.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Count.jpg&#39;</span><span class="p">)</span>
@@ -646,10 +627,10 @@ We have a total of 48 stations
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/026c98f8941a8ad6e286ffe307d4dfb9bb674ffcbc79f335331f1a319b7ea5ce.jpg" src="_images/026c98f8941a8ad6e286ffe307d4dfb9bb674ffcbc79f335331f1a319b7ea5ce.jpg" />
+<img alt="_images/2942a94e253ae1e4ad6affb10a1e9abd475121da4c19eb8f7263650825512a0a.jpg" src="_images/2942a94e253ae1e4ad6affb10a1e9abd475121da4c19eb8f7263650825512a0a.jpg" />
 </div>
 </div>
-<p>Next, looking at the stations in Berkeley, the pattern is similar to the one observed above. We were assuming that the ridership growth rate might be faster than the commercial area because students need to go back to campus. However, the ridership in Berkeley does not grow faster comparing to the commercial areas. This might be because of the recording of the classes. After the pandemics, many classes starts to provide lecture recordings that student might not need to go to the campus but can finish the course wherever they can connect to the internet. As a result, the ridership is less comparing to pre-pandemic period.</p>
+<p>Next, looking at the stations in Berkeley, the pattern is similar to the one observed above. We were assuming that the ridership growth rate might be faster than the commercial area because students need to go back to campus. However, the ridership in Berkeley does not grow much faster comparing to the commercial areas. This might be because of the recording of the classes. After the pandemics, many classes starts to provide lecture recordings that student might not need to go to the campus but can finish the course wherever they can connect to the internet. As a result, the ridership is less comparing to pre-pandemic period.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Berkeley Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
@@ -657,7 +638,7 @@ We have a total of 48 stations
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/65d04017212307acfa32931bf58f05c2631d39db8e94c857a2ec8ff213f2a4ca.jpg" src="_images/65d04017212307acfa32931bf58f05c2631d39db8e94c857a2ec8ff213f2a4ca.jpg" />
+<img alt="_images/7642fa53cead2e1964ec97b7eb2eb6b401ce45e5bb58e28b238950ffd430d4ec.jpg" src="_images/7642fa53cead2e1964ec97b7eb2eb6b401ce45e5bb58e28b238950ffd430d4ec.jpg" />
 </div>
 </div>
 </section>
@@ -674,7 +655,7 @@ We have a total of 48 stations
 <img alt="_images/fa32904c5bdd33ddcff903c580ec4376c8a7545b91acadff470636fb0031c22c.jpg" src="_images/fa32904c5bdd33ddcff903c580ec4376c8a7545b91acadff470636fb0031c22c.jpg" />
 </div>
 </div>
-<p>Similar to the patterns shown above, the ridership rate started to grow after the pandemic. However, the amount of the trips is still far less than pre-COVID level (about 40%).</p>
+<p>Similar to the patterns shown in other stations, the ridership rate started to grow after the pandemic. However, the amount of the trips is still far less than pre-COVID level (about 40%).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Oakland Arrival Trip Ratio.jpg&#39;</span><span class="p">)</span>
@@ -712,16 +693,13 @@ We have a total of 48 stations
 </div>
 </section>
 </section>
-<section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
-<p>The analysis reveals that, compared to the pre-COVID period, the ridership at the majority of stations, regardless of land use, has only recovered to less than 40%. However, there is a notable exception for stations located at airports, where a higher percentage (around 60%) of the ridership has returned. This study highlights the significant changes in people’s travel patterns due to various factors such as work-from-home policies or online lectures. However, it also underscores the ongoing demand for public transit connections, particularly at international airports, emphasizing the importance of efficient transportation links in serving travelers’ needs.</p>
-</section>
 <section id="predicting-future-ridership-patterns-after-covid-19-using-pre-covid-19-data">
 <h2>Predicting Future Ridership Patterns After Covid-19 Using Pre-Covid-19 Data<a class="headerlink" href="#predicting-future-ridership-patterns-after-covid-19-using-pre-covid-19-data" title="Permalink to this heading">#</a></h2>
-<p>For this section of the analysis, the focus will be on analyzing the ridership from Downtown Berkeley station (entry station) to Embarcadero station (exit station) pre- and post-pandemic to infer the impact of Covid-19 on people’s choice of transportation modes. The reason for selecting these two stations is that, firstly, students constitute the majority of Downtown Berkeley station riders. Because they typically don’t own cars, the impact could be much more significant. Secondly, Embarcadero is one of the busiest stations according to BART’s website (<a class="reference external" href="http://bart.gov">bart.gov</a>). With the growing popularity of remote working and studying during the pandemic, it is highly likely that the ridership for these two stations has changed drastically. Hypothetically, it may take a long period of time for the ridership to recover back to pre-pandemic levels.</p>
+<p>The above analysis shows that except the stations at the airports, other stations shows a similar trend of the ridership before and after the pandemic. Hence, to narrow down the scope of the work, for this section of the analysis, we will focus only on analyzing the ridership from Downtown Berkeley station (entry station) to Embarcadero station (exit station) pre- and post-pandemic to infer the impact of Covid-19 on people’s choice of transportation modes. The reason for selecting these two stations is that, firstly, students constitute the majority of Downtown Berkeley station riders. Because they typically don’t own cars, the impact could be much more significant. Secondly, Embarcadero is one of the busiest stations according to BART’s website (<a class="reference external" href="http://bart.gov">bart.gov</a>). With the growing popularity of remote working and studying during the pandemic, it is highly likely that the ridership for these two stations has changed drastically. Hypothetically, it may take a long period of time for the ridership to recover back to pre-pandemic levels.</p>
 <p>*pre-pandemic: before 2020, post-pandemic: after 2020</p>
 <section id="pre-pandemic-ridership">
 <h3>Pre-Pandemic Ridership<a class="headerlink" href="#pre-pandemic-ridership" title="Permalink to this heading">#</a></h3>
+<p>To begin with the analysis, we first plot the ridership counts for the past 10 years (2010-2020). Based on the plots below, there appears to be an annual seasonality with the peak around summer and trough around the winter. In general, there is an increasing trend observed throughout 2010-2015, but it gradually declines afterwards. The variance of ridership over time has been steady, although the variances for the years 2014-2016 are larger than those of other years.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Ridership.png&quot;</span><span class="p">))</span>
@@ -732,6 +710,7 @@ We have a total of 48 stations
 <img alt="_images/08cfa33b2b286e1e6b13a1e22f1b24bc497c0f383ade1eb2e85ddc8847252459.png" src="_images/08cfa33b2b286e1e6b13a1e22f1b24bc497c0f383ade1eb2e85ddc8847252459.png" />
 </div>
 </div>
+<p>To standardize the variance of the data, a Log Transformation has been applied, as shown in the following plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Log_Ridership.png&quot;</span><span class="p">))</span>
@@ -742,7 +721,6 @@ We have a total of 48 stations
 <img alt="_images/abfc3983bb9a34f80f255038ca59817befc2c079d55c1f5fc610fb4880f1cf61.png" src="_images/abfc3983bb9a34f80f255038ca59817befc2c079d55c1f5fc610fb4880f1cf61.png" />
 </div>
 </div>
-<p>Based on the plots above, there appears to be an annual seasonality with the peak around summer and the trough around winter. In general, there is an increasing trend observed throughout 2010-2015, but it gradually declines afterwards. The variance of ridership over time has been steady, although the variances for the years 2014-2016 are larger than those of other years. To standardize the variance of the data, a Log Transformation has been applied.</p>
 <p>After taking the first order difference, the data is non-stationary with a strong seasonality at the indies of multiples of 12. To minimize the effect of seasonality, another lag difference of 12 is taken. The resulting data gives a much better result in terms of stationarity. Moreover, the p-value of the adfuller test is below 0.05, allowing us to reject the null and conclude that the differenced data is stationary. The data set is then split into training and testing, and a parameter search is performed on the training set to determine the best arima model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -768,9 +746,6 @@ We have a total of 48 stations
 <img alt="_images/fd03c0d00aed69799fdc79857f3d85ee2321e8994d85f79fcdff8b9e4782d8bf.png" src="_images/fd03c0d00aed69799fdc79857f3d85ee2321e8994d85f79fcdff8b9e4782d8bf.png" />
 </div>
 </div>
-</section>
-<section id="id1">
-<h3>Conclusion<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>The difference between the predicted and observed ridership is gradually decreasing, with only a 500-rider average gap expected at the end of 2022. Although the two ridership values will eventually intersect with each other, the current difference implies that Covid-19 has had a significant impact on people’s choice of transportation modes. However, it is important to note that the model’s training data shows a declining trend after 2015, which means the model could result in negative ridership in the future. The underlying factor that caused the drop remains unknown, but presumably it affected the model’s accuracy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,6 +758,12 @@ We have a total of 48 stations
 </div>
 </div>
 </section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>The study begin with visualizing the data with the ridership decline rate for the selected stations. We observe a significant ridership drop for all the stations. Next, standard deviation analysis is adopted to understand the fluctuation of the ridership for each of the stations. We find that the stations in commercial area (i.e., San Francisco CBD) usually have a higher standard deviation. On the contrary, the stations located in the airports show a relatively small standard deviation. According the standard deviation, we further cluster the stations into 4 groups (commerce, School, Mix, Transportation).</p>
+<p>The analysis of ridership of stations with different land use reveals that, compared to the pre-COVID period, the ridership at the majority of stations, regardless of land use, has only recovered to less than 40%. However, there is a notable exception for stations located at airports, where a higher percentage (around 60%) of the ridership has returned. This study highlights the significant changes in people’s travel patterns due to various factors such as work-from-home policies or online lectures. However, it also underscores the ongoing demand for public transit connections, particularly at international airports, emphasizing the importance of efficient transportation links in serving travelers’ needs.</p>
+<p>Lastly, a machine learning model (ARIMA) is used to predict the ridership. The analysis shows that the model can accurately predict the ridership before the pandemic hit. However, the model fails to predict the behavior during and after the pandemic, since the model never see the data with a severe pandemic hit to the society. The error between the prediction and actual ridership is large after the pandemic, showing that the pandemic has significantly influence people’s daily life.</p>
 </section>
 </section>
 
@@ -854,7 +835,6 @@ We have a total of 48 stations
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downtown-san-francisco">Downtown San Francisco</a></li>
@@ -875,13 +855,12 @@ We have a total of 48 stations
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#airports-transport-land-use">4. Airports (Transport Land Use)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicting-future-ridership-patterns-after-covid-19-using-pre-covid-19-data">Predicting Future Ridership Patterns After Covid-19 Using Pre-Covid-19 Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-pandemic-ridership">Pre-Pandemic Ridership</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-pandemic-ridership">Post-Pandemic Ridership</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusion</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
 

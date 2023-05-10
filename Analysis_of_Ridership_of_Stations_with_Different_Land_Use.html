@@ -157,7 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="main.html">Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Exploring the Effects of COVID-19 on Bart Commuter Ridership of Stations with Different Land Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Mapping_Ridership.html">Import data</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Ridership_Standard_Deviation_Analysis.html">Data Analyzing: Standard Deviation of Traffic</a></li>
@@ -386,11 +386,21 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install openpyxl</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">project_tools.utils</span> <span class="kn">import</span> <span class="n">annual_arrival_trips</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openpyxl
+  Using cached openpyxl-3.1.2-py2.py3-none-any.whl (249 kB)
+Collecting et-xmlfile
+  Using cached et_xmlfile-1.1.0-py3-none-any.whl (4.7 kB)
+Installing collected packages: et-xmlfile, openpyxl
+Successfully installed et-xmlfile-1.1.0 openpyxl-3.1.2
 </pre></div>
 </div>
 </div>
@@ -653,7 +663,7 @@ document.write(`
 <p>It is assumed that the majority of BART passengers in Berkeley, particularly at North Berkeley and Downtown Berkeley stations, are students studying at UC Berkeley. Due to the campus lockdown from 2020-2021, ridership during this period is expected to have been very low. With the reopening of the campus, it is expected that the number of trips would gradually increase back to pre-COVID levels. However, the graph below shows that although a growth trend is observed after the summer of 2021, which is when the campus reopened, the total number of trips is still far below the pre-COVID level.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BK&#39;</span><span class="p">,</span> <span class="s1">&#39;NB&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BK&#39;</span><span class="p">]</span>
 <span class="n">Ridership_BK</span> <span class="o">=</span> <span class="n">annual_arrival_trips</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2018&#39;</span><span class="p">,</span> <span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;2021&#39;</span><span class="p">,</span> <span class="s1">&#39;2022&#39;</span><span class="p">],</span> <span class="n">station</span> <span class="o">=</span> <span class="n">station</span><span class="p">)</span>
 
 <span class="n">Ridership_BK</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -665,7 +675,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07daaaa8c8eb40bafe37900729e3b73c3cbfa28a82f93a6003da972a7a1733f0.png" src="_images/07daaaa8c8eb40bafe37900729e3b73c3cbfa28a82f93a6003da972a7a1733f0.png" />
+<img alt="_images/1f38009ed68ade03c316ac1245179e9244ef842f8312db9de2e39e53c75289b9.png" src="_images/1f38009ed68ade03c316ac1245179e9244ef842f8312db9de2e39e53c75289b9.png" />
 </div>
 </div>
 </section>
@@ -837,34 +847,28 @@ document.write(`
     <tr style="text-align: right;">
       <th></th>
       <th>BK</th>
-      <th>NB</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>201801</th>
       <td>87.520292</td>
-      <td>94.431760</td>
     </tr>
     <tr>
       <th>201802</th>
       <td>100.000000</td>
-      <td>97.897650</td>
     </tr>
     <tr>
       <th>201803</th>
       <td>96.367872</td>
-      <td>97.284077</td>
     </tr>
     <tr>
       <th>201804</th>
       <td>96.483769</td>
-      <td>95.529345</td>
     </tr>
     <tr>
       <th>201805</th>
       <td>91.767150</td>
-      <td>98.715249</td>
     </tr>
   </tbody>
 </table>
@@ -883,7 +887,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/383560e17ac4d18b43afb502862ae4b3313c79ad0aa17cb8dcba41e047821221.png" src="_images/383560e17ac4d18b43afb502862ae4b3313c79ad0aa17cb8dcba41e047821221.png" />
+<img alt="_images/35d76e006add6d4e83ad5fa3d512ce690c44aaa6cfc19779564e692938251b66.png" src="_images/35d76e006add6d4e83ad5fa3d512ce690c44aaa6cfc19779564e692938251b66.png" />
 </div>
 </div>
 </section>
@@ -1081,16 +1085,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "make-env"
+            mode: "python"
         },
         kernelOptions: {
-            name: "make-env",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'make-env'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
