@@ -10,7 +10,7 @@ env :
 	conda activate notebook
 	conda install ipykernel
 	conda install pmdarima
-	python -m ipykernel install --user --name bartproject --display-name "bartproject"
+	python -m ipykernel install --user --name bartproject2 --display-name "bartproject2"
 	
 	
 #html - build the JupyterBook normally
@@ -22,7 +22,7 @@ html :
 #all - run all jupyter notebooks
 .PHONY : all
 all:
-	jupyter execute *.ipynb --kernel_name=bartproject
+	jupyter execute *.ipynb --kernel_name=bartproject2
 	
 	
 #clean - clean up the figures and _build folders.
