@@ -386,17 +386,11 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install openpyxl</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">project_tools.utils</span> <span class="kn">import</span> <span class="n">annual_arrival_trips</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /srv/conda/envs/notebook/lib/python3.10/site-packages (3.1.2)
-Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python3.10/site-packages (from openpyxl) (1.1.0)
 </pre></div>
 </div>
 </div>
@@ -1087,16 +1081,16 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "make-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "make-env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'make-env'</script>
 
                 </article>
               
