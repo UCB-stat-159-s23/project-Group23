@@ -21,7 +21,6 @@ html :
 #all - run all jupyter notebooks
 .PHONY : all
 all:
-	bash -ic 'conda activate bartproject'
 	jupyter execute *.ipynb
 	
 	
