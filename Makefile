@@ -7,7 +7,7 @@ SHELL = /bin/bash
 env :
 	source /srv/conda/etc/profile.d/conda.sh
 	conda env create -f environment.yml
-	conda activate notebook
+	conda activate bartproject
 	conda install ipykernel
 	conda install pmdarima
 	python -m ipykernel install --user --name bartproject --display-name "bartproject"
