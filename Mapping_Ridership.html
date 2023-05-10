@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Import data &#8212; Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</title>
+    <title>Mapping Data of Ridership &#8212; Exploring the Effects of COVID-19 on Bart Commuter Ridership in Downtown San Francisco and Berkeley</title>
   
   
   
@@ -158,8 +158,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="main.html">Main Analyses</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Import data</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mapping Ridership</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ridership_Standard_Deviation_Analysis.html">Ridership Standard Deviation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Analysis_of_Ridership_of_Stations_with_Different_Land_Use.html">Ridership and Station Land Use Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html">Time Series Modeling of Post-Covid Ridership</a></li>
@@ -346,7 +345,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Import data</h1>
+    <h1>Mapping Data of Ridership</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -356,26 +355,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco">San Francisco</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">Import data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco">San Francisco</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">San Francisco</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station">Calculate total percent difference pre and post COVID data for each station</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-percent-differences-on-map">Plot percent differences on map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">San Francisco</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station">Calculate total percent difference pre and post COVID data for each station</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-percent-differences-on-map">Plot percent differences on map</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Berkeley</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Calculate total percent difference pre and post COVID data for each station</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Plot percent differences on map</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Berkeley</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Calculate total percent difference pre and post COVID data for each station</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Plot percent differences on map</a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -388,19 +386,6 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /srv/conda/envs/notebook/lib/python3.10/site-packages (3.1.2)
-Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python3.10/site-packages (from openpyxl) (1.1.0)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">folium</span>
@@ -411,10 +396,12 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 </div>
 </div>
 </div>
+<section class="tex2jax_ignore mathjax_ignore" id="mapping-data-of-ridership">
+<h1>Mapping Data of Ridership<a class="headerlink" href="#mapping-data-of-ridership" title="Permalink to this heading">#</a></h1>
 <section id="import-data">
-<h1>Import data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h1>
+<h2>Import data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h2>
 <section id="san-francisco">
-<h2>San Francisco<a class="headerlink" href="#san-francisco" title="Permalink to this heading">#</a></h2>
+<h3>San Francisco<a class="headerlink" href="#san-francisco" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SF CBD Ridership 2018 - 2022</span>
@@ -444,7 +431,7 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 </div>
 </section>
 <section id="berkeley">
-<h2>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h2>
+<h3>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berkeley Ridership 2018 - 2022</span>
@@ -475,11 +462,11 @@ Requirement already satisfied: et-xmlfile in /srv/conda/envs/notebook/lib/python
 </section>
 </section>
 <section id="mapping">
-<h1>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h1>
+<h2>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h2>
 <section id="id1">
-<h2>San Francisco<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h3>San Francisco<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <section id="calculate-total-percent-difference-pre-and-post-covid-data-for-each-station">
-<h3>Calculate total percent difference pre and post COVID data for each station<a class="headerlink" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station" title="Permalink to this heading">#</a></h3>
+<h4>Calculate total percent difference pre and post COVID data for each station<a class="headerlink" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SF_percent_diffs</span> <span class="o">=</span> <span class="n">calc_stn_perc_diffs</span><span class="p">(</span><span class="n">SF_pre_covid</span><span class="p">,</span> <span class="n">SF_post_covid</span><span class="p">)</span>
@@ -499,7 +486,7 @@ dtype: float64
 </div>
 </section>
 <section id="plot-percent-differences-on-map">
-<h3>Plot percent differences on map<a class="headerlink" href="#plot-percent-differences-on-map" title="Permalink to this heading">#</a></h3>
+<h4>Plot percent differences on map<a class="headerlink" href="#plot-percent-differences-on-map" title="Permalink to this heading">#</a></h4>
 <p><em>Source: <a class="reference external" href="https://www.python-graph-gallery.com/313-bubble-map-with-folium">https://www.python-graph-gallery.com/313-bubble-map-with-folium</a></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,9 +720,9 @@ dtype: float64
 </section>
 </section>
 <section id="id2">
-<h2>Berkeley<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h3>Berkeley<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <section id="id3">
-<h3>Calculate total percent difference pre and post COVID data for each station<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h4>Calculate total percent difference pre and post COVID data for each station<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berk_percent_diffs</span> <span class="o">=</span> <span class="n">calc_stn_perc_diffs</span><span class="p">(</span><span class="n">berk_pre_covid</span><span class="p">,</span> <span class="n">berk_post_covid</span><span class="p">)</span>
@@ -751,7 +738,7 @@ dtype: float64
 </div>
 </section>
 <section id="id4">
-<h3>Plot percent differences on map<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h4>Plot percent differences on map<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an empty map</span>
@@ -939,6 +926,7 @@ dtype: float64
 </section>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1007,26 +995,25 @@ dtype: float64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco">San Francisco</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">Import data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#san-francisco">San Francisco</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berkeley">Berkeley</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">San Francisco</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station">Calculate total percent difference pre and post COVID data for each station</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-percent-differences-on-map">Plot percent differences on map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping">Mapping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">San Francisco</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-total-percent-difference-pre-and-post-covid-data-for-each-station">Calculate total percent difference pre and post COVID data for each station</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-percent-differences-on-map">Plot percent differences on map</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Berkeley</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Calculate total percent difference pre and post COVID data for each station</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Plot percent differences on map</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Berkeley</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Calculate total percent difference pre and post COVID data for each station</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Plot percent differences on map</a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+</ul>
   </nav></div>
 
 </div></div>
