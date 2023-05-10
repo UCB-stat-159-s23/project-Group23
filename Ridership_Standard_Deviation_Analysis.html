@@ -371,29 +371,12 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>folium
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
 <span class="kn">from</span> <span class="nn">project_tools.utils</span> <span class="kn">import</span> <span class="n">load_data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openpyxl in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (3.0.4)
-Requirement already satisfied: jdcal in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from openpyxl) (1.4.1)
-Requirement already satisfied: et-xmlfile in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from openpyxl) (1.0.1)
-Requirement already satisfied: folium in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (0.14.0)
-Requirement already satisfied: branca&gt;=0.6.0 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (0.6.0)
-Requirement already satisfied: requests in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (2.24.0)
-Requirement already satisfied: jinja2&gt;=2.9 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (2.11.2)
-Requirement already satisfied: numpy in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from folium) (1.18.5)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (2.10)
-Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (3.0.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (2020.6.20)
-Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from requests-&gt;folium) (1.25.9)
-Requirement already satisfied: MarkupSafe&gt;=0.23 in /Users/bingyuebei/opt/anaconda3/lib/python3.8/site-packages (from jinja2&gt;=2.9-&gt;folium) (1.1.1)
 </pre></div>
 </div>
 </div>
@@ -452,7 +435,7 @@ Requirement already satisfied: MarkupSafe&gt;=0.23 in /Users/bingyuebei/opt/anac
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6b20ebe2b34b4e277918dd9398cc3c2995949e5007d6d3c7a4b404101c871f75.png" src="_images/6b20ebe2b34b4e277918dd9398cc3c2995949e5007d6d3c7a4b404101c871f75.png" />
+<img alt="_images/827e45c82799c78e731c941cf4f8f00775390fe7e411697b302b16be95e7eb4a.png" src="_images/827e45c82799c78e731c941cf4f8f00775390fe7e411697b302b16be95e7eb4a.png" />
 </div>
 </div>
 <p>We can see here that Weekdays traffic has the least amount of dispersion while Saturday data has the most amount of dispersion. Moreover, the darker red dots distributes in mostly same places in the Saturday graph and the Sunday graph.</p>
@@ -472,7 +455,7 @@ Requirement already satisfied: MarkupSafe&gt;=0.23 in /Users/bingyuebei/opt/anac
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Weekday : 13383.409247592897
-Saturday : 18888.234318365146
+Saturday : 18888.23431836515
 Sunday : 16897.5775013141
 </pre></div>
 </div>
@@ -519,7 +502,7 @@ Sunday : 16897.5775013141
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8bbe3a77e233aecc1548dc4347b5a780f52251906068b6e0f231c3262db3228d.png" src="_images/8bbe3a77e233aecc1548dc4347b5a780f52251906068b6e0f231c3262db3228d.png" />
+<img alt="_images/6c913866b0f1e934205386be017d87f3b2c622c54e9766f0e2a68bf983f1c5be.png" src="_images/6c913866b0f1e934205386be017d87f3b2c622c54e9766f0e2a68bf983f1c5be.png" />
 </div>
 </div>
 <p>We sum up the traffic data from year 2015 to 2018, and based on the previous analysis, filter out only the weekend data. After calculating the standard devation based on stations, we found out the stations with the most the most fluctant traffic are all located at Downtown San Francisco with one exception(<code class="docutils literal notranslate"><span class="pre">CC</span></code>). Namely, these four stations:</p>
@@ -680,7 +663,7 @@ We have a total of 48 stations
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d17bad49bbacacd11343d145d33d82e385db80bbcb6f51cc0ae98fd70a90b29c.png" src="_images/d17bad49bbacacd11343d145d33d82e385db80bbcb6f51cc0ae98fd70a90b29c.png" />
+<img alt="_images/8bd4d95aaebffe9ab35c3169a0beeda4314a0a157b86285a5da0274bea7590af.png" src="_images/8bd4d95aaebffe9ab35c3169a0beeda4314a0a157b86285a5da0274bea7590af.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -693,7 +676,7 @@ We have a total of 48 stations
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.4493593308217461
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.449359330821746
 -0.5754065661308386
 </pre></div>
 </div>
@@ -712,16 +695,16 @@ We have a total of 48 stations
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "bartproject2"
         },
         kernelOptions: {
-            name: "python3",
+            name: "bartproject2",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'bartproject2'</script>
 
                 </article>
               
