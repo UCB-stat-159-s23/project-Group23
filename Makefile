@@ -9,7 +9,7 @@ env :
 	conda env create -f environment.yml 
 	conda activate notebook
 	conda install ipykernel
-	python -m ipykernel install --user --name bartproject --display-name "Bart Project Kernel"
+	python -m ipykernel install --user --name make-env --display-name "BartProject-Kernel"
 	
 	
 #html - build the JupyterBook normally
@@ -21,7 +21,7 @@ html :
 #all - run all jupyter notebooks
 .PHONY : all
 all:
-	conda activate bartproject
+	bash -ic 'conda activate bartproject'
 	jupyter execute *.ipynb
 	
 	
