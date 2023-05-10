@@ -384,6 +384,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-statement">Contribution Statement</a></li>
 </ul>
             </nav>
         </div>
@@ -402,19 +403,11 @@ document.write(`
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>trust<span class="w"> </span>Mapping_Ridership.ipynb
 </pre></div>
 </div>
 </div>
@@ -432,49 +425,34 @@ document.write(`
 <h2>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h2>
 <section id="mapping">
 <h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">#</a></h3>
-<p>To begin understanding trends in Bart ridership during COVID-19, we narrowed our focus to two locations: Downtown San Francisco and Berkeley. We chose these locations to better understand Bart ridership changed prior to and post COVID-19 specifically for those commuting to and from their workplace. Below, we visualized the percent decline in total ridership for the stations in each location. About 70-80% ridership decline can be observed for all the selected stations showing below. As we all know that this is because of the lock-down during the COVID period.</p>
-<p><em><strong>SHC Comment: Noor can you add how you calculate the percentage? Like 2019 total ridership vs 2021? Or which specific month?</strong></em></p>
-<p><em><strong>Note:</strong> Interactive maps must be viewed in Jupyter Notebook. Hover over circles to view the percent decline in ridership per station.</em></p>
+<p>To begin understanding trends in Bart ridership during COVID-19, we narrowed our focus to two locations: Downtown San Francisco and Berkeley. We chose these locations to better understand Bart ridership change prior to and post COVID-19, specifically for those commuting to and from their workplace. Below, we visualized the percent change in total ridership for the stations in each location. The decline was calculated between recent pre-COVID ridership (from 2018-2019) and post-COVID ridership (from 2021-2022). About 70-80% ridership decline can be observed for all the selected stations shown below. As we all know that this is because of the lock-down during the COVID period.</p>
+<p><em><strong>Note:</strong> Open interactive maps in new tab. Click Trust HTML if necessary. Hover over circles to view the percent decline in ridership per station.</em></p>
 <section id="downtown-san-francisco">
 <h4>Downtown San Francisco<a class="headerlink" href="#downtown-san-francisco" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://stat159.datahub.berkeley.edu/hub/user-redirect/lab/tree/project-Group23/figures/SF_interactive_map.html">Open interactive map in new tab</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;figures/SF_interactive_map.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;./figures/SF_Map.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="1000"
-            height="600"
-            src="figures/SF_interactive_map.html"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
+<img alt="_images/acb62ba3a1bdd7b21cde463e315e8eaa06df72f9a33845d372f83a8a4c8a0fc0.png" src="_images/acb62ba3a1bdd7b21cde463e315e8eaa06df72f9a33845d372f83a8a4c8a0fc0.png" />
+</div>
 </div>
 </section>
 <section id="berkeley">
 <h4>Berkeley<a class="headerlink" href="#berkeley" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://stat159.datahub.berkeley.edu/hub/user-redirect/lab/tree/project-Group23/figures/berkeley_interactive_map.html">Open interactive map in new tab</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;figures/berkeley_interactive_map.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;./figures/Berkeley_Map.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="1000"
-            height="600"
-            src="figures/berkeley_interactive_map.html"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
+<img alt="_images/a7647d86786d78139348ae4423f1d279dcdb8667e5612b84de7f6eb6c1ff926e.png" src="_images/a7647d86786d78139348ae4423f1d279dcdb8667e5612b84de7f6eb6c1ff926e.png" />
+</div>
 </div>
 </section>
 </section>
@@ -702,7 +680,7 @@ We have a total of 48 stations
 <p>To begin with the analysis, we first plot the ridership counts for the past 10 years (2010-2020). Based on the plots below, there appears to be an annual seasonality with the peak around summer and trough around the winter. In general, there is an increasing trend observed throughout 2010-2015, but it gradually declines afterwards. The variance of ridership over time has been steady, although the variances for the years 2014-2016 are larger than those of other years.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Ridership.png&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Ridership.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -713,7 +691,7 @@ We have a total of 48 stations
 <p>To standardize the variance of the data, a Log Transformation has been applied, as shown in the following plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Log_Ridership.png&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Log_Ridership.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -724,7 +702,7 @@ We have a total of 48 stations
 <p>After taking the first order difference, the data is non-stationary with a strong seasonality at the indies of multiples of 12. To minimize the effect of seasonality, another lag difference of 12 is taken. The resulting data gives a much better result in terms of stationarity. Moreover, the p-value of the adfuller test is below 0.05, allowing us to reject the null and conclude that the differenced data is stationary. The data set is then split into training and testing, and a parameter search is performed on the training set to determine the best arima model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Modeling.png&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Modeling.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -738,7 +716,7 @@ We have a total of 48 stations
 <p>The extent of influence is calculated by computing the absolute difference between the ridership predicted by the pre-pandemic model and the actual ridership observed in 2021-2022. Since the output value of the pre-pandemic model is logged, the result must be exponentialized for comparison to be feasible.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Comparison.png&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Comparison.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -749,7 +727,7 @@ We have a total of 48 stations
 <p>The difference between the predicted and observed ridership is gradually decreasing, with only a 500-rider average gap expected at the end of 2022. Although the two ridership values will eventually intersect with each other, the current difference implies that Covid-19 has had a significant impact on people’s choice of transportation modes. However, it is important to note that the model’s training data shows a declining trend after 2015, which means the model could result in negative ridership in the future. The underlying factor that caused the drop remains unknown, but presumably it affected the model’s accuracy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Difference.png&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Difference.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -764,6 +742,13 @@ We have a total of 48 stations
 <p>The study begin with visualizing the data with the ridership decline rate for the selected stations. We observe a significant ridership drop for all the stations. Next, standard deviation analysis is adopted to understand the fluctuation of the ridership for each of the stations. We find that the stations in commercial area (i.e., San Francisco CBD) usually have a higher standard deviation. On the contrary, the stations located in the airports show a relatively small standard deviation. According the standard deviation, we further cluster the stations into 4 groups (commerce, School, Mix, Transportation).</p>
 <p>The analysis of ridership of stations with different land use reveals that, compared to the pre-COVID period, the ridership at the majority of stations, regardless of land use, has only recovered to less than 40%. However, there is a notable exception for stations located at airports, where a higher percentage (around 60%) of the ridership has returned. This study highlights the significant changes in people’s travel patterns due to various factors such as work-from-home policies or online lectures. However, it also underscores the ongoing demand for public transit connections, particularly at international airports, emphasizing the importance of efficient transportation links in serving travelers’ needs.</p>
 <p>Lastly, a machine learning model (ARIMA) is used to predict the ridership. The analysis shows that the model can accurately predict the ridership before the pandemic hit. However, the model fails to predict the behavior during and after the pandemic, since the model never see the data with a severe pandemic hit to the society. The error between the prediction and actual ridership is large after the pandemic, showing that the pandemic has significantly influence people’s daily life.</p>
+</section>
+<section id="contribution-statement">
+<h2>Contribution Statement<a class="headerlink" href="#contribution-statement" title="Permalink to this heading">#</a></h2>
+<p><strong>Jiachen Li:</strong></p>
+<p><strong>Noor Wahle:</strong> Created the notebook <code class="docutils literal notranslate"><span class="pre">Mapping_Analysis.ipynb</span></code>. Integrated mapping results into <code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code> and proofread narrative. Contributed to <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, and created <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+<p><strong>Shih-hung Chiu:</strong></p>
+<p><strong>Jingya Zhao:</strong></p>
 </section>
 </section>
 
@@ -861,6 +846,7 @@ We have a total of 48 stations
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-statement">Contribution Statement</a></li>
 </ul>
   </nav></div>
 
