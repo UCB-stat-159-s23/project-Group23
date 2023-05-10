@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Analysis_of_Ridership_of_Stations_with_Different_Land_Use';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Import Data" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html" />
+    <link rel="next" title="Modeling Post-Covid Ridership" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html" />
     <link rel="prev" title="Data Analyzing: Standard Deviation of Traffic" href="Ridership_Standard_Deviation_Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -162,8 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="Ridership_Standard_Deviation_Analysis.html">Ridership Standard Deviation Analysis</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Ridership and Station Land Use Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html">Import Data</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html">Time Series Modeling of Post-Covid Ridership</a></li>
 </ul>
 
     </div>
@@ -386,21 +385,9 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openpyxl
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">project_tools.utils</span> <span class="kn">import</span> <span class="n">annual_arrival_trips</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openpyxl
-  Using cached openpyxl-3.1.2-py2.py3-none-any.whl (249 kB)
-Collecting et-xmlfile
-  Using cached et_xmlfile-1.1.0-py3-none-any.whl (4.7 kB)
-Installing collected packages: et-xmlfile, openpyxl
-Successfully installed et-xmlfile-1.1.0 openpyxl-3.1.2
 </pre></div>
 </div>
 </div>
@@ -1085,16 +1072,16 @@ Successfully installed et-xmlfile-1.1.0 openpyxl-3.1.2
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "bartproject2"
         },
         kernelOptions: {
-            name: "python3",
+            name: "bartproject2",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'bartproject2'</script>
 
                 </article>
               
@@ -1121,7 +1108,7 @@ Successfully installed et-xmlfile-1.1.0 openpyxl-3.1.2
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Import Data</p>
+        <p class="prev-next-title">Modeling Post-Covid Ridership</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

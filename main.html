@@ -162,8 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="Ridership_Standard_Deviation_Analysis.html">Ridership Standard Deviation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Analysis_of_Ridership_of_Stations_with_Different_Land_Use.html">Ridership and Station Land Use Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html">Import Data</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.html">Time Series Modeling of Post-Covid Ridership</a></li>
 </ul>
 
     </div>
@@ -398,15 +397,8 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -702,7 +694,7 @@ We have a total of 48 stations
 <p>After taking the first order difference, the data is non-stationary with a strong seasonality at the indies of multiples of 12. To minimize the effect of seasonality, another lag difference of 12 is taken. The resulting data gives a much better result in terms of stationarity. Moreover, the p-value of the adfuller test is below 0.05, allowing us to reject the null and conclude that the differenced data is stationary. The data set is then split into training and testing, and a parameter search is performed on the training set to determine the best arima model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Modeling.png&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2010_2019_Modeling.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -716,7 +708,7 @@ We have a total of 48 stations
 <p>The extent of influence is calculated by computing the absolute difference between the ridership predicted by the pre-pandemic model and the actual ridership observed in 2021-2022. Since the output value of the pre-pandemic model is logged, the result must be exponentialized for comparison to be feasible.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Comparison.png&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Comparison.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -727,7 +719,7 @@ We have a total of 48 stations
 <p>The difference between the predicted and observed ridership is gradually decreasing, with only a 500-rider average gap expected at the end of 2022. Although the two ridership values will eventually intersect with each other, the current difference implies that Covid-19 has had a significant impact on people’s choice of transportation modes. However, it is important to note that the model’s training data shows a declining trend after 2015, which means the model could result in negative ridership in the future. The underlying factor that caused the drop remains unknown, but presumably it affected the model’s accuracy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Difference.png&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/Berkeley_Embarcadero_2021_2022_Prediction_Observation_Difference.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -747,7 +739,7 @@ We have a total of 48 stations
 <h2>Contribution Statement<a class="headerlink" href="#contribution-statement" title="Permalink to this heading">#</a></h2>
 <p><strong>Jiachen Li:</strong> Created the notebook <code class="docutils literal notranslate"><span class="pre">Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.ipynb</span></code>. Added relevant data import functions to <code class="docutils literal notranslate"><span class="pre">project_tools/utils.py</span></code>, as well as function tests to <code class="docutils literal notranslate"><span class="pre">project_tools/test/test_utils.py</span></code>. Set up the JupyterBook, <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>, Makefile, and project_tools package. Contributed to <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and proofread the main notebook.</p>
 <p><strong>Noor Wahle:</strong> Created the notebook <code class="docutils literal notranslate"><span class="pre">Mapping_Analysis.ipynb</span></code>. Added relevant mapping functions to <code class="docutils literal notranslate"><span class="pre">project_tools/utils.py</span></code>, as well as function tests to <code class="docutils literal notranslate"><span class="pre">project_tools/test/test_utils.py</span></code>. Integrated mapping results into <code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code> and proofread narrative. Contributed to <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, and created <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
-<p><strong>Shih-hung Chiu:</strong></p>
+<p><strong>Shih-hung Chiu:</strong> Created the notebook <code class="docutils literal notranslate"><span class="pre">Analysis_of_Ridership_of_Stations_with_Different_Land_Use.ipynb</span></code>. Added relevant data import functions to <code class="docutils literal notranslate"><span class="pre">project_tools/utils.py</span></code>, as well as function tests to <code class="docutils literal notranslate"><span class="pre">project_tools/test/test_utils.py</span></code>. Set up the GitHub Action and compile separate analysis into one narrative in the main notebook. Contributed to <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and proofread the main notebook.</p>
 <p><strong>Jingya Zhao:</strong> Created the notebook <code class="docutils literal notranslate"><span class="pre">Ridership_Standard_Deviation_Analysis.ipynb</span></code>. Added relevant data processing functions to <code class="docutils literal notranslate"><span class="pre">project_tools/utils.py</span></code>, as well as function tests to <code class="docutils literal notranslate"><span class="pre">project_tools/test/test_utils.py</span></code>. Integrated analysis of Standard Deviation, both station-wise and in general into <code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code>. Further investigate the causes of higher standard deviation across time in <code class="docutils literal notranslate"><span class="pre">Ridership_Standard_Deviation_Analysis.ipynb</span></code>.</p>
 </section>
 </section>
