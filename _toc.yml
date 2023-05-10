@@ -5,7 +5,12 @@ format: jb-book
 root: intro
 chapters:
 - file: main
+  title: Main Analyses
 - file: Mapping_Ridership
+  title: Mapping Ridership
 - file: Ridership_Standard_Deviation_Analysis
+  title: Ridership Standard Deviation Analysis
 - file: Analysis_of_Ridership_of_Stations_with_Different_Land_Use
+  title: Ridership and Station Land Use Analysis 
 - file: Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data
+  title: Time Series Modeling of Post-Covid Ridership
