@@ -3,7 +3,7 @@
 
 This is a Reproducible Research Package utilizing [BART Ridership data](https://www.bart.gov/about/reports/ridership) that investigates the effects of COVID-19 on commute trips in Downtown San Francisco and Berkeley. This repository contains an installable package, `project_tools`, which contains relevant functions stored in `utils.py` and test cases in `/test`. Our analysis is comprised of four notebooks: `Mapping_Ridership.ipynb`, `Analysis_of_Ridership_of_Stations_with_Different_Land_Use.ipynb`, `Ridership_Standard_Deviation_Analysis.ipynb`, and `Modeling_Post_Covid_Ridership_Using_Pre_Covid_Data.ipynb`. The main analyses are compiled into a primary notebook `main.ipynb`. 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group23.git/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group23.git/HEAD?labpath=main.ipynb)
 
 Link to the JupyterBook: https://ucb-stat-159-s23.github.io/project-Group23/
 
